@@ -7,6 +7,7 @@ import { MainHomeComponent } from './home-main/home-main.component';
 import { ThongTinCaNhanComponent } from './home-thong-tin-ca-nhan/thong-tin-ca-nhan.component';
 import { DemoDropdownsComponent } from './demo-dropdowns/demo-dropdowns.component';
 import { DanhSachKhoaHocComponent } from './home-danh-sach-khoa-hoc/danh-sach-khoa-hoc.component';
+import { NapTienComponent } from './home-nap-tien/nap-tien.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent,
@@ -23,6 +24,8 @@ children: [
         path: 'chi-tiet-khoa-hoc', component: KhoaHocChiTietComponent
     }, {
         path: 'danh-sach-khoa-hoc', component: DanhSachKhoaHocComponent
+    }, {
+        path: 'nap-tien', component: NapTienComponent
     }, {
         path: 'dome-dropdowns', component: DemoDropdownsComponent
     }
