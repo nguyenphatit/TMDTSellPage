@@ -1,0 +1,84 @@
+.sign {
+	
+	textarea:focus,
+	input[type="text"]:focus,
+	input[type="password"]:focus,
+	input[type="datetime"]:focus,
+	input[type="datetime-local"]:focus,
+	input[type="date"]:focus,
+	input[type="month"]:focus,
+	input[type="time"]:focus,
+	input[type="week"]:focus,
+	input[type="number"]:focus,
+	input[type="email"]:focus,
+	input[type="url"]:focus,
+	input[type="search"]:focus,
+	input[type="tel"]:focus,
+	input[type="color"]:focus,
+	.uneditable-input:focus {   
+		border-color: none;
+		box-shadow: none;
+		outline: 0 none;
+	}
+
+	video {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		min-width: 100%;
+		min-height: 100%;
+		width: auto;
+		height: auto;
+		z-index: -100;
+		transform: translateX(-50%) translateY(-50%);
+		background: url('//demosthenes.info/assets/images/polina.jpg') no-repeat;
+		background-size: cover;
+		transition: 1s opacity;
+	}
+
+	.card-form {
+		opacity: .95;
+		padding: 20px 0 0 0;
+		border-radius: 0;
+		margin: 10% 0 10% 0;
+
+		@include basic-font($font2, #000000);
+		h2 {
+			@include basic-font($font1, $color5);
+			font-size: 2.5em;
+		}
+		.card-body {
+			
+			button {
+				background: $color5;
+				color: #FFFFFF;
+				border: 1px solid $color4;
+				cursor: pointer;
+				@include basic-delay(1s);
+
+				& span {
+					position: relative;
+					@include basic-delay(1s);
+					&:after {
+						content: '\00bb';
+						position: absolute;
+						opacity: 0;
+						top: -3px;
+						right: 0px;
+						transition: 1s;
+					}
+				}
+
+				&:hover span {
+					padding-right: 15px;
+				}
+
+				&:hover span:after {
+					opacity: 1;
+					right: 0;
+					top: -3px;
+				}
+			}
+		}
+	}   
+}

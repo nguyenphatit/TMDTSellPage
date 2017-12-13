@@ -1,0 +1,249 @@
+<!-- account -->
+<div class="account">
+    <section class="sec-1">
+        <div class="info-basic">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                        <img src="assets/home/images/oracle.jpg" alt="Ảnh đại diện" class="img-thumbnail rounded-circle avatar-img">
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-9 col-xl-9 content-text">
+                        <div class="row">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                                <h1>Trần Văn Thắng</h1>
+                                <h5>Sinh ngày 1 tháng 6 năm 1996</h5>
+                                <h5>Địa chỉ: Trường đại học Nông Lâm TP.HCM</h5>
+                                <h5>Số lượng khóa học: 5</h5>
+                            </div>
+                            <div  class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 text-right">
+                                <button (click)="isShowProfile=!isShowProfile" type="button" class="btn ibtn-circle-white" data-toggle="collapse" href="#settingacc" aria-expanded="false" aria-controls="settingacc"><i class="fa fa-cog"></i> Chỉnh sửa thông tin</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+          
+    <section *ngIf="isShowProfile" class="sec-2" id="settingacc">
+        <div class="container">
+            <div class="setting-account">
+                <h2>Chỉnh sửa thông tin cá nhân</h2>
+                <form>
+                    <div class="row form-group change-avt">
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                            <img src="assets/home/images/oracle.jpg" alt="Ảnh đại diện" class="img-thumbnail avatar-img">
+                        </div>
+
+                        <!-- file input đang bị lỗi -->
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-9 col-xl-9 content-text">
+                            <label class="custom-file">
+                                <input type="file" id="file2" class="custom-file-input">
+                                <span class="custom-file-control"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Họ và tên</label>
+                        <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Họ và tên">
+                        <small id="name" class="form-text text-muted">Bạn phải nhập họ và tên.</small>
+                    </div>
+                    <div class="custom-controls-stacked d-block my-3">
+                        <label class="custom-control custom-radio">
+                            <input id="male" name="radio-stacked" type="radio" class="custom-control-input" required>
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Nam</span>
+                        </label>
+                        <label class="custom-control custom-radio">
+                            <input id="female" name="radio-stacked" type="radio" class="custom-control-input" required>
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Nữ</span>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label for="birthday">Sinh nhật</label>
+                        <input type="date" class="form-control" id="birthday" placeholder="Sinh nhật">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Số điện thoại</label>
+                        <input type="text" class="form-control" id="phone" placeholder="Số điện thoại">
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Địa chỉ</label>
+                        <textarea class="form-control" id="address" rows="3"></textarea>
+                    </div>
+                    <div class="text-right">
+                        <button type="submit" class="btn ibtn"><i class="fa fa-check"></i> Cập nhật thông tin</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <section class="sec-3">
+        <div class="container">
+            <h2>Khóa học nổi bật</h2>
+            <div class="row">
+                <!-- item -->
+                <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                    <div class="card bg-default">
+                        <h1 class="ribbon">
+                            <strong class="ribbon-content">Nổi bật</strong>
+                        </h1>
+                        <div class="card-body">
+                            <img src="assets/home/images/oracle.jpg" class="card-img-top" alt="">
+                        </div>
+                        <div class="card-footer">
+                            <h4 class="card-title">Khóa học ABC</h4>
+                            <p class="card-text text-right"><button type="button" class="btn ibtn">Xem chi tiết</button></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- item -->
+                <!-- item -->
+                <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                    <div class="card bg-default">
+                        <h1 class="ribbon">
+                            <strong class="ribbon-content">Nổi bật</strong>
+                        </h1>
+                        <div class="card-body">
+                            <img src="assets/home/images/oracle.jpg" class="card-img-top" alt="">
+                        </div>
+                        <div class="card-footer">
+                            <h4 class="card-title">Khóa học ABC</h4>
+                            <p class="card-text text-right"><button type="button" class="btn ibtn">Xem chi tiết</button></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- item -->
+                <!-- item -->
+                <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                    <div class="card bg-default">
+                        <h1 class="ribbon">
+                            <strong class="ribbon-content">Nổi bật</strong>
+                        </h1>
+                        <div class="card-body">
+                            <img src="assets/home/images/oracle.jpg" class="card-img-top" alt="">
+                        </div>
+                        <div class="card-footer">
+                            <h4 class="card-title">Khóa học ABC</h4>
+                            <p class="card-text text-right"><button type="button" class="btn ibtn">Xem chi tiết</button></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- item -->
+            </div>
+        </div>
+    </section>
+    <section class="sec-4">
+        <div class="container">
+            <h2>Tất cả khóa học</h2>
+            <div class="row">
+                <!-- item -->
+                <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                    <div class="card bg-default">
+                        <div class="card-body">
+                            <img src="assets/home/images/oracle.jpg" class="card-img-top" alt="">
+                        </div>
+                        <div class="card-footer">
+                            <h4 class="card-title">Khóa học ABC</h4>
+                            <p class="card-text text-right"><button type="button" class="btn ibtn">Xem chi tiết</button></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- item -->
+                <!-- item -->
+                <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                    <div class="card bg-default">
+                        <div class="card-body">
+                            <img src="assets/home/images/oracle.jpg" class="card-img-top" alt="">
+                        </div>
+                        <div class="card-footer">
+                            <h4 class="card-title">Khóa học ABC</h4>
+                            <p class="card-text text-right"><button type="button" class="btn ibtn">Xem chi tiết</button></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- item -->
+                <!-- item -->
+                <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                    <div class="card bg-default">
+                        <div class="card-body">
+                            <img src="assets/home/images/oracle.jpg" class="card-img-top" alt="">
+                        </div>
+                        <div class="card-footer">
+                            <h4 class="card-title">Khóa học ABC</h4>
+                            <p class="card-text text-right"><button type="button" class="btn ibtn">Xem chi tiết</button></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- item -->
+                <!-- item -->
+                <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                    <div class="card bg-default">
+                        <div class="card-body">
+                            <img src="assets/home/images/oracle.jpg" class="card-img-top" alt="">
+                        </div>
+                        <div class="card-footer">
+                            <h4 class="card-title">Khóa học ABC</h4>
+                            <p class="card-text text-right"><button type="button" class="btn ibtn">Xem chi tiết</button></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- item -->
+                <!-- item -->
+                <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                    <div class="card bg-default">
+                        <div class="card-body">
+                            <img src="assets/home/images/oracle.jpg" class="card-img-top" alt="">
+                        </div>
+                        <div class="card-footer">
+                            <h4 class="card-title">Khóa học ABC</h4>
+                            <p class="card-text text-right"><button type="button" class="btn ibtn">Xem chi tiết</button></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- item -->
+                <!-- item -->
+                <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                    <div class="card bg-default">
+                        <div class="card-body">
+                            <img src="assets/home/images/oracle.jpg" class="card-img-top" alt="">
+                        </div>
+                        <div class="card-footer">
+                            <h4 class="card-title">Khóa học ABC</h4>
+                            <p class="card-text text-right"><button type="button" class="btn ibtn">Xem chi tiết</button></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- item -->
+                <!-- item -->
+                <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                    <div class="card bg-default">
+                        <div class="card-body">
+                            <img src="assets/home/images/oracle.jpg" class="card-img-top" alt="">
+                        </div>
+                        <div class="card-footer">
+                            <h4 class="card-title">Khóa học ABC</h4>
+                            <p class="card-text text-right"><button type="button" class="btn ibtn">Xem chi tiết</button></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- item -->
+                <!-- item -->
+                <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                    <div class="card bg-default">
+                        <div class="card-body">
+                            <img src="assets/home/images/oracle.jpg" class="card-img-top" alt="">
+                        </div>
+                        <div class="card-footer">
+                            <h4 class="card-title">Khóa học ABC</h4>
+                            <p class="card-text text-right"><button type="button" class="btn ibtn">Xem chi tiết</button></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- item -->
+            </div>
+        </div>
+    </section>
+</div>
+<!-- /account -->
