@@ -8,7 +8,7 @@
 		}
 		.btndd {
 			select {
-				border-top: 5px solid $color4;
+				border-top: 1px solid $color4;
 				border-radius: 0;
 				outline: none;
 				&:focus {
@@ -19,6 +19,7 @@
 	}
 
 	section.section-2 {
+		@import "showtext";
 		background: #ffffff;
 		padding: 0 0 50px 0;
 		.card {
