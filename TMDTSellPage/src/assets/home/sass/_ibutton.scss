@@ -1,6 +1,6 @@
 .ibtn {
 	border: 1px solid $color5;
-	background: #ffffff;
+	background: transparent;
 	color: $color5;
 	cursor: pointer;
 	@include basic-delay(1s);

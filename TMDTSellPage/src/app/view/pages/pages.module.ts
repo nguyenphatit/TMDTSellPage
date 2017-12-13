@@ -4,6 +4,7 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { DangKyComponent } from './dang-ky/dang-ky.component';
 import { DangNhapComponent } from './dang-nhap/dang-nhap.component';
 import { QuenMatKhauComponent } from './quen-mat-khau/quen-mat-khau.component';
+import { DoiMatKhauComponent } from './doi-mat-khau/doi-mat-khau.component';
 
 @NgModule({
     imports: [PagesRoutingModule],
@@ -11,7 +12,8 @@ import { QuenMatKhauComponent } from './quen-mat-khau/quen-mat-khau.component';
     declarations: [
         DangKyComponent,
         DangNhapComponent,
-        QuenMatKhauComponent
+        QuenMatKhauComponent,
+        DoiMatKhauComponent
     ],
     providers: [],
 })
