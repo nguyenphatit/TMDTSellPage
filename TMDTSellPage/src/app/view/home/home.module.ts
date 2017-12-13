@@ -11,6 +11,7 @@ import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DanhSachKhoaHocComponent } from './home-danh-sach-khoa-hoc/danh-sach-khoa-hoc.component';
+import { NapTienComponent } from './home-nap-tien/nap-tien.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { DanhSachKhoaHocComponent } from './home-danh-sach-khoa-hoc/danh-sach-kh
         MainHomeComponent,
         ThongTinCaNhanComponent,
         DanhSachKhoaHocComponent,
+        NapTienComponent,
         DemoDropdownsComponent
     ],
     providers: [],
