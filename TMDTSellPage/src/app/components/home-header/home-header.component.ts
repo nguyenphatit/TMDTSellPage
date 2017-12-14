@@ -10,7 +10,7 @@ export class HomeHeaderComponent implements OnInit {
     isShow = false;
 
     effectNavbar = false;
-    public megamenu = true; // hien thi menu khi thu nhỏ 
+    public megamenu = true; // hien thi menu khi thu nhỏ
     @HostListener('window:resize', ['$event'])
     onResize(event) {
      // console.log(event.target.innerWidth);
@@ -39,3 +39,4 @@ export class HomeHeaderComponent implements OnInit {
             this.megamenu = true;
         }
     }
+}
