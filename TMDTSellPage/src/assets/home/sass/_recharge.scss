@@ -15,5 +15,24 @@
 			text-transform: uppercase;
 			color: red;
 		}
+
+		.brand-card {
+			padding: 5px 0 5px 0;
+
+			.img-thumbnail {
+				border: none;
+			}
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.brand-card {
+		border: 1px solid $color4;
+		border-bottom: none;
+		padding: 5px 0 5px 0;
+		&:last-child {
+			border-bottom: 1px solid $color4;
+		}
 	}
 }

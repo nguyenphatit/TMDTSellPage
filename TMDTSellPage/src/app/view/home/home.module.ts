@@ -12,6 +12,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DanhSachKhoaHocComponent } from './home-danh-sach-khoa-hoc/danh-sach-khoa-hoc.component';
 import { NapTienComponent } from './home-nap-tien/nap-tien.component';
+import { GioiThieuComponent } from './home-gioi-thieu/gioi-thieu.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { NapTienComponent } from './home-nap-tien/nap-tien.component';
         ThongTinCaNhanComponent,
         DanhSachKhoaHocComponent,
         NapTienComponent,
+        GioiThieuComponent,
         DemoDropdownsComponent
     ],
     providers: [],

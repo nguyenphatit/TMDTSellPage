@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
     templateUrl: 'thong-tin-ca-nhan.component.html'
@@ -6,8 +7,9 @@ import { Component, OnInit } from '@angular/core';
 
 export class ThongTinCaNhanComponent implements OnInit {
     public isShowProfile = false;
-    constructor() {
-     }
+    constructor(private title: Title) {
+        this.title.setTitle('3TPL | Thông tin cá nhân');
+    }
      log(event: boolean) {
         console.log(`Accordion has been ${event ? 'opened' : 'closed'}`);
       }
