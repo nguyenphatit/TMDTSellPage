@@ -9,6 +9,7 @@ import { DemoDropdownsComponent } from './demo-dropdowns/demo-dropdowns.componen
 import { DanhSachKhoaHocComponent } from './home-danh-sach-khoa-hoc/danh-sach-khoa-hoc.component';
 import { NapTienComponent } from './home-nap-tien/nap-tien.component';
 import { GioiThieuComponent } from './home-gioi-thieu/gioi-thieu.component';
+import { DieuKhoanSuDungComponent } from './hone-dieu-khoan-su-dung/dieu-khoan-su-dung.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent,
@@ -29,6 +30,8 @@ children: [
         path: 'nap-tien', component: NapTienComponent
     }, {
         path: 'gioi-thieu', component: GioiThieuComponent
+    }, {
+        path: 'dieu-khoan-su-dung', component: DieuKhoanSuDungComponent
     }, {
         path: 'dome-dropdowns', component: DemoDropdownsComponent
     }
