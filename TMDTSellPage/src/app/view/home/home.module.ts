@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DanhSachKhoaHocComponent } from './home-danh-sach-khoa-hoc/danh-sach-khoa-hoc.component';
 import { NapTienComponent } from './home-nap-tien/nap-tien.component';
 import { GioiThieuComponent } from './home-gioi-thieu/gioi-thieu.component';
+import { DieuKhoanSuDungComponent } from './hone-dieu-khoan-su-dung/dieu-khoan-su-dung.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { GioiThieuComponent } from './home-gioi-thieu/gioi-thieu.component';
         DanhSachKhoaHocComponent,
         NapTienComponent,
         GioiThieuComponent,
+        DieuKhoanSuDungComponent,
         DemoDropdownsComponent
     ],
     providers: [],
