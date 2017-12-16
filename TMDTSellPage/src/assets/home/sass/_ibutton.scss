@@ -12,6 +12,20 @@
 	}
 }
 
+.redibtn {
+	border: 1px solid $color5;
+	background: $color5;
+	color: #ffffff;
+	cursor: pointer;
+	@include basic-delay(1s);
+
+	&:hover {
+		background: #d83c02;
+		color: #ffffff;
+		@include basic-delay(1s);
+	}
+}
+
 .ibtn-circle-white {
 	border: 1px solid #ffffff;
 	background: transparent;

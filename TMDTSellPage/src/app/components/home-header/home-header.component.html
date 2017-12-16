@@ -1,17 +1,6 @@
 <!-- navbar -->
 
-<div *ngIf="isShow" id="myModal" class="token-modal" >
-    <div class="token-modal-content"> 
-            
-    
-    <div class="alert alert-warning" style="margin-top: 100px">
-        <strong>Token time out </strong> Token của bạn hết hạng 
-    </div>
-        <button (click)="isShow=!isShow">dong</button>
-    </div>
-  </div>
-
-<nav  [style.padding]="effectNavbar ? '0' : '.5rem 1rem'" class="navbar navbar-expand-lg navbar-light fixed-top">
+<nav [style.padding]="effectNavbar ? '0' : '.5rem 1rem'" class="navbar navbar-expand-lg navbar-light fixed-top">
     <div class="container">
         <a class="navbar-brand" href="#">
             <!-- <b>3</b><span>TPL</span> -->
@@ -20,34 +9,48 @@
         <form class="form-inline input-search1">
             <input type="text" name="search" placeholder="Tìm kiếm ...">
         </form>
-        <button (click)="megamenu =!megamenu " class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarcontent" aria-controls="navbarcontent" aria-expanded="false" aria-label="Toggle navigation">
+        <button (click)="megamenu =!megamenu " class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarcontent"
+            aria-controls="navbarcontent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div  *ngIf="megamenu" class=" navbar-collapse" id="navbarcontent">
+        <div *ngIf="megamenu" class=" navbar-collapse" id="navbarcontent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#"><i class="fa fa-home"></i> TRANG CHỦ <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-home"></i> TRANG CHỦ
+                        <span class="sr-only">(current)</span>
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fa fa-ils"></i> GIỚI THIỆU</a>
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-ils"></i> GIỚI THIỆU</a>
                 </li>
                 <li dropdown class="nav-item dropdown">
-                    <a dropdownToggle  class="nav-link dropdown-toggle" id="navbardropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a dropdownToggle class="nav-link dropdown-toggle" id="navbardropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
                         <i class="fa fa-list-ul"></i> KHÓA HỌC
                     </a>
-                    <div  *dropdownMenu role="menu" class="dropdown-menu" aria-labelledby="navbardropdown">
-                        <a class="dropdown-item" href="#"><i class="fa fa-android"></i> LẬP TRÌNH DI ĐỘNG</a>
-                        <a class="dropdown-item" href="#"><i class="fa fa-gamepad"></i> LẬP TRÌNH GAME</a>
-                        <a class="dropdown-item" href="#"><i class="fa fa-wifi"></i> LẬP TRÌNH MẠNG</a>
-                        <a class="dropdown-item" href="#"><i class="fa fa-certificate"></i> LẬP TRÌNH NỀN TẢNG</a>
-                        <a class="dropdown-item" href="#"><i class="fa fa-tachometer"></i> LẬP TRÌNH PHẦN MỀM</a>
-                        <a class="dropdown-item" href="#"><i class="fa fa-html5"></i> LẬP TRÌNH WEB</a>
-                        <a class="dropdown-item" href="#"><i class="fa fa-database"></i> CƠ SỞ DỮ LIỆU</a>
+                    <div *dropdownMenu role="menu" class="dropdown-menu" aria-labelledby="navbardropdown">
+                        <a class="dropdown-item" href="#">
+                            <i class="fa fa-android"></i> LẬP TRÌNH DI ĐỘNG</a>
+                        <a class="dropdown-item" href="#">
+                            <i class="fa fa-gamepad"></i> LẬP TRÌNH GAME</a>
+                        <a class="dropdown-item" href="#">
+                            <i class="fa fa-wifi"></i> LẬP TRÌNH MẠNG</a>
+                        <a class="dropdown-item" href="#">
+                            <i class="fa fa-certificate"></i> LẬP TRÌNH NỀN TẢNG</a>
+                        <a class="dropdown-item" href="#">
+                            <i class="fa fa-tachometer"></i> LẬP TRÌNH PHẦN MỀM</a>
+                        <a class="dropdown-item" href="#">
+                            <i class="fa fa-html5"></i> LẬP TRÌNH WEB</a>
+                        <a class="dropdown-item" href="#">
+                            <i class="fa fa-database"></i> CƠ SỞ DỮ LIỆU</a>
                     </div>
                 </li>
                 <li dropdown class="nav-item dropdown">
-                    <a dropdownToggle class="nav-link dropdown-toggle" id="navbardropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a dropdownToggle class="nav-link dropdown-toggle" id="navbardropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
                         <i class="fa fa-shopping-cart"></i> GIỎ (2)
                     </a>
                     <div *dropdownMenu role="menu" class="dropdown-menu shopping-cart" aria-labelledby="navbardropdown">
@@ -67,25 +70,42 @@
                                 <tr>
                                     <td class="cart-count">1</td>
                                     <td>ABC</td>
-                                    <td class="cart-img"><img src="assets/home/images/oracle.jpg" alt="hình ảnh"></td>
+                                    <td class="cart-img">
+                                        <img src="assets/home/images/oracle.jpg" alt="hình ảnh">
+                                    </td>
                                     <td class="cart-price">123.000 đ</td>
-                                    <td><input type="number" name="quantity" min="1" max="5"></td>
+                                    <td>
+                                        <input type="number" name="quantity" min="1" max="5">
+                                    </td>
                                     <td class="cart-money">123.000 đ</td>
-                                    <td><a href="" class="remove-item"><i class="fa fa-trash"></i></a></td>
+                                    <td>
+                                        <a href="" class="remove-item">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td class="cart-count">2</td>
                                     <td>ABC</td>
-                                    <td class="cart-img"><img src="assets/home/images/oracle.jpg" alt="hình ảnh"></td>
+                                    <td class="cart-img">
+                                        <img src="assets/home/images/oracle.jpg" alt="hình ảnh">
+                                    </td>
                                     <td class="cart-price">123.000 đ</td>
-                                    <td><input type="number" name="quantity" min="1" max="5"></td>
+                                    <td>
+                                        <input type="number" name="quantity" min="1" max="5">
+                                    </td>
                                     <td class="cart-money">123.000 đ</td>
-                                    <td><a href="" class="remove-item"><i class="fa fa-trash"></i></a></td>
+                                    <td>
+                                        <a href="" class="remove-item">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
                         <div class="container">
-                            Thanh toán: <b>123.000đ</b>
+                            Thanh toán:
+                            <b>123.000đ</b>
                         </div>
                         <div class="container text-right">
                             <button class="btn ibtn">Thanh toán</button>
@@ -93,10 +113,12 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" (click)="isShow=!isShow" ><i class="fa fa-user"></i> ĐĂNG NHẬP</a>
+                    <a class="nav-link" routerLink="">
+                        <i class="fa fa-user"></i> ĐĂNG NHẬP</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fa fa-user-plus"></i> ĐĂNG KÝ</a>
+                    <a class="nav-link" routerLink="">
+                        <i class="fa fa-user-plus"></i> ĐĂNG KÝ</a>
                 </li>
                 <!-- <li class="nav-item">
                     <a class="nav-link" href="#">

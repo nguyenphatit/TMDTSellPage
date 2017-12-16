@@ -1,7 +1,6 @@
 
 /* The Modal (background) */
 .token-modal {
-    
         position: fixed; /* Stay in place */
         z-index: 1051; /* Sit on top */
         padding-top: 100px; /* Location of the box */
@@ -12,7 +11,7 @@
         overflow: auto; /* Enable scroll if needed */
         background-color: rgb(0,0,0); /* Fallback color */
         background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
-        margin-top: 100px;
+        margin-top: 65px;
     }
     
     /* Modal Content (image) */

@@ -1,33 +1,40 @@
 <div class="sign">
-    <video poster="assets/home/images/background.jpeg" id="bgvid" playsinline autoplay muted loop>
-        <source src="assets/home/video/background.mp4" type="video/mp4">
-        </video>
-
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8"></div>
-                <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
-                    <div class="card card-form">
-                        <h2 class="text-center"> Đổi mật khẩu</h2>
-                        <div class="card-body">
-                            <form>
-                                <div class="form-group">
-                                    <label for="username">Mật khẩu cũ</label>
-                                    <input type="email" class="form-control" id="username" aria-describedby="username" placeholder="">
-                                </div>
-                                <div class="form-group">
-                                    <label for="username">Mật khẩu mới</label>
-                                    <input type="email" class="form-control" id="username" aria-describedby="username" placeholder="">
-                                </div>
-                                <div class="form-group">
-                                    <label for="username">Nhập lại mật khẩu mới</label>
-                                    <input type="email" class="form-control" id="username" aria-describedby="username" placeholder="">
-                                </div>
-                                <div class="text-right"><button type="submit" class="btn btn-primary"><span>Tiếp tục</span></button></div>
-                            </form>
-                        </div>
-                    </div>
+    <div class="container clog">
+        <div class="row">
+            <div class="col-12 col-sm-3 col-md-3 col-lg-4 col-lg-4"></div>
+            <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-lg-4 content-log">
+                <div class="brand-logo text-right">
+                    <img src="../../../../assets/home/images/3TPL50x50.png" alt="Logo">
+                    <span class="brand-name">3TPL</span>
                 </div>
+                <form>
+                    <h3>Đổi mật khẩu</h3>
+                    <div class="form-group">
+                        <label for="oldpassword">Mật khẩu cũ</label>
+                        <input type="password" class="form-control" id="oldpassword" aria-describedby="passwordlHelp" placeholder="Mật khẩu hiện đang sử dụng">
+                    </div>
+                    <div class="form-group">
+                        <label for="newpassword">Mật khẩu cũ</label>
+                        <input type="password" class="form-control" id="newpassword" aria-describedby="passwordlHelp" placeholder="Mật khẩu sẽ sử dụng trong tương lai">
+                    </div>
+                    <div class="form-group">
+                        <label for="renewpassword">Mật khẩu cũ</label>
+                        <input type="password" class="form-control" id="renewpassword" aria-describedby="passwordlHelp" placeholder="Mật khẩu sẽ sử dụng trong tương lai">
+                    </div>
+                    <div class="button-log">
+                        <button class="btn redibtn btn-block">Đổi mật khẩu</button>
+                    </div>
+                </form>
             </div>
+            <div class="col-12 col-sm-3 col-md-3 col-lg-4 col-lg-4"></div>
         </div>
     </div>
+    <nav class="navbar fixed-bottom justify-content-end">
+        <div class="text-right">
+            <a class="nav-link">3TPL &copy; 2017</a>
+            <a class="nav-link" href="#">Giới thiệu</a>
+            <a class="nav-link" href="#">Điều khoản</a>
+            <a class="nav-link" href="#">Thông tin quảng cáo</a>
+        </div>
+    </nav>
+</div>
