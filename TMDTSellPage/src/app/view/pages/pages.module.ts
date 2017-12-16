@@ -5,6 +5,7 @@ import { DangKyComponent } from './dang-ky/dang-ky.component';
 import { DangNhapComponent } from './dang-nhap/dang-nhap.component';
 import { QuenMatKhauComponent } from './quen-mat-khau/quen-mat-khau.component';
 import { DoiMatKhauComponent } from './doi-mat-khau/doi-mat-khau.component';
+import { Error404Component } from './error-404/error-404.component';
 
 @NgModule({
     imports: [PagesRoutingModule],
@@ -13,7 +14,8 @@ import { DoiMatKhauComponent } from './doi-mat-khau/doi-mat-khau.component';
         DangKyComponent,
         DangNhapComponent,
         QuenMatKhauComponent,
-        DoiMatKhauComponent
+        DoiMatKhauComponent,
+        Error404Component
     ],
     providers: [],
 })
