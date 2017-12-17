@@ -7,7 +7,7 @@ import { Title } from '@angular/platform-browser';
 
 export class Error404Component implements OnInit {
     constructor(private title: Title) {
-        this.title.setTitle('3TOL | Không tìm thấy trang');
+        this.title.setTitle('3TPL | Không tìm thấy trang');
      }
 
     ngOnInit() { }
