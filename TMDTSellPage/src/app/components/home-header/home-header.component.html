@@ -18,18 +18,18 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="#">
-                        <i class="fa fa-home"></i> TRANG CHỦ
+                        <i class="fa fa-home"></i> Trang chủ
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="fa fa-ils"></i> GIỚI THIỆU</a>
+                    <a class="nav-link" [routerLink]="['/home/gioi-thieu']">
+                        <i class="fa fa-ils"></i> Giới thiệu</a>
                 </li>
                 <li dropdown class="nav-item dropdown">
                     <a dropdownToggle class="nav-link dropdown-toggle" id="navbardropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
-                        <i class="fa fa-list-ul"></i> KHÓA HỌC
+                        <i class="fa fa-list-ul"></i> Chủ đề
                     </a>
                     <div *dropdownMenu role="menu" class="dropdown-menu sub-menu" aria-labelledby="navbardropdown">
                         <div class="container">
@@ -73,7 +73,7 @@
                 <li dropdown class="nav-item dropdown">
                     <a dropdownToggle class="nav-link dropdown-toggle" id="navbardropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
-                        <i class="fa fa-shopping-cart"></i> GIỎ (2)
+                        <i class="fa fa-shopping-cart"></i> Giỏ hàng (2)
                     </a>
                     <div *dropdownMenu role="menu" class="dropdown-menu shopping-cart" aria-labelledby="navbardropdown">
                         <table class="table table-responsive-md">
@@ -136,11 +136,11 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" [routerLink]="['/pages/dang-nhap']">
-                        <i class="fa fa-user"></i> ĐĂNG NHẬP</a>
+                        <i class="fa fa-user"></i> Đăng nhập</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" [routerLink]="['/pages/dang-ky']">
-                        <i class="fa fa-user-plus"></i> ĐĂNG KÝ</a>
+                        <i class="fa fa-user-plus"></i> Đăng ký</a>
                 </li>
                 <!-- <li class="nav-item">
                     <a class="nav-link" href="#">
