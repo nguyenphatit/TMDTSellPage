@@ -36,6 +36,8 @@ children: [
         path: 'dome-dropdowns', component: DemoDropdownsComponent
     }
 ]
+  } ,  {
+      path: 'role'
   }];
 
 @NgModule({

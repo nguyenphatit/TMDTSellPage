@@ -1,5 +1,19 @@
+import { AuthenticationService } from './_services/AuthenticationService';
+import { UserService } from './_services/user.service';
+import { ConfigValue } from './_helpers/config-value';
+import {
+  HTTP_INTERCEPTORS, HttpClientModule, HttpClientXsrfModule, HttpInterceptor,
+  HttpXsrfTokenExtractor, HttpRequest, HttpHandler, HttpEvent
+} from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+
+// mocktest
+
+// end mocktest
+import { JwtInterceptor } from './_helpers/JwtInterceptor ';
+import { LoginTestComponent } from './login-test/login-test.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Injectable, Inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
@@ -10,11 +24,39 @@ import {
   HomeLayoutComponent
 } from './containers';
 
+@Injectable()
+export class HttpXsrfInterceptor implements HttpInterceptor {
+  readonly headerName = 'X-XSRF-TOKEN';
+  constructor(
+      private tokenService: HttpXsrfTokenExtractor) {}
 
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    const lcUrl = req.url.toLowerCase();
+    // Skip both non-mutating requests and absolute URLs.
+    // Non-mutating requests don't require a token, and absolute URLs require special handling
+    // anyway as the cookie set
+    // on our origin is not the same as the token expected by another origin.
+    // if (req.method === 'GET' || req.method === 'HEAD' || lcUrl.startsWith('http://') ||
+    //    lcUrl.startsWith('https://')) {
+    //  return next.handle(req);
+    // }
+    const token = this.tokenService.getToken();
+    console.log(token);
+    console.log('sss');
 
+    // Be careful not to overwrite an existing header of the same name.
+    if (token !== null && !req.headers.has(this.headerName)) {
+      req = req.clone({headers: req.headers.set(this.headerName, token)});
+    }
+    return next.handle(req);
+  }
+}
+
+// chứa các layout chính
 const APP_CONTAINERS = [
   SimpleLayoutComponent,
-  HomeLayoutComponent
+  HomeLayoutComponent,
+  LoginTestComponent // test
 ] ;
 
 import {
@@ -23,11 +65,15 @@ import {
 } from './components';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
+
+// là những thành phần được include
 const APP_COMPONENTS = [
   HomeHeaderComponent,
   HomeFooterComponent
 ];
-
+// import mocktest
+import { UserRest, AuthenticationRest} from './_helpers';
+// mocktest
 
 @NgModule({
   declarations: [
@@ -39,9 +85,24 @@ const APP_COMPONENTS = [
   AppRoutingModule ,
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     BsDropdownModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    AuthenticationService,
+    ConfigValue,
+    UserService,
+    {
+        provide: HTTP_INTERCEPTORS,
+        useClass: JwtInterceptor,
+        multi: true
+    },
+  //  { provide: HTTP_INTERCEPTORS, useClass: HttpXsrfInterceptor, multi: true },
+    // HttpClientXsrfModule
+    // provider used to create fake backend
+    AuthenticationRest,
+    UserRest
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -6,6 +6,7 @@ import {
     SimpleLayoutComponent,
     HomeLayoutComponent
   } from './containers';
+import { LoginTestComponent } from './login-test/login-test.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,10 @@ const routes: Routes = [
       path: 'pages',
       component: SimpleLayoutComponent,
       loadChildren: './view/pages/pages.module#PagesModule'
+  },
+  {
+    path: 'login',
+    component: LoginTestComponent
   }
 ];
 
