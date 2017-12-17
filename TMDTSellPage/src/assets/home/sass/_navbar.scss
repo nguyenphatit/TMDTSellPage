@@ -4,7 +4,7 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     @include basic-delay(1s);
     @include basic-font($font2, $color5);
-    
+    @import "sub-menu";
     .navbar-brand {
         @include basic-font($font1, $color4);
         b {
