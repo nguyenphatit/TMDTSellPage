@@ -39,3 +39,4 @@ export class HomeHeaderComponent implements OnInit {
             this.megamenu = true;
         }
     }
+}
