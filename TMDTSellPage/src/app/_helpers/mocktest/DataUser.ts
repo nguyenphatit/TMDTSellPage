@@ -1,5 +1,6 @@
 import { User } from './../../_models/User';
 import { UserCustomCreate } from '../../_models/index';
+import { filter } from 'rxjs/operator/filter';
 export class DataUser {
     public users: User[]  = [];
     constructor() {
@@ -76,5 +77,15 @@ export class DataUser {
               }
             };
             this.users.push(temp);
+    }
+    public checkToke(email): boolean {
+      const filteredUsers = this.users.filter((user: User) => {
+        return user.email === email;
+    });
+    if ( filteredUsers.length ) {
+      return true;
+    } else {
+      return false;
+    }
     }
 }

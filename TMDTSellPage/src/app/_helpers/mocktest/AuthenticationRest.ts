@@ -33,7 +33,7 @@ export class AuthenticationRestInterceptor implements HttpInterceptor {
                         const user = filteredUsers[0];
                         // trả về 1 đoạn token giả
                         const body = {
-                            access_token: 'fake-jwt-token',
+                            access_token: request.body.email ,
                             expires_in: 600
                         };
                         return Observable.of(new HttpResponse({ status: 200, body: body }));

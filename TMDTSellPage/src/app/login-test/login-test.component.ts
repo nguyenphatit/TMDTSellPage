@@ -37,7 +37,8 @@ export class LoginTestComponent implements OnInit {
       }
      login() {
        // this.loading = true;
-        this.authenticationService.login('lang.tt16@gmail.co', '12345678')
+
+        this.authenticationService.login('vanthang1996@gmail.com', 'Thang123')
             .subscribe(
                 data => {
                  //   this.router.navigate([this.returnUrl]);
