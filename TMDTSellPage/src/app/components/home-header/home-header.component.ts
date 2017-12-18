@@ -1,3 +1,5 @@
+import { AuthenticationService } from './../../_services/AuthenticationService';
+import { RouterStateSnapshot } from '@angular/router';
 import { Component, OnInit, HostListener } from '@angular/core';
 
 @Component({
@@ -7,7 +9,8 @@ import { Component, OnInit, HostListener } from '@angular/core';
 })
 
 export class HomeHeaderComponent implements OnInit {
-    isShow = false;
+  isLogin = true;
+  isShow = false;
 
     effectNavbar = false;
     public megamenu = true; // hien thi menu khi thu nhỏ
@@ -30,9 +33,11 @@ export class HomeHeaderComponent implements OnInit {
         }
       //  console.log(this.navIsFixed +  ' -'  + number)
       }
-    constructor() { }
+    constructor( public  authenticationService: AuthenticationService) { }
 
     ngOnInit() {
+   this.isLogin = this.authenticationService.checkLogin();
+   console.log(this.isLogin +'login');
         if ( window.innerWidth < 990 ) {
             this.megamenu = false;
         } else {
