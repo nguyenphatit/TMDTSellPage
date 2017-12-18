@@ -112,3 +112,29 @@
 		}
 	}
 }
+
+
+@media (max-width: 768px) {
+	.sign {
+		.clog {
+			margin-top: 0;
+			.content-log {
+				top: 0;
+			}
+		}
+	}
+}
+
+@media (max-width: 680px) {
+	.sign {
+		.clog {
+			margin-top: 0;
+			.content-log {
+				top: 0;
+			}
+		}
+		.nav-footer {
+			display: none;
+		}
+	}
+}
