@@ -37,6 +37,7 @@ export class LoginTestComponent implements OnInit {
       }
      login() {
        // this.loading = true;
+
         this.authenticationService.login('vanthang1996@gmail.com', 'Thang123')
             .subscribe(
                 data => {
