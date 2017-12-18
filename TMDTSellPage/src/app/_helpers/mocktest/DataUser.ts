@@ -1,5 +1,6 @@
 import { User } from './../../_models/User';
 import { UserCustomCreate } from '../../_models/index';
+import { filter } from 'rxjs/operator/filter';
 export class DataUser {
     public users: User[]  = [];
     constructor() {
@@ -17,7 +18,7 @@ export class DataUser {
 
        const user3 = new UserCustomCreate();
        user3.email = 'vanthang1996@gmail.com';
-       user3.password = 'Thanh123';
+       user3.password = 'Thang123';
        user3.userName = 'Trần văn thắng';
       this.createUser(user3);
 
@@ -76,5 +77,15 @@ export class DataUser {
               }
             };
             this.users.push(temp);
+    }
+    public checkToke(email): boolean {
+      const filteredUsers = this.users.filter((user: User) => {
+        return user.email === email;
+    });
+    if ( filteredUsers.length ) {
+      return true;
+    } else {
+      return false;
+    }
     }
 }
