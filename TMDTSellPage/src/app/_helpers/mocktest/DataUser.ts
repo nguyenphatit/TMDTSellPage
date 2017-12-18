@@ -17,7 +17,7 @@ export class DataUser {
        this.createUser(user2);
 
        const user3 = new UserCustomCreate();
-       user3.email = 'vanthang1996@gmail.com';
+       user3.email = 'vanthang20437@gmail.com';
        user3.password = 'Thang123';
        user3.userName = 'Trần văn thắng';
       this.createUser(user3);
