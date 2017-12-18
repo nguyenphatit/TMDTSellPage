@@ -1,4 +1,5 @@
 <div class="sign">
+    <div class="background"></div>
     <div class="container clog">
         <div class="row">
             <div class="col-12 col-sm-3 col-md-3 col-lg-4 col-lg-4"></div>
@@ -21,11 +22,12 @@
             <div class="col-12 col-sm-3 col-md-3 col-lg-4 col-lg-4"></div>
         </div>
     </div>
-    <nav class="navbar fixed-bottom justify-content-end">
+    <nav class="navbar fixed-bottom justify-content-end nav-footer">
         <div class="text-right">
             <a class="nav-link">3TPL &copy; 2017</a>
-            <a class="nav-link" href="#">Giới thiệu</a>
-            <a class="nav-link" href="#">Điều khoản</a>
+            <a class="nav-link" [routerLink]="['/home/main']">Trang chủ</a>
+            <a class="nav-link" [routerLink]="['/home/gioi-thieu']">Giới thiệu</a>
+            <a class="nav-link" [routerLink]="['/home/dieu-khoan-su-dung']">Điều khoản</a>
             <a class="nav-link" href="#">Thông tin quảng cáo</a>
         </div>
     </nav>
