@@ -14,7 +14,7 @@ import { JwtInterceptor } from './_helpers/JwtInterceptor ';
 import { LoginTestComponent } from './login-test/login-test.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Injectable, Inject } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -73,6 +73,7 @@ const APP_COMPONENTS = [
 ];
 // import mocktest
 import { UserRest, AuthenticationRest} from './_helpers';
+import { CommonModule } from '@angular/common';
 // mocktest
 
 @NgModule({
@@ -85,7 +86,9 @@ import { UserRest, AuthenticationRest} from './_helpers';
   AppRoutingModule ,
     BrowserModule,
     FormsModule,
+    CommonModule,
     HttpClientModule,
+    ReactiveFormsModule,
     BsDropdownModule.forRoot()
   ],
   providers: [

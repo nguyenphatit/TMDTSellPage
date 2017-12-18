@@ -6,9 +6,14 @@ import { DangNhapComponent } from './dang-nhap/dang-nhap.component';
 import { QuenMatKhauComponent } from './quen-mat-khau/quen-mat-khau.component';
 import { DoiMatKhauComponent } from './doi-mat-khau/doi-mat-khau.component';
 import { Error404Component } from './error-404/error-404.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
-    imports: [PagesRoutingModule],
+    imports: [PagesRoutingModule,
+        FormsModule,
+        CommonModule,
+        ReactiveFormsModule],
     exports: [],
     declarations: [
         DangKyComponent,
