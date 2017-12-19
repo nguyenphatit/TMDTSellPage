@@ -44,7 +44,6 @@ export class LoginTestComponent implements OnInit {
                  //   this.router.navigate([this.returnUrl]);
                  console.log(data);
                  this.info();
-                // this.createTopic();
                 },
                 (err: HttpErrorResponse) => {
                   //  this.alertService.error(error);
