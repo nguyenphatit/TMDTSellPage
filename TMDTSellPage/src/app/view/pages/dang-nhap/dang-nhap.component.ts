@@ -1,3 +1,4 @@
+
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthenticationService } from './../../../_services/AuthenticationService';
 import { Component, OnInit } from '@angular/core';
@@ -10,7 +11,6 @@ import { HttpErrorResponse } from '@angular/common/http';
     templateUrl: 'dang-nhap.component.html',
     styleUrls: ['dang-nhap.component.css']
 })
-
 export class DangNhapComponent implements OnInit {
     public sms: string; // hiển thị thông báo mã lỗi
     public isLogin = false; // ẩn hiện nút đăng nhập khi người dùng nhấn đăng nhập

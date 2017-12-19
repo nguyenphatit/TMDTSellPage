@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { Router } from "@angular/router";
+import { Component, OnInit } from "@angular/core";
+import { Title } from "@angular/platform-browser";
 
 @Component({
-    templateUrl: 'main-home.component.html'
+  templateUrl: "main-home.component.html"
 })
-
 export class MainHomeComponent implements OnInit {
+  constructor(private title: Title) {
+    this.title.setTitle("3TPL | Trang chủ");
+  }
 
-    constructor(private title: Title) {
-        this.title.setTitle('3TPL | Trang chủ');
-    }
+  ngOnInit() {
 
-    ngOnInit() { }
+  }
 }

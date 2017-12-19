@@ -17,7 +17,7 @@ export class DataUser {
        this.createUser(user2 , 'https://drive.google.com/uc?id=0B27mfRY62YKZRDNxWWZHdl9aUjA' );
 
        const user3 = new UserCustomCreate();
-       user3.email = 'vanthang1996@gmail.com';
+       user3.email = 'vanthang20437@gmail.com';
        user3.password = 'Thang123';
        user3.userName = 'Trần văn thắng';
       this.createUser(user3, 'https://www.w3schools.com/howto/img_avatar.png');
