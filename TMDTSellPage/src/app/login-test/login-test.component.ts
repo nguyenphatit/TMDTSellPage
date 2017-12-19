@@ -60,7 +60,7 @@ export class LoginTestComponent implements OnInit {
             console.log(data);
         }, (err: HttpErrorResponse ) => {
             console.log(err.statusText);
-            console.log(err.error)
+            console.log(err.error);
             if ( err.status === 401 ) {
                 console.log('token het hang');
             }

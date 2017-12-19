@@ -10,10 +10,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @NgModule({
-    imports: [PagesRoutingModule,
+    imports: [
         FormsModule,
         CommonModule,
-        ReactiveFormsModule],
+        ReactiveFormsModule,
+        PagesRoutingModule
+    ],
     exports: [],
     declarations: [
         DangKyComponent,
