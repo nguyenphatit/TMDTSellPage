@@ -36,13 +36,15 @@ export class DangNhapComponent implements OnInit {
   }
   public login(): void {
     this.authenticationService
-      .login(this.loginFormGroup.value.email, this.loginFormGroup.value.password)
+      .login(
+        this.loginFormGroup.value.email,
+        this.loginFormGroup.value.password
+      )
       .subscribe(
         data => {
           this.router.navigate(["/home"]);
 
-console.log(data);
-
+          console.log(data);
         },
         (err: HttpErrorResponse) => {
           console.log(err);
