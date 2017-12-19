@@ -8,22 +8,22 @@ export class DataUser {
          user1.email = 'lang.tt16@gmail.com';
          user1.password = '12345678';
          user1.userName = 'Trương tam lang';
-        this.createUser(user1);
+        this.createUser(user1, 'https://www.w3schools.com/howto/img_avatar2.png' );
 
         const user2 = new UserCustomCreate();
         user2.email = 'k40cntt@gmail.com';
         user2.password = '12345678';
         user2.userName = 'Huỳnh tính thành';
-       this.createUser(user2);
+       this.createUser(user2 , 'https://drive.google.com/uc?id=0B27mfRY62YKZRDNxWWZHdl9aUjA' );
 
        const user3 = new UserCustomCreate();
        user3.email = 'vanthang1996@gmail.com';
        user3.password = 'Thang123';
        user3.userName = 'Trần văn thắng';
-      this.createUser(user3);
+      this.createUser(user3, 'https://www.w3schools.com/howto/img_avatar.png');
 
     }
-    public createUser(user: UserCustomCreate ) {
+    public createUser(user: UserCustomCreate , avatar: string) {
         const temp = new User();
         temp.email = user.email;
         temp.password = user.password;
@@ -45,7 +45,7 @@ export class DataUser {
               calendarType: 'iso8601'
             }
           };
-          temp.avatar = 'https://drive.google.com/uc?id=0B27mfRY62YKZRDNxWWZHdl9aUjA';
+          temp.avatar =  avatar;
           temp.score = 0 ;
           temp.status = 1;
           temp.address = 'Đồng Tháp';
@@ -78,7 +78,7 @@ export class DataUser {
             };
             this.users.push(temp);
     }
-    public checkToke(email): boolean {
+    public checkToken(email): boolean {
       const filteredUsers = this.users.filter((user: User) => {
         return user.email === email;
     });

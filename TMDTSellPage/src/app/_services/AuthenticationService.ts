@@ -1,5 +1,6 @@
+import { User } from './../_models/User';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { ConfigValue } from '../_helpers/config-value';
@@ -21,4 +22,28 @@ export class AuthenticationService {
     logout() {
         localStorage.removeItem(this.config.token);
     }
+    public refreshToken() { // lam mới token khi token còn thời hạng
+        return this.http.get(this.config.auth_refresh).map(
+           data => {
+                let user: any = {} ;
+                user = data;
+                if (user && user.access_token) {
+                    localStorage.setItem(this.config.token, JSON.stringify(user.access_token));
+                    console.log('làm mới token ');
+                 }
+                return user;
+            }
+        );
+    }
+    public getInformation(): any {
+        console.log('1');
+        return this.http.get(this.config.url_port + '/user/info')
+         .map
+             ( (user: User ) => {
+                 console.log('2');
+                console.log(user);
+                 return user;
+                }
+         );
+     }
 }

@@ -1,3 +1,4 @@
+import { ConfigValue } from './../config-value';
 import { User } from './../../_models/User';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -14,14 +15,14 @@ import { Role } from '../../_models/index';
 import { DataUser } from './DataUser';
 @Injectable()
 export class AuthenticationRestInterceptor implements HttpInterceptor {
-    constructor() { }
+    constructor(private config: ConfigValue) { }
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         const data =  new DataUser();  // tạo ra danh sách dữ liệu mẩu
         const users: User[]  = data.users;
         console.log(users);
               return Observable.of(null).mergeMap(() => {
                 //  đường dẫn và Method
-                if (request.url.endsWith('/auth/login') && request.method === 'POST') {
+                if (request.url.endsWith(this.config.auth_login) && request.method === 'POST') {
                     //  tìm thấy nếu có bất kỳ người dùng phù hợp với thông tin đăng nhập
                     const filteredUsers = users.filter((user: User) => {
                         return user.email === request.body.email && user.password === request.body.password;
@@ -42,9 +43,22 @@ export class AuthenticationRestInterceptor implements HttpInterceptor {
                         return Observable.throw(new HttpErrorResponse({status: 403, statusText: 'Tài khoản mật khẩu không đúng'}));
                     }
                 }
-                return next.handle(request);
+                if (request.url.endsWith(this.config.auth_refresh) && request.method === 'GET') {
+                    if (data.checkToken(request.headers.get('Authorization')) ) {
+                        console.log('SERVER LAM MỚI TOKEN');
+                        const body = {
+                            access_token: request.headers.get('Authorization'),
+                            expires_in: 600
+                        };
+                        return Observable.of(new HttpResponse({ status: 200, body: users }));
+                    } else {
+                        // return 401 not authorised if token is null or invalid
+                        return Observable.throw(  new HttpErrorResponse({status: 403, statusText: 'Toket het hang'}));
+                    }
+                }
+            return next.handle(request);
             }).materialize()
-                .delay(500)
+                .delay(1500)
                 .dematerialize();
           }
     }
