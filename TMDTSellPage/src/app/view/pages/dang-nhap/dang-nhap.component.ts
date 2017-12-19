@@ -63,6 +63,7 @@ export class DangNhapComponent implements OnInit {
                 } else {
                     localStorage.removeItem(this.config.remember);
                 }
+                console.log(this.returnUrl);
                 this.router.navigate([ this.returnUrl ]);
             }, (err: HttpErrorResponse) => {
                 console.log(err);

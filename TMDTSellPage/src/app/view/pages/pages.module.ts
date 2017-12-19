@@ -1,3 +1,4 @@
+import { HomePagesService } from './../../_services/HomePagesService';
 import { NgModule } from '@angular/core';
 
 import { PagesRoutingModule } from './pages-routing.module';
@@ -8,6 +9,7 @@ import { DoiMatKhauComponent } from './doi-mat-khau/doi-mat-khau.component';
 import { Error404Component } from './error-404/error-404.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { KichHoatComponent } from './kich-hoat/kich-hoat.component';
 
 @NgModule({
     imports: [
@@ -18,12 +20,15 @@ import { CommonModule } from '@angular/common';
     ],
     exports: [],
     declarations: [
+        KichHoatComponent,
         DangKyComponent,
         DangNhapComponent,
         QuenMatKhauComponent,
         DoiMatKhauComponent,
         Error404Component
     ],
-    providers: [],
+    providers: [
+        HomePagesService
+    ],
 })
 export class PagesModule { }

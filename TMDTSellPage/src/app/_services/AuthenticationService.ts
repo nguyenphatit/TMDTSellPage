@@ -36,12 +36,9 @@ export class AuthenticationService {
         );
     }
     public getInformation(): any {
-        console.log('1');
         return this.http.get(this.config.url_port + '/user/info')
          .map
              ( (user: User ) => {
-                 console.log('2');
-                console.log(user);
                  return user;
                 }
          );
