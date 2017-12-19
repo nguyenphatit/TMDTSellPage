@@ -44,7 +44,7 @@ export class LoginTestComponent implements OnInit {
                  //   this.router.navigate([this.returnUrl]);
                  console.log(data);
                  this.info();
-                 this.createTopic();
+                // this.createTopic();
                 },
                 (err: HttpErrorResponse) => {
                   //  this.alertService.error(error);
@@ -66,20 +66,20 @@ export class LoginTestComponent implements OnInit {
             }
         });
     }
-    createTopic() {
-        const topic = new TopicCreation();
-        topic.topicDescription = 'ỨNG DỤNG DA NỀN TẢNG';
-        topic.topicName = 'React native mobile' ;
-        topic.topicStatus = 1;
-        this.http.post(this.congig.url_port + '/admin/topic', topic, {
-            withCredentials: true,
-            observe: 'response'
-        } ).subscribe(
-            data => {
-                console.log(data);
-            }, (err: HttpErrorResponse) => {
-                console.log(err.error);
-            }
-        );
-    }
+    // createTopic() {
+    //     const topic = new TopicCreation();
+    //     topic.topicDescription = 'ỨNG DỤNG DA NỀN TẢNG';
+    //     topic.topicName = 'React native mobile' ;
+    //     topic.topicStatus = 1;
+    //     this.http.post(this.congig.url_port + '/admin/topic', topic, {
+    //         withCredentials: true,
+    //         observe: 'response'
+    //     } ).subscribe(
+    //         data => {
+    //             console.log(data);
+    //         }, (err: HttpErrorResponse) => {
+    //             console.log(err.error);
+    //         }
+    //     );
+    // }
 }

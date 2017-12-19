@@ -62,28 +62,6 @@ export class AuthenticationRestInterceptor implements HttpInterceptor {
                 .dematerialize();
           }
         }
-        if (request.url.endsWith("/auth/refresh") && request.method === "GET") {
-          if (data.checkToke(request.headers.get("Authorization"))) {
-            const body = {
-              access_token: request.body.email,
-              expires_in: 600
-            };
-            return Observable.of(new HttpResponse({ status: 200, body: body }));
-          } else {
-            // return 401 not authorised if token is null or invalid
-            return Observable.throw(
-              new HttpErrorResponse({ status: 403, statusText: "erro Author" })
-            );
-          }
-        }
-
-
-      })
-      .materialize()
-      .delay(500)
-      .dematerialize();
-  }
-}
 export let AuthenticationRest = {
   // sử dụng phụ trợ giả để thay thế cho dịch vụ Http để phát triển phụ trợ
   provide: HTTP_INTERCEPTORS,
