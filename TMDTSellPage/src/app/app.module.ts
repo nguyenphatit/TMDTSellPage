@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { AuthenticationService } from './_services/AuthenticationService';
 import { UserService } from './_services/user.service';
 import { ConfigValue } from './_helpers/config-value';
@@ -75,6 +76,11 @@ const APP_COMPONENTS = [
 import { UserRest, AuthenticationRest} from './_helpers';
 import { CommonModule } from '@angular/common';
 // mocktest
+const APP_MOCKTEST = [
+  UserRest,
+  AuthenticationRest
+];
+
 
 @NgModule({
   declarations: [
@@ -104,8 +110,14 @@ import { CommonModule } from '@angular/common';
     // HttpClientXsrfModule
     // provider used to create fake backend
     AuthenticationRest,
-    UserRest
+    UserRest,
+    // APP_MOCKTEST
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+   constructor(router: Router) {
+    console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
+    console.log(router);
+  }
+ }
