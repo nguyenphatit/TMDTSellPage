@@ -1,25 +1,25 @@
 <!-- navbar -->
-<div  *ngIf="isloading" id="myModal" class="modal">
-        <div class="loader">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-      </div>
+<div *ngIf="isloading" id="myModal" class="modal">
+    <div class="loader">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
 
-      
+
 
 
 <nav [style.padding]="effectNavbar ? '0' : '.5rem 1rem'" class="navbar navbar-expand-lg navbar-light fixed-top">
@@ -156,38 +156,36 @@
                         </div>
                     </div>
                 </li>
-               <li *ngIf="!isLogin" class="nav-item">
-                    <a class="nav-link" (click)="login()"  >
+                <li *ngIf="!isLogin" class="nav-item">
+                    <a class="nav-link" (click)="login()">
                         <i class="fa fa-user"></i> Đăng nhập</a>
                 </li>
                 <li *ngIf="!isLogin" class="nav-item">
                     <a class="nav-link" [routerLink]="['/pages/dang-ky']">
                         <i class="fa fa-user-plus"></i> Đăng ký</a>
                 </li>
-               
-                <li  *ngIf="isLogin" dropdown class="nav-item dropdown">
-                        <a dropdownToggle  id="navbardropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false">
-                            <li  class="nav-item">
-                                    <a class="nav-link" >
-                                        <img src="{{ user?user?.avatar: 'https://www.w3schools.com/howto/img_avatar2.png' }}" class="rounded-circle img-avt" alt="Ảnh đại diện">
-                                        <span>{{ user?user?.userName: 'loading...' }}</span>
-                                    </a>
-                                </li>
-                        </a>
-                        <div *dropdownMenu role="menu" class="dropdown-menu " aria-labelledby="navbardropdown">
-                                <li  class="nav-item">
-                                        <a class="nav-link" (click)="logout()"  >
-                                            <i class="fa fa-user-plus"></i> Đăng xuất </a>
-                                    </li>
-                            </div>
-                            </li>
+
+                <li *ngIf="isLogin" dropdown class="nav-item dropdown">
+                    <a dropdownToggle id="navbardropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <li class="nav-item">
+                            <a class="nav-link">
+                                <img src="{{ user?user?.avatar: 'https://www.w3schools.com/howto/img_avatar2.png' }}" class="rounded-circle img-avt" alt="Ảnh đại diện">
+                                <span>{{ user?user?.userName: 'loading...' }}</span>
+                            </a>
+                        </li>
+                    </a>
+                    <div *dropdownMenu role="menu" class="dropdown-menu " aria-labelledby="navbardropdown">
+                        <li class="nav-item">
+                            <a class="nav-link" (click)="logout()">
+                                <i class="fa fa-user-plus"></i> Đăng xuất </a>
+                        </li>
+                    </div>
+                </li>
             </ul>
             <form class="form-inline input-search2">
                 <input type="text" name="search" placeholder="Tìm kiếm ...">
             </form>
         </div>
     </div>
-  </div>
 </nav>
 <!-- /navbar -->
