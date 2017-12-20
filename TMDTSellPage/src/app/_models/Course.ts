@@ -1,20 +1,20 @@
-import { CourseType } from './CourseType';
-import { Topic } from './Topic';
-import { UserCustom } from './UserCustom';
+import { CourseType } from "./CourseType";
+import { Topic } from "./Topic";
+import { UserCustom } from "./UserCustom";
 
 export class Course {
-   private courseID: string;
-   private courseTitle: string;
-   private courseDescription: string;
-   private author: string;
-   private createDate: any;
-   private price: number;
-   private courseType: CourseType[] ;
-   private topic: Topic[];
-   private confirmedBy: UserCustom[] ;
-   private status: number;
-   private confirmedDate: any;
-   private views: number;
-   private courseAvatar: string;
-   private courseDetail: string;
+  public courseID: string;
+  public courseTitle: string;
+  public courseDescription: string;
+  public author: string;
+  public createDate: any;
+  public price: number;
+  public courseType: CourseType[];
+  public topic: Topic[];
+  public confirmedBy: UserCustom[];
+  public status: number;
+  public confirmedDate: any;
+  public views: number;
+  public courseAvatar: string;
+  public courseDetail: string;
 }

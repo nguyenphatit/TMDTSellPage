@@ -10,6 +10,6 @@ export class User {
     status: number;
     address: string;
     phoneNumber: string;
-    permission: any[];  // role[]
+    permission: Role[];  // role[] // khong dc chuyển thành Role[]
     lastPasswordResetDate: any;
 }

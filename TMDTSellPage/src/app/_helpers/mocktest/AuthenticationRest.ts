@@ -15,10 +15,10 @@ import { Role } from '../../_models/index';
 import { DataUser } from './DataUser';
 @Injectable()
 export class AuthenticationRestInterceptor implements HttpInterceptor {
-    constructor(private config: ConfigValue) { }
+    constructor(private config: ConfigValue,
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        const data =  new DataUser();  // tạo ra danh sách dữ liệu mẩu
-        const users: User[]  = data.users;
+        this.data.load();
+        const users: User[] = this.data.users;
         console.log(users);
               return Observable.of(null).mergeMap(() => {
                 //  đường dẫn và Method
@@ -44,7 +44,7 @@ export class AuthenticationRestInterceptor implements HttpInterceptor {
                     }
                 }
                 if (request.url.endsWith(this.config.auth_refresh) && request.method === 'GET') {
-                    if (data.checkToken(request.headers.get('Authorization')) ) {
+                    if (this.data.checkToken(request.headers.get('Authorization')) ) {
                         console.log('SERVER LAM MỚI TOKEN');
                         const body = {
                             access_token: request.headers.get('Authorization'),

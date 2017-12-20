@@ -47,17 +47,7 @@ export class HomeHeaderComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // <!--test
-    const idTopicTest = 'CD11';
-    this.http
-      .get(this.config.url_port + `/users/topic/CD11/course`)
-      .subscribe(data => {
-        console.log(data ) ;
-      }, (err: HttpErrorResponse) => {
-        console.log(err);
-      });
 
-    //  end test-->
 
     this.refrershToken();
     if (window.innerWidth < 990) {
@@ -65,7 +55,7 @@ export class HomeHeaderComponent implements OnInit {
     } else {
       this.megamenu = true;
     }
-    this.http.get(this.config.url_port + '/users/topic').subscribe(
+    this.http.get(this.config.url_port + '/users/topic?page=1&size=100').subscribe(
       data => {
         const tmp_data: any = data;
         this.listTopic = tmp_data.listOfResult;

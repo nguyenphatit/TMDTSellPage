@@ -21,20 +21,23 @@ export class LoginTestComponent implements OnInit {
         ) { }
 
     ngOnInit() {
-        const user = new User();
-        user.email = 'trinh';
-        user.password = 'nhiyeudkvn';
-        this.login();
-        const tao =  new User();
-        tao.email = 'lang.tt16@gmail.com';
-        tao.password = 'nhiyeudkvn';
-        tao.userName = 'lang.tt16@gmail.com';
-        // this.http.post('/api/users', tao).subscribe(data => {
-        //     console.log(data);
-        // }, (err: HttpErrorResponse) => {
-        //     console.log(err);
+        // test phuong thuc truyen tham so  vd  /user/{id}
+        // this.http.get(this.congig.url_port + '/user/ND0').subscribe(data => {
+        // console.log(data);
         // });
-      }
+        //
+        // this.http.get(this.congig.url_port + '/user/token_reset_password?email=k40cntt@gmail.com&url=http://thanh.com').subscribe(data => {
+        //     console.log(data);
+        //     });
+        this.http.get(this.congig + '/user/topic/id4/cours').subscribe( data => {
+            console.log(data);
+        });
+        
+        this.http.get(this.congig + '/users/topic/id4/cours?page=89&size=23323').subscribe( data => {
+            console.log(data);
+        });
+
+        }
      login() {
        // this.loading = true;
 

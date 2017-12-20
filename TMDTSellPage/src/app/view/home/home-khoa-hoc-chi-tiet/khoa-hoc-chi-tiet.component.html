@@ -4,19 +4,19 @@
         <div class="container">
             <div class="row course-title">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
-                    <h1>Oracle: Hệ quản trị cơ sở dữ liệu bảo mật hiện nay</h1>
+                    <h1>{{courseItem.courseTitle}}</h1>
                     <div class="row">
                         <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
-                            Giảng viên: <b>Trần Văn Thắng</b>
+                            Giảng viên: <a  [routerLink]="['/home/thong-tin-ca-nhan', author.userID]"><b>Trần Văn Thắng</b></a>
                         </div>
 
                         <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 text-center">
                             Số thành viên: <b>482 người</b>
                         </div>
 
-                        <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 text-center">
+                        <!-- <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 text-center">
                             Số giờ học: <b>45 giờ</b>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="rating">
                         <i class="fa fa-star"></i>
@@ -27,7 +27,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-                    <img src="assets/home/images/oracle.jpg" class="rounded mx-auto d-block" alt="...">
+                    <img src="{{author.avatar}}" class="rounded mx-auto d-block" alt="...">
                 </div>
             </div>
         </div>
@@ -35,30 +35,13 @@
     <section class="section-2">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 icol-1">
-                    <h3>Học xong khóa học này bạn có thể</h3>
-                    <ul>
-                        <li><i class="fa fa-check"></i> Diễn giải được vai trò của CSDL trong hệ thống thông tin, các khái niệm cơ bản trong CSDL, mô hình dữ liệu quan hệ.</li>
-                        <li><i class="fa fa-check"></i> Hướng dẫn học viên mô hình hóa dữ liệu bằng mô hình thực thể kết hợp (ER).</li>
-                        <li><i class="fa fa-check"></i> Trình bày cách chuyển đổi từ mô hình ER sang mô hình quan hệ.</li>
-                        <li><i class="fa fa-check"></i> Sử dụng HQT CSDL SQL để xây dựng CSDL và sử dụng ngôn ngữ truy vấn để thao tác trên CSDL.</li>
-                        <li><i class="fa fa-check"></i> Giới thiệu về ràng buộc toàn vẹn, phát hiện và khai báo RBTV trên CSDL.</li>
-                        <li><i class="fa fa-check"></i> Tự học viên có thể phân tích được các mô hình dữ liệu thực thế.</li>
-                        <li><i class="fa fa-check"></i> Tự học viên có thể thiết kế và viết các câu truy vấn về CSDL.</li>
-                    </ul>
-                    <h3>Ai có thể học khóa học này?</h3>
-                    <ul>
-                        <li><i class="fa fa-check"></i> Tất cả các bạn đam mê về lập trình, đam mê công nghệ thông tin</li>
-                    </ul>
-                    <h3>Yêu cầu về khóa học?</h3>
-                    <ul>
-                        <li><i class="fa fa-check"></i> Máy tính có thể cài đặt chương trình Cơ sở dữ liệu SQL (khoảng 1,5 Gb)</li>
-                    </ul>
+                <div [innerHTML]="courseItem.courseDetail" class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 icol-1">
+
                 </div>
                 <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 icol-2">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="text-right">999.000đ</h3>
+                            <h3 class="text-right">{{courseItem.price==0?'Miễn phí':courseItem.price+'đ'}}</h3>
                         </div>
                         <div class="card-body">
                             <div class="row">
@@ -82,7 +65,7 @@
                                     <span><i class="fa fa-file-text"></i> Chủ để: </span>
                                 </div>
                                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-right">
-                                    <span>CSDL</span>
+                                    <span>{{topic.topicName}}</span>
                                 </div>
                             </div>
                             <div class="row">
@@ -119,15 +102,7 @@
                             <h4 class="text-right">Giới thiệu khóa học</h4>
                         </div>
                         <div class="card-body">
-                            <h5>Giới thiệu về khóa học</h5>
-                            <p>Với sự phát triển ngày càng mạnh và được ứng dụng ngày càng nhiều vào thực tế của các ứng dụng Android, chính vì điều đó đã làm cho nó trở thành một ngành hot nhất hiện nay và thu hút được nhiều sự quan tâm của các bạn trẻ đam mê lập trình. Để có thể học được cách lập trình Android các bạn đã tìm tới các trung tâm, các website để được tiếp xúc với môi trường lập trình android, nhưng các kiến thức các bạn nhận được là kiến thức căn bản và các bạn vẫn chưa biết cách áp dụng các kiến thức căn bản đó để có thể biến nó thành một ứng dụng hoàn chỉnh.</p>
-                            <a data-toggle="collapse" href="#collapse" aria-expanded="false" aria-controls="collapse">Xem thêm</a>
-
-                            <div class="collapse" id="collapse">
-                                <p>Thông qua khóa học Lazada này các bạn sẽ nắm bắt được cách vận dụng các kiến thức cơ bản của android để hoàn thành ứng dụng, ngoài ra các bạn sẽ còn biết được cách tổ chức code theo mô hình MVP pattern để có thể quản lý code tốt hơn, không những vậy các bạn sẽ nắm bắt được cách thức tạo Webservice với cả 2 ngôn ngữ lập trình Web hot nhất hiện nay là PHP và ASP.NET cũng như cách trao đổi dữ liệu của Webservice và ứng dụng Android.</p>
-
-                                <p>Khi đến với khóa học này các bạn sẽ có thể làm các ứng dụng liên quan tới Webservice cũng như ứng dụng bán hàng và đặt hàng trên thiết bị Android.</p>
-                            </div>
+                            {{courseItem.courseDescription}}
                         </div>
                     </div>
                 </div>
@@ -371,7 +346,7 @@
                 </div>
             </div>
             <div class="comment">
-                
+
             </div>
         </div>
     </section>

@@ -12,6 +12,7 @@ import {
   HTTP_INTERCEPTORS
 } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { DataCourse } from "./DataCourse";
 
 @Injectable()
 export class TopicRestInterceptor implements HttpInterceptor {
@@ -22,7 +23,7 @@ export class TopicRestInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
     return Observable.of(null)
       .mergeMap(() => {
-        if (request.url.endsWith("/users/topic") && request.method === 'GET') {
+        if (request.url.match(/\/users\/topic\?page=([0-9]{1,9})&size=([0-9]{1,9})/) && request.method === 'GET') {
           return Observable.of(
             new HttpResponse({
               status: 200,
@@ -89,11 +90,22 @@ export class TopicRestInterceptor implements HttpInterceptor {
             })
           );
         }
-         if (  request.url.match(/\/users\/topic\/\w{2,255}\/course/) && request.method === 'GET' ) {
+         if (  request.url.match(/\/users\/topic\/\w{2,255}\/course\?page=([0-9]{0,9})&size=([0-9]{0,9})/) && request.method === 'GET' ) {
           return Observable.of(
             new HttpResponse({
               status: 200,
-              body: { listOfResult: 1234 }
+              body: { listOfResult:  new DataCourse().getAllCourse(),
+              numberOfPage: 1 }
+            })
+          );
+         }
+         // tslint:disable-next-line:max-line-length
+         if (  request.url.match(/.+\/users\/topic\/([a-zA-Z0-9]{2,255})\/course\?page=([0-9]{0,9})&size=([0-9]{0,9})&search_key=(\w{2,255})/) && request.method === 'GET' ) {
+          return Observable.of(
+            new HttpResponse({
+              status: 200,
+              body: { listOfResult: new DataCourse().getAllCourse(),
+              numberOfPage: 1 }
             })
           );
          }

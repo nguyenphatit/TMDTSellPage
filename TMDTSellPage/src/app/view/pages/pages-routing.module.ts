@@ -1,3 +1,4 @@
+import { KichHoatComponent } from './kich-hoat/kich-hoat.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DangKyComponent } from './dang-ky/dang-ky.component';
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: 'dang-nhap', component: DangNhapComponent },
   { path: 'quen-mat-khau', component: QuenMatKhauComponent },
   { path: 'doi-mat-khau', component: DoiMatKhauComponent },
-  { path: 'error-404', component: Error404Component}
+  { path: 'error-404', component: Error404Component},
+  {path: 'kich-hoat', component: KichHoatComponent}
 ];
 
 @NgModule({
