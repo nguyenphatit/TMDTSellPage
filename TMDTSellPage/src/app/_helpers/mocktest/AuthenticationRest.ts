@@ -18,7 +18,7 @@ export class AuthenticationRestInterceptor implements HttpInterceptor {
     constructor(private config: ConfigValue) { }
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         const data =  new DataUser();  // tạo ra danh sách dữ liệu mẩu
-        const users: User[] = data.getListUser();
+        const users: User[] = data.users;
               return Observable.of(null).mergeMap(() => {
                 //  đường dẫn và Method
                 if (request.url.endsWith(this.config.auth_login) && request.method === 'POST') {

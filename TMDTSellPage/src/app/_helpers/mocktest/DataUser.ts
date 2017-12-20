@@ -94,17 +94,4 @@ export class DataUser {
       return false;
     }
     }
-    public getListUser(): User[] {
-      // if ( localStorage.getItem('user_01')) {
-      //    localStorage.setItem('user_01', JSON.stringify(this.users));
-      //    return this.users;
-      // } else {
-      //   return JSON.parse(localStorage.getItem('user_01'));
-      // }
-       return this.users;
-    }
-    public save( list: User[] ): void {
-      this.users = list ;
-  //    localStorage.setItem('user_01', JSON.stringify(this.users));
-    }
 }

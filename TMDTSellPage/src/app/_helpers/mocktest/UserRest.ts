@@ -20,7 +20,7 @@ export class UserRestInterceptor implements HttpInterceptor {
     constructor(private config: ConfigValue) { }
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         const data = new DataUser();  // tạo ra danh sách dữ liệu mẩu
-        const users: User[] = data.getListUser();
+        const users: User[] = data.users;
         return Observable.of(null).mergeMap(() => {
             //  đường dẫn và Method
             if (request.url.endsWith('/user/info') && request.method === 'GET') {
@@ -76,7 +76,7 @@ export class UserRestInterceptor implements HttpInterceptor {
                     return Observable.throw( new HttpResponse( { status : 401 , statusText: 'Token hết hạng' })) ;
                 }
             }
-            // quen mat khau
+            // quen mat khau phần gửi email
             // tslint:disable-next-line:max-line-length
             if ( ( request.url.match(/.+\/user\/token_reset_password\?email=([a-zA-Z0-9@.]{2,255})&url=([a-zA-z0-9:\/.]{3,225})/)) && request.method === 'GET') {
                     const email = request.url.match(/.+\/user\/token_reset_password\?email=([a-zA-Z0-9@.]{2,255})&url=([a-zA-z0-9:\/.]{3,225})/)[1];
@@ -89,13 +89,13 @@ export class UserRestInterceptor implements HttpInterceptor {
                         return Observable.throw(new HttpResponse({ status: 404 , statusText: 'Tài khoãn không tồn tại' }));
                     }
             }
+            // quên mặt khẩu phần tạo lại mặt khẩu
             if ( ( request.url.endsWith('/user/password_reset')) && request.method === 'PATCH' ) {
-                 if ( request.body.key ) {
+                 if ( request.body.key ) { // kiểm tra key còn hạng không
                       const temp = users.filter( (user: User) => {
                          return user.email === request.body.key ;
                      });
                      temp[0].password = request.body.newPassword;
-                     data.save(users);
                      console.log(users);
                      console.log(request.body.key);
                     return Observable.of( new HttpResponse({ status: 200 , body: 'Đổi mật khuẩu thành công '}) );
@@ -103,7 +103,29 @@ export class UserRestInterceptor implements HttpInterceptor {
                      return Observable.throw( new HttpResponse({ status: 403 , statusText: ' key hết hạng' }) );
                  }
             }
-
+            // chức năng đăng ký tài khoản
+             if ( request.url.match(/.+\/user\?url=([a-zA-z0-9\/:.?=-]{1,255})/) && request.method === 'POST') {
+                  const users_2 = users.filter((user: User) => {
+                      return user.email === request.body.email;
+                  });
+                   if ( users_2.length > 0 ) {
+                       return Observable.throw(new HttpResponse({ status: 409 , body: 'Email tồn tại trong hệ thống' }) );
+                   }
+                   const url = request.url.match(/.+\/user\?url=([a-zA-z0-9\/:.?=-]{1,255})/)[1];
+                return Observable.of( new HttpResponse({ status: 200, body: url + request.body.email }));
+             }
+             // kich hoặt tài khoản
+             if ( request.url.endsWith('/user/register_status') && request.method === 'PATCH') {
+                const users_2 = users.filter((user: User) => {
+                    return user.email === request.body.key;
+                });
+                 if ( users_2.length > 0 ) {
+                    return Observable.of( new HttpResponse({ status: 200,  body: request.body }) );
+                 } else {
+                    return Observable.throw( new HttpResponse( { status: 400 , body: 'key không chinh sát' }));
+                 }
+             }
+             // lấy ra toppic
             if ( ( request.url.match(/.+\/user\/topic\/([a-zA-Z0-9]{2,255})\/cours/)) && request.method === 'GET') {
                 const id = request.url.match(/.+\/user\/topic\/([a-zA-Z0-9]{2,255})\/cours/)[1];
                 console.log( 'console server  ' + id);

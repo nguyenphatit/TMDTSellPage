@@ -16,7 +16,7 @@ export class DangKyComponent implements OnInit {
      user: any  = {} ;
      ms: string;
      success =  false;
-     loading = true ;
+     loading = false ;
     constructor( private serviceHome: HomePagesService,
     private router: Router ,
 private title: Title ) {
@@ -49,10 +49,10 @@ private title: Title ) {
     );
      }
     ngOnInit() {
-        this.title.setTitle('Đăng ký tài khoản')
+        this.title.setTitle('Đăng ký tài khoản');
     }
     public registerSubmit() {
-        this.loading = false ;
+        this.loading = true ;
         if ( this.register.valid ) {
             // {
             //     "address": "",
@@ -62,7 +62,6 @@ private title: Title ) {
             //     "phoneNumber": "",
             //     "userName": ""
             //   }
-            console.log('ngon com ')
             this.user.address = '' ;
             this.user.avatar = '' ;
             this.user.email = this.register.value.email;
@@ -70,12 +69,13 @@ private title: Title ) {
             this.user.password = this.register.value.passwordnew;
             this.user.userName = this.register.value.userName ;
             console.log(this.user);
-            this.serviceHome.homeRegister(this.user).subscribe(data => {
-                console.log(data);
+            this.serviceHome.homeRegister(this.user , 'http://localhost:4200/pages/kich-hoat?key=').subscribe(data => {
+                alert(data);
                 this.success = true;
+                this.loading = false;
             }, ( err: HttpErrorResponse) => {
                 if ( err.error instanceof Error ) {
-                    console.log('erro cient side ')
+                    console.log('erro cient side ');
                 } else {
                      if ( err.status === 0 ) {
                          console.log('khong co internet ')
@@ -86,13 +86,13 @@ private title: Title ) {
                          this.ms = 'Email đã tồn tại ' ;
                      }
                 }
+                this.loading = false;
                 // console( JSON.parse(err.error).Message);
             } );
          //   this.user = {} ;
         } else {
             console.log( 'thieu du lieu ');
         }
-        this.loading = true;
     }
     passwordMatchValidator(g: FormGroup) {
         return g.get('passwordnew').value === g.get('passwordold').value

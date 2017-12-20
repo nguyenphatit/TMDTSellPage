@@ -6,8 +6,8 @@ export class HomePagesService {
     constructor( private http: HttpClient,
        private  config: ConfigValue
      ) { }
-    public homeRegister(user: any ): any {
-     return this.http.post(this.config.url_port + '/user', user);
+    public homeRegister(user: any , url: string ): any {
+     return this.http.post(this.config.url_port + '/user?url=' + url , user);
     }
     public homeActiveLink(link: string): any {
          return this.http.patch(this.config.url_port + '/user/register_status' , link);
