@@ -1,6 +1,8 @@
 import { User } from './../../_models/User';
 import { UserCustomCreate, Role } from '../../_models/index';
 import { filter } from 'rxjs/operator/filter';
+import { Injectable } from '@angular/core';
+@Injectable()
 export class DataUser {
     public users: User[]  = [];
     constructor() {
@@ -83,6 +85,17 @@ export class DataUser {
               }
             };
             this.users.push(temp);
+    }
+    public save(): void {
+      localStorage.setItem('DATAUSER', JSON.stringify(this.users));
+    }
+    public load(): void  {
+      const localdata = JSON.parse(localStorage.getItem('DATAUSER'));
+       if ( !localdata ) {
+         this.save();
+       } else {
+         this.users = localdata ;
+       }
     }
     public checkToken(email): boolean {
       const filteredUsers = this.users.filter((user: User) => {

@@ -14,20 +14,22 @@ import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/materialize';
 import 'rxjs/add/operator/dematerialize';
 import { filter } from 'rxjs/operator/filter';
-import { Role } from '../../_models/index';
+import { Role, UserCustomCreate } from '../../_models/index';
 @Injectable()
 export class UserRestInterceptor implements HttpInterceptor {
-    constructor(private config: ConfigValue) { }
+    constructor(private config: ConfigValue,
+     public data: DataUser) { }
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        const data = new DataUser();  // tạo ra danh sách dữ liệu mẩu
-        const users: User[] = data.users;
+        this.data.load();
+        const users: User[] = this.data.users;
+        console.log(users);
         return Observable.of(null).mergeMap(() => {
             //  đường dẫn và Method
             if (request.url.endsWith('/user/info') && request.method === 'GET') {
                 //  tìm thấy nếu có bất kỳ người dùng phù hợp với thông tin đăng nhập
                 //    console.log(request.headers);
                 console.log(request.headers.get('Authorization') + 'hihi ');
-                if (data.checkToken(request.headers.get('Authorization'))) {
+                if (this.data.checkToken(request.headers.get('Authorization'))) {
                     const filteredUsers = users.filter((user: User) => {
                         return user.email === request.headers.get('Authorization');
                     });
@@ -46,7 +48,7 @@ export class UserRestInterceptor implements HttpInterceptor {
             }
             if ( request.url.match(/.+\/user\/([a-zA-Z0-9]{0,255})$/) && request.method === 'GET') {
                 // console.log(request.url.match(/.+\/user\/([a-zA-Z0-9]{0,255})$/)[1] );
-                if (data.checkToken(request.headers.get('Authorization'))) {
+                if (this.data.checkToken(request.headers.get('Authorization'))) {
                     const filte = users.filter((user: User) => {
                         return user.email === request.headers.get('Authorization') ;
                     });
@@ -82,7 +84,7 @@ export class UserRestInterceptor implements HttpInterceptor {
                     const email = request.url.match(/.+\/user\/token_reset_password\?email=([a-zA-Z0-9@.]{2,255})&url=([a-zA-z0-9:\/.]{3,225})/)[1];
                     // tslint:disable-next-line:max-line-length
                     const url = request.url.match(/.+\/user\/token_reset_password\?email=([a-zA-Z0-9@.]{2,255})&url=([a-zA-z0-9:\/.?=-]{3,225})/)[2];
-                    if (data.checkToken(email)) {
+                    if (this.data.checkToken(email)) {
                     return Observable.of(new HttpResponse({ status: 200, body: ` Server : Mocktest </br>
                         <a href='${url}${email}'> LINK KÍCH HOẠT</a> `  }));
                     } else {
@@ -112,6 +114,14 @@ export class UserRestInterceptor implements HttpInterceptor {
                        return Observable.throw(new HttpResponse({ status: 409 , body: 'Email tồn tại trong hệ thống' }) );
                    }
                    const url = request.url.match(/.+\/user\?url=([a-zA-z0-9\/:.?=-]{1,255})/)[1];
+                   const user3 = new UserCustomCreate();
+                   user3.email = request.body.email;
+                   user3.password =  request.body.password;
+                   user3.userName =  request.body.userName ;
+                   const role3: Role[] = [ new Role(2, 'ROLE_USER')];
+                  this.data.createUser(user3 , 'https://www.w3schools.com/howto/img_avatar.png' , role3);
+                  this.data.users  = users;
+                  this.data.save();
                 return Observable.of( new HttpResponse({ status: 200, body: url + request.body.email }));
              }
              // kich hoặt tài khoản

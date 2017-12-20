@@ -1,4 +1,4 @@
-import { Course } from "../../_models/index";
+import { Course } from '../../_models/index';
 
 export class DataCourse {
     public listDataCourse: Course[] = [];

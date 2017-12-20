@@ -75,6 +75,7 @@ const APP_COMPONENTS = [
 // import mocktest
 import { UserRest, AuthenticationRest} from './_helpers';
 import { CommonModule } from '@angular/common';
+import { DataUser } from './_helpers/mocktest/DataUser';
 // mocktest
 const APP_MOCKTEST = [
   UserRest,
@@ -112,6 +113,8 @@ const APP_MOCKTEST = [
     AuthenticationRest,
     UserRest,
     // APP_MOCKTEST
+    // Datatest
+    DataUser
   ],
   bootstrap: [AppComponent]
 })
