@@ -25,6 +25,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 const filteredUsers = users.filter((user: User) => {
                     return user.email === request.body.email && user.password === request.body.password;
                 });
+
                 console.log(request.body);
                 console.log(filteredUsers);
                 if (filteredUsers.length) {
