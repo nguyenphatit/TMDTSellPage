@@ -16,6 +16,7 @@ import { DataUser } from './DataUser';
 @Injectable()
 export class AuthenticationRestInterceptor implements HttpInterceptor {
     constructor(private config: ConfigValue,
+        public data: DataUser) { }
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         this.data.load();
         const users: User[] = this.data.users;
