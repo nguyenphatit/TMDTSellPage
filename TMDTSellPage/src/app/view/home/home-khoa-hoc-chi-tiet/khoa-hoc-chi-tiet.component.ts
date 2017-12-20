@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { ActivatedRoute } from "@angular/router";
+import { Component, OnInit } from "@angular/core";
+import { Title } from "@angular/platform-browser";
 
 @Component({
-    templateUrl: 'khoa-hoc-chi-tiet.component.html'
+  templateUrl: "khoa-hoc-chi-tiet.component.html"
 })
-
 export class KhoaHocChiTietComponent implements OnInit {
-    constructor(private title: Title) {
-        this.title.setTitle('3TPL | Chi tiết khóa học');
-     }
+  constructor(private title: Title) {
+    this.title.setTitle("3TPL | Chi tiết khóa học");
+  }
 
-    ngOnInit() { }
+  ngOnInit() {}
 }

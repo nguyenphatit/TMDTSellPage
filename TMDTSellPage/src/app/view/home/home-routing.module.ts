@@ -25,7 +25,7 @@ children: [
     }, {
         path: 'chi-tiet-khoa-hoc', component: KhoaHocChiTietComponent
     }, {
-        path: 'danh-sach-khoa-hoc', component: DanhSachKhoaHocComponent
+        path: 'danh-sach-khoa-hoc/:id', component: DanhSachKhoaHocComponent
     }, {
         path: 'nap-tien', component: NapTienComponent
     }, {
