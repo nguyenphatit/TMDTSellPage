@@ -75,6 +75,7 @@ const APP_COMPONENTS = [
 // import mocktest
 import { UserRest, TopicRest , AuthenticationRest} from './_helpers';
 import { CommonModule } from '@angular/common';
+import { DataUser } from './_helpers/mocktest/DataUser';
 // mocktest
 const APP_MOCKTEST = [
   UserRest,
@@ -113,12 +114,10 @@ const APP_MOCKTEST = [
     UserRest,
     TopicRest
     // APP_MOCKTEST
+    // Datatest
+    DataUser
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
-   constructor(router: Router) {
-  //  console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
-    //console.log(router);
-  }
  }
