@@ -73,7 +73,7 @@ const APP_COMPONENTS = [
   HomeFooterComponent
 ];
 // import mocktest
-import { UserRest, TopicRest , AuthenticationRest} from './_helpers';
+import { UserRest, AuthenticationRest} from './_helpers';
 import { CommonModule } from '@angular/common';
 // mocktest
 const APP_MOCKTEST = [
@@ -111,14 +111,13 @@ const APP_MOCKTEST = [
     // provider used to create fake backend
     AuthenticationRest,
     UserRest,
-    TopicRest
     // APP_MOCKTEST
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
    constructor(router: Router) {
-  //  console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
-    //console.log(router);
+    console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
+    console.log(router);
   }
  }

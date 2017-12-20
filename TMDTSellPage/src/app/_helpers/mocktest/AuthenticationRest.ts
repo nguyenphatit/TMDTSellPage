@@ -58,7 +58,7 @@ export class AuthenticationRestInterceptor implements HttpInterceptor {
                 }
             return next.handle(request);
             }).materialize()
-                .delay(0)
+                .delay(1500)
                 .dematerialize();
           }
         }

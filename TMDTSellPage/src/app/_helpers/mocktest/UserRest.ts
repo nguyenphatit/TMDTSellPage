@@ -43,9 +43,8 @@ export class UserRestInterceptor implements HttpInterceptor {
                     return Observable.throw(  new HttpErrorResponse({status: 401, statusText: 'Token hết hạng '}));
                 }
             }
-            return next.handle(request);
             }).materialize()
-                .delay(0)
+                .delay(1500)
                 .dematerialize();
           }
     }
