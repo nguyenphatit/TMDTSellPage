@@ -12,6 +12,7 @@ export class KichHoatComponent implements OnInit {
     forgetPass: FormGroup;
     ms: string;
     private key: any = {};
+    isloading = false;
     constructor( private router: ActivatedRoute ,
         private routes: Router,
       private serviceHome: HomePagesService
@@ -36,17 +37,19 @@ export class KichHoatComponent implements OnInit {
                 ? null : {'mismatch': true }
                }
                public forgetPassSubmit() {
+                   this.isloading = true;
                    if ( this.forgetPass.valid ) {
                        console.log('ngon');
                        this.obj.newPassword = this.forgetPass.value.passwordnew;
             this.serviceHome.forgetPass(this.obj).subscribe(
             data => {
              console.log(data);
+             this.isloading = false;
               this.routes.navigate(['/pages/dang-nhap']);
             },
         (err: HttpErrorResponse ) => {
              if ( err.error instanceof Error ) {
-                 this.ms = 'Erro fornt end '
+                 this.ms = 'Erro fornt end ';
              } else {
                  if ( err.status === 0 ) {
                      this.ms = 'Bạn chưa kết nối internet';

@@ -7,9 +7,9 @@
                 <div class="brand-logo text-right">
                     <img src="../../../../assets/home/images/3TPL50x50.png" alt="Logo">
                     <span class="brand-name">3TPL </span>
-                    <span *ngIf="successs" class="brand-name">{{ms}}</span>
+                    <span *ngIf="successs" class="brand-name" [innerHTML]="ms" ></span>
                 </div>
-                <p  *ngIf="ms" style="color: red "> {{ms}}</p>                
+                <p  *ngIf="ms?!successs:false"   style="color: red "> {{ms}}</p>                
                 <form *ngIf="!successs"  (ngSubmit)="forgetSubmit() && forgetGroup.valid" [formGroup]="forgetGroup">
                     <h3>Quên mật khẩu</h3>
                     <div class="form-group">

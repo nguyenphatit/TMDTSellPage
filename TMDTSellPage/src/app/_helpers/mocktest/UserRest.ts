@@ -81,10 +81,10 @@ export class UserRestInterceptor implements HttpInterceptor {
             if ( ( request.url.match(/.+\/user\/token_reset_password\?email=([a-zA-Z0-9@.]{2,255})&url=([a-zA-z0-9:\/.]{3,225})/)) && request.method === 'GET') {
                     const email = request.url.match(/.+\/user\/token_reset_password\?email=([a-zA-Z0-9@.]{2,255})&url=([a-zA-z0-9:\/.]{3,225})/)[1];
                     // tslint:disable-next-line:max-line-length
-                    const url = request.url.match(/.+\/user\/token_reset_password\?email=([a-zA-Z0-9@.]{2,255})&url=([a-zA-z0-9:\/.]{3,225})/)[2];
+                    const url = request.url.match(/.+\/user\/token_reset_password\?email=([a-zA-Z0-9@.]{2,255})&url=([a-zA-z0-9:\/.?=-]{3,225})/)[2];
                     if (data.checkToken(email)) {
-                    return Observable.of(new HttpResponse({ status: 200, body: 'Vui lòng kiểm tra email </br> '
-                       + url + email  }));
+                    return Observable.of(new HttpResponse({ status: 200, body: ` Server : Mocktest </br>
+                        <a href='${url}${email}'> LINK KÍCH HOẠT</a> `  }));
                     } else {
                         return Observable.throw(new HttpResponse({ status: 404 , statusText: 'Tài khoãn không tồn tại' }));
                     }
