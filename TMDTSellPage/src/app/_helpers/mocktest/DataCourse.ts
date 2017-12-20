@@ -1,3 +1,4 @@
+
 import { Course } from '../../_models/index';
 
 export class DataCourse {
@@ -6,4 +7,5 @@ export class DataCourse {
     }
     public addCourse(course: Course) {
     }
+
 }

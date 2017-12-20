@@ -23,7 +23,7 @@ export class AuthenticationService {
         localStorage.removeItem(this.config.token);
     }
     public refreshToken() { // lam mới token khi token còn thời hạng
-        return this.http.get(this.config.auth_refresh).map(
+        return this.http.get(this.config.url_port + '/auth/refresh').map(
            data => {
                 let user: any = {} ;
                 user = data;

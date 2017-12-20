@@ -110,9 +110,9 @@ const APP_MOCKTEST = [
   //  { provide: HTTP_INTERCEPTORS, useClass: HttpXsrfInterceptor, multi: true },
     // HttpClientXsrfModule
     // provider used to create fake backend
-    AuthenticationRest,
-    UserRest,
-    TopicRest
+    // AuthenticationRest,
+    // UserRest,
+  //  TopicRest
     // APP_MOCKTEST
     // Datatest
     DataUser
