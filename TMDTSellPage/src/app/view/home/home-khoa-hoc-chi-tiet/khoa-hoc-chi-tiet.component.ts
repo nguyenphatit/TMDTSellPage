@@ -37,8 +37,8 @@ export class KhoaHocChiTietComponent implements OnInit, OnDestroy {
           });
       });
 
-       this.http.get(this.config.url_port + `/user/course/${idCourse}/chapter`).subscribe(data => {
-         console.log(data);
+       this.http.get(this.config.url_port + `/users/course/${idCourse}/chapter`).subscribe((data: any ) => {
+          this.listChapter  = data;
        });
   }
   ngOnDestroy() {
@@ -49,6 +49,7 @@ export class KhoaHocChiTietComponent implements OnInit, OnDestroy {
   public author: any = {};
   public topic: any = {};
    public listCourseRelationship: any = [];
+    public listChapter: any=[];
   constructor(
     private title: Title,
     private route: ActivatedRoute,
