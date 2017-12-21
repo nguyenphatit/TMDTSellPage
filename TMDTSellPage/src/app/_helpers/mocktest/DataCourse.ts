@@ -7,5 +7,4 @@ export class DataCourse {
     }
     public addCourse(course: Course) {
     }
-
 }

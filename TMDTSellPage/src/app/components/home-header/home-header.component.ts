@@ -59,7 +59,6 @@ export class HomeHeaderComponent implements OnInit {
       data => {
         const tmp_data: any = data;
         this.listTopic = tmp_data.listOfResult;
-        console.log(this.listTopic);
       },
       (err: HttpErrorResponse) => {
         console.log(err);

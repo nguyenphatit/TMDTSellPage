@@ -7,7 +7,7 @@
                     <h1>{{courseItem.courseTitle}}</h1>
                     <div class="row">
                         <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
-                            Giảng viên: <a  [routerLink]="['/home/thong-tin-ca-nhan', author.userID]"><b>Trần Văn Thắng</b></a>
+                            Giảng viên: <a  [routerLink]="['/home/thong-tin-ca-nhan', author.userID]"><b>{{author.userName}}</b></a>
                         </div>
 
                         <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 text-center">
@@ -27,7 +27,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-                    <img src="{{author.avatar}}" class="rounded mx-auto d-block" alt="...">
+                    <img src="{{courseItem.courseAvatar}}" class="rounded mx-auto d-block" alt="...">
                 </div>
             </div>
         </div>
@@ -73,7 +73,7 @@
                                     <span><i class="fa fa-eye"></i> Lượt xem: </span>
                                 </div>
                                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-right">
-                                    <span>202</span>
+                                    <span>{{courseItem.views}}</span>
                                 </div>
                             </div>
                             <br/>
@@ -146,11 +146,11 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-6">
-                                    <img class="img-thumbnail" src="assets/home/images/oracle.jpg" alt="">
+                                    <img class="img-thumbnail" src="{{author.avatar}}" alt="">
                                 </div>
                                 <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-6 text-right">
-                                    <h6><b>Trần Văn Thắng</b></h6>
-                                    <h6><i class="fa fa-play-circle-o"></i> 1 khóa học</h6>
+                                    <h6><a  [routerLink]="['/home/thong-tin-ca-nhan',author.userID]"><b>{{author.userName}}</b> </a></h6>
+                                    <h6><i class="fa fa-play-circle-o"></i> {{author.numberOfCourses}} khóa học</h6>
                                 </div>
                             </div>
                         </div>
@@ -164,109 +164,28 @@
             <h3>Khóa học có liên quan</h3>
             <div class="row">
                 <!-- card -->
-                <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 wow bounceInUp">
+                <div *ngFor="let item of listCourseRelationship"   class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 wow bounceInUp">
                     <div class="card border-secondary">
-                        <img class="card-img-top" src="assets/home/images/oracle.jpg" alt="">
+                        <img class="card-img-top" src="{{item.courseAvatar}}" alt="">
                         <div class="card-body">
                             <h5 class="card-title"><div class="parallelogram-blue"></div>
-                                <div class="parallelogram-orange"></div><div class="parallelogram-text"> HQTCSDL Oracle</div>
+                                <div class="parallelogram-orange"></div><div class="parallelogram-text">{{item.courseTitle}}</div>
                             </h5>
-                            <p class="card-text">Khóa học tìm hiểu và lập trình trên HQLCSDL Oracle.</p>
-                            <span>Giảng viên: <b>Trần Văn Thắng</b></span><br/>
+                            <p class="card-text">{{item.courseTitle}}</p>
+                            <span>Giảng viên: <b>{{item.author.userName}}</b></span><br/>
                             <div class="row">
                                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                                    <i class="fa fa-users"></i> 482
+                                    <i class="fa fa-users"></i> {{item.views}}
                                 </div>
-                                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-right">
+                                <!-- <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-right">
                                     <i class="fa fa-clock-o"></i> 45 giờ học
-                                </div>
+                                </div> -->
                             </div>
-                            <span><b class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></b></span>
-                            <div class="text-right"><a href="course.html" class="btn btn-light btninfo">Xem chi tiết</a></div>
+                            <!-- <span><b class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></b></span> -->
+                            <div class="text-right"><a [routerLink]="['/home/chi-tiet-khoa-hoc',item.courseID]" class="btn btn-light btninfo">Xem chi tiết</a></div>
                         </div>
                         <div class="card-footer text-right">
-                            <h6 class="price">999.000đ</h6>
-                        </div>
-                    </div>
-                </div>
-                <!-- end card -->
-                <!-- card -->
-                <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 wow bounceInUp">
-                    <div class="card border-secondary">
-                        <img class="card-img-top" src="assets/home/images/oracle.jpg" alt="">
-                        <div class="card-body">
-                            <h5 class="card-title"><div class="parallelogram-blue"></div>
-                                <div class="parallelogram-orange"></div><div class="parallelogram-text"> HQTCSDL Oracle</div>
-                            </h5>
-                            <p class="card-text">Khóa học tìm hiểu và lập trình trên HQLCSDL Oracle.</p>
-                            <span>Giảng viên: <b>Trần Văn Thắng</b></span><br/>
-                            <div class="row">
-                                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                                    <i class="fa fa-users"></i> 482
-                                </div>
-                                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-right">
-                                    <i class="fa fa-clock-o"></i> 45 giờ học
-                                </div>
-                            </div>
-                            <span><b class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></b></span>
-                            <div class="text-right"><a href="course.html" class="btn btn-light btninfo">Xem chi tiết</a></div>
-                        </div>
-                        <div class="card-footer text-right">
-                            <h6 class="price">999.000đ</h6>
-                        </div>
-                    </div>
-                </div>
-                <!-- end card -->
-                <!-- card -->
-                <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 wow bounceInUp">
-                    <div class="card border-secondary">
-                        <img class="card-img-top" src="assets/home/images/oracle.jpg" alt="">
-                        <div class="card-body">
-                            <h5 class="card-title"><div class="parallelogram-blue"></div>
-                                <div class="parallelogram-orange"></div><div class="parallelogram-text"> HQTCSDL Oracle</div>
-                            </h5>
-                            <p class="card-text">Khóa học tìm hiểu và lập trình trên HQLCSDL Oracle.</p>
-                            <span>Giảng viên: <b>Trần Văn Thắng</b></span><br/>
-                            <div class="row">
-                                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                                    <i class="fa fa-users"></i> 482
-                                </div>
-                                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-right">
-                                    <i class="fa fa-clock-o"></i> 45 giờ học
-                                </div>
-                            </div>
-                            <span><b class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></b></span>
-                            <div class="text-right"><a href="course.html" class="btn btn-light btninfo">Xem chi tiết</a></div>
-                        </div>
-                        <div class="card-footer text-right">
-                            <h6 class="price">999.000đ</h6>
-                        </div>
-                    </div>
-                </div>
-                <!-- end card -->
-                <!-- card -->
-                <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 wow bounceInUp">
-                    <div class="card border-secondary">
-                        <img class="card-img-top" src="assets/home/images/oracle.jpg" alt="">
-                        <div class="card-body">
-                            <h5 class="card-title"><div class="parallelogram-blue"></div>
-                                <div class="parallelogram-orange"></div><div class="parallelogram-text"> HQTCSDL Oracle</div>
-                            </h5>
-                            <p class="card-text">Khóa học tìm hiểu và lập trình trên HQLCSDL Oracle.</p>
-                            <span>Giảng viên: <b>Trần Văn Thắng</b></span><br/>
-                            <div class="row">
-                                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                                    <i class="fa fa-users"></i> 482
-                                </div>
-                                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-right">
-                                    <i class="fa fa-clock-o"></i> 45 giờ học
-                                </div>
-                            </div>
-                            <span><b class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></b></span>
-                            <div class="text-right"><a href="course.html" class="btn btn-light btninfo">Xem chi tiết</a></div>
-                        </div>
-                        <div class="card-footer text-right">
-                            <h6 class="price">999.000đ</h6>
+                            <h6 class="price">{{item.price==0?'Miễn phí':item.price+'đ'}}</h6>
                         </div>
                     </div>
                 </div>

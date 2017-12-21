@@ -28,8 +28,7 @@ export class DanhSachKhoaHocComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
-      const idTopic: string = params["id"];
-      this.reloadPageWhenIDChange(idTopic);
+      this.reloadPageWhenIDChange(params["id"]);
     });
   }
   public reloadPageWhenIDChange(idTopic: string): void {

@@ -5,15 +5,15 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
-                        <img src="assets/home/images/oracle.jpg" alt="Ảnh đại diện" class="img-thumbnail rounded-circle avatar-img">
+                        <img src="{{authorItem?.avatar}}" alt="Ảnh đại diện" class="img-thumbnail rounded-circle avatar-img">
                     </div>
                     <div class="col-12 col-sm-12 col-md-6 col-lg-9 col-xl-9 content-text">
                         <div class="row">
                             <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-                                <h1>Trần Văn Thắng</h1>
-                                <h5>Sinh ngày 1 tháng 6 năm 1996</h5>
-                                <h5>Địa chỉ: Trường đại học Nông Lâm TP.HCM</h5>
-                                <h5>Số lượng khóa học: 5</h5>
+                                <h1>{{authorItem?.userName}}</h1>
+                                <!-- <h5>Sinh ngày 1 tháng 6 năm 1996</h5> -->
+                                <h5>Địa chỉ: {{authorItem?.address}}</h5>
+                                <h5>Số lượng khóa học: {{authorItem?.numberOfCourses}}</h5>
                             </div>
                             <div  class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 text-right">
                                 <button (click)="isShowProfile=!isShowProfile" type="button" class="btn ibtn-circle-white" data-toggle="collapse" href="#settingacc" aria-expanded="false" aria-controls="settingacc"><i class="fa fa-cog"></i> Chỉnh sửa thông tin</button>
@@ -25,7 +25,7 @@
             </div>
         </div>
     </section>
-          
+
     <section *ngIf="isShowProfile" class="sec-2" id="settingacc">
         <div class="container">
             <div class="setting-account">
@@ -85,51 +85,30 @@
             <h2>Khóa học nổi bật</h2>
             <div class="row">
                 <!-- item -->
-                <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
-                    <div class="card bg-default">
-                        <h1 class="ribbon">
-                            <strong class="ribbon-content">Nổi bật</strong>
-                        </h1>
-                        <div class="card-body">
-                            <img src="assets/home/images/oracle.jpg" class="card-img-top" alt="">
+                <div   *ngFor="let item  of featuredCourse"  class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                  <div class="card border-secondary">
+                    <img class="card-img-top" src="{{item.courseAvatar}}" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title"><div class="parallelogram-blue"></div>
+                            <div class="parallelogram-orange"></div><div class="parallelogram-text"> {{item.courseTitle}}</div>
+                        </h5>
+                        <p class="card-text truncate-text demission">{{item.courseDescription}}</p>
+                        <span>Giảng viên: <a  [routerLink]="['/home/thong-tin-ca-nhan', item.author.userID]"><b>{{item.author.userName}}</b></a> </span><br/>
+                        <div class="row">
+                            <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                <i class="fa fa-users"></i> {{item.views}}
+                            </div>
+                            <!-- <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-right">
+                                <i class="fa fa-clock-o"></i> 45 giờ học
+                            </div> -->
                         </div>
-                        <div class="card-footer">
-                            <h4 class="card-title">Khóa học ABC</h4>
-                            <p class="card-text text-right"><button type="button" class="btn ibtn">Xem chi tiết</button></p>
-                        </div>
+                        <!-- <span><b class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></b></span> -->
+                        <div class="text-right"><a [routerLink]="['/home/chi-tiet-khoa-hoc',item.courseID]" class="btn ibtn">Xem chi tiết</a></div>
+                    </div>
+                    <div class="card-footer text-right">
+                        <h6 class="price"  >{{item.price==0?'Miễn phí':item.price+'đ'}}</h6>
                     </div>
                 </div>
-                <!-- item -->
-                <!-- item -->
-                <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
-                    <div class="card bg-default">
-                        <h1 class="ribbon">
-                            <strong class="ribbon-content">Nổi bật</strong>
-                        </h1>
-                        <div class="card-body">
-                            <img src="assets/home/images/oracle.jpg" class="card-img-top" alt="">
-                        </div>
-                        <div class="card-footer">
-                            <h4 class="card-title">Khóa học ABC</h4>
-                            <p class="card-text text-right"><button type="button" class="btn ibtn">Xem chi tiết</button></p>
-                        </div>
-                    </div>
-                </div>
-                <!-- item -->
-                <!-- item -->
-                <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
-                    <div class="card bg-default">
-                        <h1 class="ribbon">
-                            <strong class="ribbon-content">Nổi bật</strong>
-                        </h1>
-                        <div class="card-body">
-                            <img src="assets/home/images/oracle.jpg" class="card-img-top" alt="">
-                        </div>
-                        <div class="card-footer">
-                            <h4 class="card-title">Khóa học ABC</h4>
-                            <p class="card-text text-right"><button type="button" class="btn ibtn">Xem chi tiết</button></p>
-                        </div>
-                    </div>
                 </div>
                 <!-- item -->
             </div>
@@ -140,107 +119,30 @@
             <h2>Tất cả khóa học</h2>
             <div class="row">
                 <!-- item -->
-                <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
-                    <div class="card bg-default">
-                        <div class="card-body">
-                            <img src="assets/home/images/oracle.jpg" class="card-img-top" alt="">
+                <div   *ngFor="let item  of listCourseItem"  class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                  <div class="card border-secondary">
+                    <img class="card-img-top" src="{{item.courseAvatar}}" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title"><div class="parallelogram-blue"></div>
+                            <div class="parallelogram-orange"></div><div class="parallelogram-text"> {{item.courseTitle}}</div>
+                        </h5>
+                        <p class="card-text truncate-text demission">{{item.courseDescription}}</p>
+                        <span>Giảng viên: <a  [routerLink]="['/home/thong-tin-ca-nhan', item.author.userID]"><b>{{item.author.userName}}</b></a> </span><br/>
+                        <div class="row">
+                            <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                <i class="fa fa-users"></i> {{item.views}}
+                            </div>
+                            <!-- <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-right">
+                                <i class="fa fa-clock-o"></i> 45 giờ học
+                            </div> -->
                         </div>
-                        <div class="card-footer">
-                            <h4 class="card-title">Khóa học ABC</h4>
-                            <p class="card-text text-right"><button type="button" class="btn ibtn">Xem chi tiết</button></p>
-                        </div>
+                        <!-- <span><b class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></b></span> -->
+                        <div class="text-right"><a [routerLink]="['/home/chi-tiet-khoa-hoc',item.courseID]" class="btn ibtn">Xem chi tiết</a></div>
+                    </div>
+                    <div class="card-footer text-right">
+                        <h6 class="price"  >{{item.price==0?'Miễn phí':item.price+'đ'}}</h6>
                     </div>
                 </div>
-                <!-- item -->
-                <!-- item -->
-                <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
-                    <div class="card bg-default">
-                        <div class="card-body">
-                            <img src="assets/home/images/oracle.jpg" class="card-img-top" alt="">
-                        </div>
-                        <div class="card-footer">
-                            <h4 class="card-title">Khóa học ABC</h4>
-                            <p class="card-text text-right"><button type="button" class="btn ibtn">Xem chi tiết</button></p>
-                        </div>
-                    </div>
-                </div>
-                <!-- item -->
-                <!-- item -->
-                <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
-                    <div class="card bg-default">
-                        <div class="card-body">
-                            <img src="assets/home/images/oracle.jpg" class="card-img-top" alt="">
-                        </div>
-                        <div class="card-footer">
-                            <h4 class="card-title">Khóa học ABC</h4>
-                            <p class="card-text text-right"><button type="button" class="btn ibtn">Xem chi tiết</button></p>
-                        </div>
-                    </div>
-                </div>
-                <!-- item -->
-                <!-- item -->
-                <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
-                    <div class="card bg-default">
-                        <div class="card-body">
-                            <img src="assets/home/images/oracle.jpg" class="card-img-top" alt="">
-                        </div>
-                        <div class="card-footer">
-                            <h4 class="card-title">Khóa học ABC</h4>
-                            <p class="card-text text-right"><button type="button" class="btn ibtn">Xem chi tiết</button></p>
-                        </div>
-                    </div>
-                </div>
-                <!-- item -->
-                <!-- item -->
-                <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
-                    <div class="card bg-default">
-                        <div class="card-body">
-                            <img src="assets/home/images/oracle.jpg" class="card-img-top" alt="">
-                        </div>
-                        <div class="card-footer">
-                            <h4 class="card-title">Khóa học ABC</h4>
-                            <p class="card-text text-right"><button type="button" class="btn ibtn">Xem chi tiết</button></p>
-                        </div>
-                    </div>
-                </div>
-                <!-- item -->
-                <!-- item -->
-                <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
-                    <div class="card bg-default">
-                        <div class="card-body">
-                            <img src="assets/home/images/oracle.jpg" class="card-img-top" alt="">
-                        </div>
-                        <div class="card-footer">
-                            <h4 class="card-title">Khóa học ABC</h4>
-                            <p class="card-text text-right"><button type="button" class="btn ibtn">Xem chi tiết</button></p>
-                        </div>
-                    </div>
-                </div>
-                <!-- item -->
-                <!-- item -->
-                <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
-                    <div class="card bg-default">
-                        <div class="card-body">
-                            <img src="assets/home/images/oracle.jpg" class="card-img-top" alt="">
-                        </div>
-                        <div class="card-footer">
-                            <h4 class="card-title">Khóa học ABC</h4>
-                            <p class="card-text text-right"><button type="button" class="btn ibtn">Xem chi tiết</button></p>
-                        </div>
-                    </div>
-                </div>
-                <!-- item -->
-                <!-- item -->
-                <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
-                    <div class="card bg-default">
-                        <div class="card-body">
-                            <img src="assets/home/images/oracle.jpg" class="card-img-top" alt="">
-                        </div>
-                        <div class="card-footer">
-                            <h4 class="card-title">Khóa học ABC</h4>
-                            <p class="card-text text-right"><button type="button" class="btn ibtn">Xem chi tiết</button></p>
-                        </div>
-                    </div>
                 </div>
                 <!-- item -->
             </div>
