@@ -1,4 +1,4 @@
-import { Topic } from './../../../_models/Topic';
+import { Topic } from "./../../../_models/Topic";
 import { OnDestroy } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { ConfigValue } from "./../../../_helpers/config-value";
@@ -11,20 +11,44 @@ import { Title } from "@angular/platform-browser";
 })
 export class KhoaHocChiTietComponent implements OnInit, OnDestroy {
   private reloadPageWhenIDChange(idCourse: string): void {
+    // tslint:disable-next-line:no-var-keyword
+
     this.http
       .get(this.config.url_port + `/users/course/${idCourse}`)
       .subscribe(data => {
         this.courseItem = data;
-         this.author = this.courseItem.author;
+        const authorID = this.courseItem.author.userID;
+        this.topic = this.courseItem.topic;
+        // lấy thông tin author
+        this.http
+          .get(this.config.url_port + `/users/course/author/${authorID}`)
+          .subscribe(dataAuthor => {
+            this.author = dataAuthor;
+            console.log(this.author);
+          });
+        // lây thông tin khóa học liên quan
+        this.http
+          .get(
+            this.config.url_port +
+              `/users/course/${this.courseItem.courseID}/relationship?page=1&size=100`
+          )
+          .subscribe((dataCourseRelationship: any) => {
+            this.listCourseRelationship = dataCourseRelationship.listOfResult;
+          });
       });
+
+       this.http.get(this.config.url_port + `/user/course/${idCourse}/chapter`).subscribe(data => {
+         console.log(data);
+       });
   }
   ngOnDestroy() {
     this.sub.unsubscribe();
   }
   private sub: any;
   public courseItem: any = {};
-  public author: any  = {};
-   public topic: any = {};
+  public author: any = {};
+  public topic: any = {};
+   public listCourseRelationship: any = [];
   constructor(
     private title: Title,
     private route: ActivatedRoute,
@@ -36,8 +60,8 @@ export class KhoaHocChiTietComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
-      const idCourse: string = params["id"];
-      this.reloadPageWhenIDChange(idCourse);
+      this.reloadPageWhenIDChange(params["id"]);
+      console.log(params['id']);
     });
   }
 }

@@ -94,7 +94,7 @@ export class TopicRestInterceptor implements HttpInterceptor {
           return Observable.of(
             new HttpResponse({
               status: 200,
-              body: { listOfResult:  new DataCourse().getAllCourse(),
+              body: { listOfResult:  1234,
               numberOfPage: 1 }
             })
           );
@@ -104,7 +104,7 @@ export class TopicRestInterceptor implements HttpInterceptor {
           return Observable.of(
             new HttpResponse({
               status: 200,
-              body: { listOfResult: new DataCourse().getAllCourse(),
+              body: { listOfResult: 1234,
               numberOfPage: 1 }
             })
           );
