@@ -32,6 +32,7 @@ export class ThongTinCaNhanComponent implements OnInit, OnDestroy {
       .get(this.config.url_port + `/users/course/author/${idAuthor}`)
       .subscribe((data: any) => {
         this.authorItem = data;
+        console.log(data);
       });
     this.http
       .get(

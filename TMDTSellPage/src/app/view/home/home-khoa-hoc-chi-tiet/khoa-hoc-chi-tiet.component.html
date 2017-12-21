@@ -52,14 +52,14 @@
                                     <span>24 bài học</span>
                                 </div>
                             </div>
-                            <div class="row">
+                            <!-- <div class="row">
                                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                                     <span><i class="fa fa-file-text"></i> Thời lượng video: </span>
                                 </div>
                                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-right">
                                     <span>9 giờ 59 phút</span>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="row">
                                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                                     <span><i class="fa fa-file-text"></i> Chủ để: </span>
@@ -93,7 +93,7 @@
                     <h3>Bài 1: bla bla bla</h3>
                     <hr/>
                     <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/hCoZpTg8kyY" allowfullscreen></iframe>
+                        <iframe class="embed-responsive-item" src="http://s.bilutv.com/HP/Phim_Le/Trum_Huong_Cang_720.MP4" allowfullscreen></iframe>
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 icol-2">
@@ -114,29 +114,20 @@
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 icol-1">
                     <h3>Đề cương môn học</h3>
-                    <div class="list-group">
+                    <h4>{{listChapter.length==0?'Đang cập nhật...':''}}</h4>
+                    <div *ngFor="let itemChapter of listChapter, let i = index"   class="list-group">
                         <span class="list-group-item list-group-item-action flex-column align-items-start active">
                             <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1">Chương 0</h5>
-                                <small><i class="fa fa-clock-o"></i> 0 phút</small>
+                                <h5 class="mb-1">Chương {{i+1}}: {{itemChapter.chapterTitle}}</h5>
+                                <!-- <small><i class="fa fa-clock-o"></i> 0 phút</small> -->
                             </div>
                         </span>
-                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                            <p class="mb-1"><i class="fa fa-file"></i> Source code và slide khóa học Nền tảng Cơ Sở Dữ Liệu qua các ví dụ Thực tiễn</p>
+                        <a   *ngFor="let itemLesson of itemChapter.listOfLession"   href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <p class="mb-1"><i class="fa fa-file"></i> {{itemLesson.lessonTitle}}</p>
                         </a>
                     </div>
 
-                    <div class="list-group">
-                        <span class="list-group-item list-group-item-action flex-column align-items-start active">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1">Chương 1</h5>
-                                <small><i class="fa fa-clock-o"></i> 10 phút</small>
-                            </div>
-                        </span>
-                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                            <p class="mb-1"><i class="fa fa-play-circle"></i> Bài 1: Giới thiệu chung, đối tượng sử dụng, HQT CSDL, các ứng dụng của CSDL</p>
-                        </a>
-                    </div>
+
                 </div>
                 <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 icol-2">
                     <div class="card">
