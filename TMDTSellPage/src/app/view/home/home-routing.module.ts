@@ -30,7 +30,7 @@ children: [
     }, {
         path: 'dome-dropdowns', component: DemoDropdownsComponent
     }, {
-        path: 'bai-hoc', component: BaiHocComponent
+        path: 'bai-hoc/:id', component: BaiHocComponent
     }, {
         path: 'thanh-toan', component: ThanhToanComponent
     }, {
