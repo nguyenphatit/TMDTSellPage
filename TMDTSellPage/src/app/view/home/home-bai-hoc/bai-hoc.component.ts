@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 @Component({
-    templateUrl: 'khoa-hoc.component.html'
+    templateUrl: 'bai-hoc.component.html'
 })
 
-export class KhoaHocComponent implements OnInit {
+export class BaiHocComponent implements OnInit {
     constructor(private title: Title) {
-        this.title.setTitle('3TPL | Khóa học');
-     }
+        this.title.setTitle('3TPL | Bài học');
+    }
 
     ngOnInit() { }
 }
