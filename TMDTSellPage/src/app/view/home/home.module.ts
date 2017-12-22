@@ -16,6 +16,7 @@ import { DieuKhoanSuDungComponent } from './hone-dieu-khoan-su-dung/dieu-khoan-s
 import { BaiHocComponent } from './home-bai-hoc/bai-hoc.component';
 import { ThanhToanComponent } from './home-thanh-toan/thanh-toan.component';
 import { NapTheComponent } from './home-nap-the/nap-the.component';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { NapTheComponent } from './home-nap-the/nap-the.component';
         ReactiveFormsModule,
         BsDropdownModule.forRoot(),
         AccordionModule.forRoot(),
-        CollapseModule.forRoot()
+        CollapseModule.forRoot(),
+        CarouselModule.forRoot()
     ],
     exports: [],
     declarations: [
