@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { HomeRoutingModule } from './home-routing.module';
-import { KhoaHocComponent } from './home-khoa-hoc/khoa-hoc.component';
 import { KhoaHocChiTietComponent } from './home-khoa-hoc-chi-tiet/khoa-hoc-chi-tiet.component';
 import { MainHomeComponent } from './home-main/home-main.component';
 import { ThongTinCaNhanComponent } from './home-thong-tin-ca-nhan/thong-tin-ca-nhan.component';
@@ -14,6 +13,7 @@ import { DanhSachKhoaHocComponent } from './home-danh-sach-khoa-hoc/danh-sach-kh
 import { NapTienComponent } from './home-nap-tien/nap-tien.component';
 import { GioiThieuComponent } from './home-gioi-thieu/gioi-thieu.component';
 import { DieuKhoanSuDungComponent } from './hone-dieu-khoan-su-dung/dieu-khoan-su-dung.component';
+import { BaiHocComponent } from './home-bai-hoc/bai-hoc.component';
 
 
 @NgModule({
@@ -28,7 +28,6 @@ import { DieuKhoanSuDungComponent } from './hone-dieu-khoan-su-dung/dieu-khoan-s
     exports: [],
     declarations: [
         HomeComponent,
-        KhoaHocComponent,
         KhoaHocChiTietComponent,
         MainHomeComponent,
         ThongTinCaNhanComponent,
@@ -36,7 +35,8 @@ import { DieuKhoanSuDungComponent } from './hone-dieu-khoan-su-dung/dieu-khoan-s
         NapTienComponent,
         GioiThieuComponent,
         DieuKhoanSuDungComponent,
-        DemoDropdownsComponent
+        DemoDropdownsComponent,
+        BaiHocComponent
     ],
     providers: [],
 })
