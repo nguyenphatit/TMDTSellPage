@@ -55,18 +55,17 @@
                     </a>
                     <div *dropdownMenu role="menu" class="dropdown-menu sub-menu" aria-labelledby="navbardropdown">
                         <div class="container">
-                            <div class="row">
-                                <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-mleft">
+                            <!-- <div class="row"> -->
+                                <!-- <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-mleft"> -->
                                     <a  *ngFor="let item of listTopic" class="dropdown-item" [routerLink]="['/home/danh-sach-khoa-hoc', item.topicID]">
-                                        <i class="fa fa-android"></i>{{item.topicName}}</a>
-
-                                </div>
+                                        <i class="fa fa-archive"></i> {{item.topicName}}</a>
+                                <!-- </div> -->
                                 <!-- <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-m-right">
                                     <a class="dropdown-item" href="#">
                                         <i class="fa fa-android"></i> LẬP TRÌNH DI ĐỘNG</a>
 
                                 </div> -->
-                            </div>
+                            <!-- </div> -->
                         </div>
                     </div>
                 </li>
