@@ -122,7 +122,9 @@
                                 <!-- <small><i class="fa fa-clock-o"></i> 0 phút</small> -->
                             </div>
                         </span>
+
                         <a   *ngFor="let itemLesson of itemChapter.listOfLesson"   [routerLink]="['/home/bai-hoc',itemLesson.lessonID]" class="list-group-item list-group-item-action flex-column align-items-start">
+
                             <p class="mb-1"><i class="fa fa-file"></i> {{itemLesson.lessonTitle}}</p>
                         </a>
                     </div>
