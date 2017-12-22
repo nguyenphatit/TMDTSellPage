@@ -6,8 +6,17 @@ import { Title } from '@angular/platform-browser';
 })
 
 export class BaiHocComponent implements OnInit {
+    isCollapsed = true;
     constructor(private title: Title) {
         this.title.setTitle('3TPL | Bài học');
+    }
+
+    collapsed(event: any): void {
+        console.log(event);
+    }
+
+    expanded(event: any): void {
+        console.log(event);
     }
 
     ngOnInit() { }

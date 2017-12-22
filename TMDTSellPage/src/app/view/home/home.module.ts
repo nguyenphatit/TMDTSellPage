@@ -7,6 +7,7 @@ import { HomeComponent } from './home.component';
 import { DemoDropdownsComponent } from './demo-dropdowns/demo-dropdowns.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DanhSachKhoaHocComponent } from './home-danh-sach-khoa-hoc/danh-sach-khoa-hoc.component';
@@ -23,7 +24,8 @@ import { BaiHocComponent } from './home-bai-hoc/bai-hoc.component';
         FormsModule,
         ReactiveFormsModule,
         BsDropdownModule.forRoot(),
-        AccordionModule.forRoot()
+        AccordionModule.forRoot(),
+        CollapseModule.forRoot()
     ],
     exports: [],
     declarations: [

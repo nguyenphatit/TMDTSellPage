@@ -2,7 +2,7 @@
 	background: #111111;
 	color: #ffffff;
 	section.sec-1 {
-		padding: 75px 0 0 0;
+		padding: 81px 0 0 0;
 		background: #000000;
 	}
 
@@ -10,6 +10,7 @@
 		h3 {
 			padding: 50px 0 10px 0;
 			font-weight: bold;
+			font-size: 1.2em;
 		}
 
 		.text-right {
@@ -36,6 +37,10 @@
 					color: #ffffff;
 				}
 			}
+
+			.ibtn-circle-white {
+				margin: 10px 0 20px 0;
+			}
 		}
 	}
 
@@ -53,6 +58,10 @@
 				a {
 					color: #ffffff;
 				}
+			}
+
+			.ibtn-circle-white {
+				margin: 10px 0 30px 0;
 			}
 		}
 	}
