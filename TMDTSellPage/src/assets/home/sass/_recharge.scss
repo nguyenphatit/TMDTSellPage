@@ -1,9 +1,12 @@
 .recharge {
 	section.sec-1 {
-		padding: 150px 0 50px 0;
+		padding: 150px 0 10px 0;
 		h1 {
 			font-family: $font1;
 		}
+	}
+	section.sec-2 {
+		padding: 0 0 50px 0;
 		.show-note {
 			margin: 50px 0 20px 0;
 			background: $color4;
@@ -24,15 +27,39 @@
 			}
 		}
 	}
+
+	section.sec-3 {
+		padding: 0 0 100px 0;
+		.show-note {
+			margin: 50px 0 20px 0;
+			background: $color4;
+			color: #FFFFFF;
+			padding: 15px 0 10px 10px;
+		}
+
+		img {
+			padding: 50px 10px 50px 10px;
+			border: 1px solid $color5;
+			@include basic-delay(1s);
+			&:hover {
+				@include basic-shadow(1px, 1px, 10px, 1px, #999);
+				@include basic-delay(1s);
+			}
+		}
+	}
 }
 
 @media (max-width: 768px) {
-	.brand-card {
-		border: 1px solid $color4;
-		border-bottom: none;
-		padding: 5px 0 5px 0;
-		&:last-child {
-			border-bottom: 1px solid $color4;
+	.recharge {
+		section.sec-2 {
+			.brand-card {
+				border: 1px solid $color4;
+				border-bottom: none;
+				padding: 5px 0 5px 0;
+				&:last-child {
+					border-bottom: 1px solid $color4;
+				}
+			}
 		}
 	}
 }
