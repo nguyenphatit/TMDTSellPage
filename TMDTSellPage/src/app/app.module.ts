@@ -1,3 +1,4 @@
+import { ShoppingCartService } from './_services/shopping-cart/shopping-cart.service';
 import { Router } from '@angular/router';
 import { AuthenticationService } from './_services/AuthenticationService';
 import { UserService } from './_services/user.service';
@@ -99,6 +100,7 @@ const APP_MOCKTEST = [
     BsDropdownModule.forRoot()
   ],
   providers: [
+    ShoppingCartService,
     AuthenticationService,
     ConfigValue,
     UserService,
