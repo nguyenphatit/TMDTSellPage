@@ -1,3 +1,5 @@
+import { Item } from './../../_models/shopping-cart/item';
+import { ShoppingCartService } from './../../_services/shopping-cart/shopping-cart.service';
 import { ConfigValue } from './../../_helpers/config-value';
 import { User } from './../../_models/User';
 import { Component, OnInit, HostListener } from '@angular/core';
@@ -18,6 +20,7 @@ export class HomeHeaderComponent implements OnInit {
   public megamenu = true; // hien thi menu khi thu nhỏ
   public user: User;
   public listTopic: any = [];
+  cart: Item[] ;
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     if (event.target.innerWidth < 990) {
@@ -43,11 +46,12 @@ export class HomeHeaderComponent implements OnInit {
     private router: Router,
     private auth: AuthenticationService,
     private http: HttpClient,
-    private config: ConfigValue
+    private config: ConfigValue,
+    public cartService: ShoppingCartService
   ) {}
 
   ngOnInit() {
-
+    this.cart =  this.cartService.cart;
 
     this.refrershToken();
     if (window.innerWidth < 990) {
@@ -98,4 +102,8 @@ export class HomeHeaderComponent implements OnInit {
       }
     );
   }
+  // xu lý gio hàng
+     public deleteItem(id: any ) {
+         this.cartService.deleteItem(id);
+      }
 }

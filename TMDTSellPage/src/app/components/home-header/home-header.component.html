@@ -73,7 +73,7 @@
                 <li dropdown class="nav-item dropdown">
                     <a dropdownToggle class="nav-link dropdown-toggle" id="navbardropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
-                        <i class="fa fa-shopping-cart"></i> Giỏ hàng (2)
+                        <i class="fa fa-shopping-cart"></i> Giỏ hàng  ( {{cartService.tongSL}} )
                     </a>
                     <div *dropdownMenu role="menu" class="dropdown-menu shopping-cart" aria-labelledby="navbardropdown">
                         <table class="table table-responsive-md">
@@ -81,45 +81,22 @@
                                 <tr>
                                     <th scope="col" class="cart-count">#</th>
                                     <th scope="col">Tên Sản phẩm</th>
-                                    <th scope="col" class="cart-img">Hình ảnh</th>
-                                    <th scope="col" class="cart-price">Đơn giá</th>
-                                    <th scope="col">Số lượng</th>
+                                    <th scope="col" class="cart-img">Hình ảnh</th>   
                                     <th scope="col" class="cart-money">Thành tiền</th>
                                     <th scope="col">Xóa</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td class="cart-count">1</td>
-                                    <td>ABC</td>
+                                <tr  *ngFor="let item of cart ; let i = index " >
+                                    <td class="cart-count">{{i + 1}}</td>
+                                    <td> {{item.name}}</td>
                                     <td class="cart-img">
-                                        <img src="assets/home/images/oracle.jpg" alt="hình ảnh">
+                                        <img style="width: 50px;" src="{{item.image}}" alt="hình ảnh">
                                     </td>
-                                    <td class="cart-price">123.000 đ</td>
+                                    <td class="cart-price">{{item.price}} đ</td>
                                     <td>
-                                        <input type="number" name="quantity" min="1" max="5">
-                                    </td>
-                                    <td class="cart-money">123.000 đ</td>
-                                    <td>
-                                        <a href="" class="remove-item">
-                                            <i class="fa fa-trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="cart-count">2</td>
-                                    <td>ABC</td>
-                                    <td class="cart-img">
-                                        <img src="assets/home/images/oracle.jpg" alt="hình ảnh">
-                                    </td>
-                                    <td class="cart-price">123.000 đ</td>
-                                    <td>
-                                        <input type="number" name="quantity" min="1" max="5">
-                                    </td>
-                                    <td class="cart-money">123.000 đ</td>
-                                    <td>
-                                        <a href="" class="remove-item">
-                                            <i class="fa fa-trash"></i>
+                                        <a class="remove-item">
+                                            <i  (click)="deleteItem(item.id)"  class="fa fa-trash"></i>
                                         </a>
                                     </td>
                                 </tr>
@@ -127,7 +104,7 @@
                         </table>
                         <div class="container">
                             Thanh toán:
-                            <b>123.000đ</b>
+                            <b> {{ cartService.tong }} đ</b>
                         </div>
                         <div class="container text-right">
                             <button class="btn ibtn">Thanh toán</button>
