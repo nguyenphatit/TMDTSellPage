@@ -17,15 +17,13 @@ children: [
     {
         path: 'khoa-hoc', component: KhoaHocComponent
     }, {
-        path: 'khoa-hoc-chi-tiet', component: KhoaHocChiTietComponent
-    }, {
         path: 'main' , component: MainHomeComponent
     }, {
-        path : 'thong-tin-ca-nhan' , component: ThongTinCaNhanComponent
+        path : 'thong-tin-ca-nhan/:id' , component: ThongTinCaNhanComponent
     }, {
-        path: 'chi-tiet-khoa-hoc', component: KhoaHocChiTietComponent
+        path: 'chi-tiet-khoa-hoc/:id', component: KhoaHocChiTietComponent
     }, {
-        path: 'danh-sach-khoa-hoc', component: DanhSachKhoaHocComponent
+        path: 'danh-sach-khoa-hoc/:id', component: DanhSachKhoaHocComponent
     }, {
         path: 'nap-tien', component: NapTienComponent
     }, {

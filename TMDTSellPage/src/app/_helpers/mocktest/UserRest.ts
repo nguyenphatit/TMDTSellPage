@@ -153,6 +153,7 @@ export class UserRestInterceptor implements HttpInterceptor {
         }).materialize()
             .delay(1500)
             .dematerialize();
+
     }
 }
 export let UserRest = {

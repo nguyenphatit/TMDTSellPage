@@ -6,73 +6,96 @@ import { AuthenticationService } from '../../_services/AuthenticationService';
 import { HttpErrorResponse, HttpClient } from '@angular/common/http';
 
 @Component({
-    selector: 'app-home-header',
-    templateUrl: 'home-header.component.html',
-    styleUrls: ['home-header.component.css']
+  selector: 'app-home-header',
+  templateUrl: 'home-header.component.html',
+  styleUrls: ['home-header.component.css']
 })
-
 export class HomeHeaderComponent implements OnInit {
-    isloading = true; // hiệu ứng loading .. pages
-    isLogin = false; // kiểm tra người dùng đăng nhập chưa
-    // isShow = false;
-    effectNavbar = false; // khi lăng chuột xuống menu nhỏ lai
-    public megamenu = true; // hien thi menu khi thu nhỏ
-    public user: User;
-    @HostListener('window:resize', ['$event'])
-    onResize(event) {
-        if (event.target.innerWidth < 990) {
-            this.megamenu = false;
-        } else {
-            this.megamenu = true;
-        }
+  isloading = true; // hiệu ứng loading .. pages
+  isLogin = false; // kiểm tra người dùng đăng nhập chưa
+  // isShow = false;
+  effectNavbar = false; // khi lăng chuột xuống menu nhỏ lai
+  public megamenu = true; // hien thi menu khi thu nhỏ
+  public user: User;
+  public listTopic: any = [];
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    if (event.target.innerWidth < 990) {
+      this.megamenu = false;
+    } else {
+      this.megamenu = true;
     }
-    @HostListener('window:scroll', ['$event'])
-    onWindowScroll() {
-        const number = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-        if (number > 600) {
-            this.effectNavbar = true;
-        } else {
-            this.effectNavbar = false;
-        }
+  }
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll() {
+    const number =
+      window.pageYOffset ||
+      document.documentElement.scrollTop ||
+      document.body.scrollTop ||
+      0;
+    if (number > 600) {
+      this.effectNavbar = true;
+    } else {
+      this.effectNavbar = false;
     }
-    constructor(
-        private router: Router,
-        private auth: AuthenticationService,
-        private http: HttpClient,
-        private config: ConfigValue) { }
+  }
+  constructor(
+    private router: Router,
+    private auth: AuthenticationService,
+    private http: HttpClient,
+    private config: ConfigValue
+  ) {}
 
-    ngOnInit() {
-        this.refrershToken();
-        if (window.innerWidth < 990) {
-            this.megamenu = false;
-        } else {
-            this.megamenu = true;
+  ngOnInit() {
+
+
+    this.refrershToken();
+    if (window.innerWidth < 990) {
+      this.megamenu = false;
+    } else {
+      this.megamenu = true;
+    }
+    this.http.get(this.config.url_port + '/users/topic?page=1&size=100').subscribe(
+      data => {
+        const tmp_data: any = data;
+        this.listTopic = tmp_data.listOfResult;
+      },
+      (err: HttpErrorResponse) => {
+        console.log(err);
+        if (err.status === 403) {
+          console.log('Loi 403');
         }
-    }
-    public login(): void {
-        this.router.navigate(['/pages/dang-nhap'], { queryParams: { 'returnUrl': this.router.routerState.snapshot.url } });
-    }
-    public logout(): void {
-        this.auth.logout();
-        this.refrershToken();
-        this.isloading = true;
-        setTimeout(() => {
-            this.isloading = false;
-        }, 500);
-    }
-    public refrershToken(): void {
-        this.isloading = true;
-        this.auth.refreshToken().subscribe( // kiểm tra người dùng đã đăng nhập chưa
-            data => {
-                this.auth.getInformation().subscribe( (user: User) => {
-                    this.user = user ;
-                });
-                this.isLogin = true;
-                this.isloading = false;
-            }, (err: HttpErrorResponse) => {
-                this.isLogin = false;
-                this.isloading = false;
-            }
-        );
-    }
+      }
+    );
+  }
+  public login(): void {
+    this.router.navigate(['/pages/dang-nhap'], {
+      queryParams: { returnUrl: this.router.routerState.snapshot.url }
+    });
+  }
+  public logout(): void {
+    this.auth.logout();
+    this.refrershToken();
+    this.isloading = true;
+    setTimeout(() => {
+      this.isloading = false;
+    }, 500);
+  }
+  public refrershToken(): void {
+    this.isloading = true;
+    this.auth.refreshToken().subscribe(
+      // kiểm tra người dùng đã đăng nhập chưa
+      data => {
+        this.auth.getInformation().subscribe((user: User) => {
+          this.user = user;
+        });
+        this.isLogin = true;
+        this.isloading = false;
+      },
+      (err: HttpErrorResponse) => {
+        this.isLogin = false;
+        this.isloading = false;
+      }
+    );
+  }
 }

@@ -73,7 +73,7 @@ const APP_COMPONENTS = [
   HomeFooterComponent
 ];
 // import mocktest
-import { UserRest, AuthenticationRest} from './_helpers';
+import { UserRest, TopicRest , AuthenticationRest} from './_helpers';
 import { CommonModule } from '@angular/common';
 import { DataUser } from './_helpers/mocktest/DataUser';
 // mocktest
@@ -110,8 +110,9 @@ const APP_MOCKTEST = [
   //  { provide: HTTP_INTERCEPTORS, useClass: HttpXsrfInterceptor, multi: true },
     // HttpClientXsrfModule
     // provider used to create fake backend
-    AuthenticationRest,
-    UserRest,
+    // AuthenticationRest,
+    // UserRest,
+  //  TopicRest
     // APP_MOCKTEST
     // Datatest
     DataUser
