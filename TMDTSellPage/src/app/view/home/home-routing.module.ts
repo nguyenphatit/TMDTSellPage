@@ -11,6 +11,7 @@ import { DieuKhoanSuDungComponent } from './hone-dieu-khoan-su-dung/dieu-khoan-s
 import { BaiHocComponent } from './home-bai-hoc/bai-hoc.component';
 import { ThanhToanComponent } from './home-thanh-toan/thanh-toan.component';
 import { NapTheComponent } from './home-nap-the/nap-the.component';
+import { LichSuGiaoDichComponent } from './home.lich-su-giao-dich/lich-su-giao-dich.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent,
@@ -35,6 +36,8 @@ children: [
         path: 'thanh-toan', component: ThanhToanComponent
     }, {
         path: 'nap-the', component: NapTheComponent
+    }, {
+        path: 'lich-su-giao-dich', component: LichSuGiaoDichComponent
     }
 ]
   } ,  {
