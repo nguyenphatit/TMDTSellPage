@@ -9,8 +9,8 @@ import { HttpErrorResponse, HttpClient } from "@angular/common/http";
 
 @Component({
   selector: "app-home-header",
-  templateUrl: "home-header.component.html",
-  styleUrls: ["home-header.component.css"]
+  templateUrl: 'home-header.component.html',
+  styleUrls: ['home-header.component.css']
 })
 export class HomeHeaderComponent implements OnInit {
   isloading = true; // hiệu ứng loading .. pages
@@ -21,7 +21,7 @@ export class HomeHeaderComponent implements OnInit {
   public user: User;
   public listTopic: any = [];
   cart: Item[];
-  @HostListener("window:resize", ["$event"])
+  @HostListener('window:resize', ['$event'])
   onResize(event) {
     if (event.target.innerWidth < 990) {
       this.megamenu = false;
@@ -29,7 +29,7 @@ export class HomeHeaderComponent implements OnInit {
       this.megamenu = true;
     }
   }
-  @HostListener("window:scroll", ["$event"])
+  @HostListener('window:scroll', ['$event'])
   onWindowScroll() {
     const number =
       window.pageYOffset ||
@@ -60,30 +60,30 @@ export class HomeHeaderComponent implements OnInit {
       this.megamenu = true;
     }
     this.http
-      .get(this.config.url_port + "/users/topic?page=1&size=100")
+      .get(this.config.url_port + '/users/topic?page=1&size=100')
       .subscribe(
         data => {
           const tmp_data: any = data;
           this.listTopic = tmp_data.listOfResult;
-          console.log(this.listTopic);
-          console.log(
-            this.listTopic.slice(
-              this.listTopic.length / 2,
-              this.listTopic.length
-            )
-          );
-          console.log(this.listTopic.slice(0, this.listTopic.length / 2));
+          // console.log(this.listTopic);
+          // console.log(
+          //   this.listTopic.slice(
+          //     this.listTopic.length / 2,
+          //     this.listTopic.length
+          //   )
+          // );
+          // console.log(this.listTopic.slice(0, this.listTopic.length / 2));
         },
         (err: HttpErrorResponse) => {
           console.log(err);
           if (err.status === 403) {
-            console.log("Loi 403");
+            console.log('Loi 403');
           }
         }
       );
   }
   public login(): void {
-    this.router.navigate(["/pages/dang-nhap"], {
+    this.router.navigate(['/pages/dang-nhap'], {
       queryParams: { returnUrl: this.router.routerState.snapshot.url }
     });
   }
@@ -99,14 +99,19 @@ export class HomeHeaderComponent implements OnInit {
     this.isloading = true;
     this.auth.refreshToken().subscribe(
       // kiểm tra người dùng đã đăng nhập chưa
-      data => {
-        this.auth.getInformation().subscribe((user: User) => {
-          this.user = user;
-        });
+      ( data: any) => {
+        this.auth.getInformation().subscribe(
+          (user: User) => {
+            this.user = user;
+          }
+        );
         this.isLogin = true;
         this.isloading = false;
       },
       (err: HttpErrorResponse) => {
+        if (err.status === 403) {
+          console.log('Chưa đăng nhập!');
+        }
         this.isLogin = false;
         this.isloading = false;
       }
