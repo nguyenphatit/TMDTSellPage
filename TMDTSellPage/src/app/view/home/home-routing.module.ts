@@ -1,4 +1,3 @@
-import { DemoComponent } from './home-demo/demo.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home.component';

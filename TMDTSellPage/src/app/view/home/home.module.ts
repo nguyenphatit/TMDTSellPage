@@ -1,4 +1,3 @@
-import { DemoComponent } from './home-demo/demo.component';
 import { NgModule } from '@angular/core';
 import { HomeRoutingModule } from './home-routing.module';
 import { KhoaHocChiTietComponent } from './home-khoa-hoc-chi-tiet/khoa-hoc-chi-tiet.component';
