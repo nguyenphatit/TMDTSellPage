@@ -7,10 +7,12 @@ import { MainHomeComponent } from './home-main/home-main.component';
 import { ThongTinCaNhanComponent } from './home-thong-tin-ca-nhan/thong-tin-ca-nhan.component';
 import { DemoDropdownsComponent } from './demo-dropdowns/demo-dropdowns.component';
 import { DanhSachKhoaHocComponent } from './home-danh-sach-khoa-hoc/danh-sach-khoa-hoc.component';
-import { NapTienComponent } from './home-nap-tien/nap-tien.component';
 import { GioiThieuComponent } from './home-gioi-thieu/gioi-thieu.component';
 import { DieuKhoanSuDungComponent } from './hone-dieu-khoan-su-dung/dieu-khoan-su-dung.component';
 import { BaiHocComponent } from './home-bai-hoc/bai-hoc.component';
+import { ThanhToanComponent } from './home-thanh-toan/thanh-toan.component';
+import { NapTheComponent } from './home-nap-the/nap-the.component';
+import { LichSuGiaoDichComponent } from './home.lich-su-giao-dich/lich-su-giao-dich.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent,
@@ -24,15 +26,19 @@ children: [
     }, {
         path: 'danh-sach-khoa-hoc/:id', component: DanhSachKhoaHocComponent
     }, {
-        path: 'nap-tien', component: NapTienComponent
-    }, {
         path: 'gioi-thieu', component: GioiThieuComponent
     }, {
         path: 'dieu-khoan-su-dung', component: DieuKhoanSuDungComponent
     }, {
         path: 'dome-dropdowns', component: DemoDropdownsComponent
     }, {
-        path: 'bai-hoc', component: BaiHocComponent
+        path: 'bai-hoc/:id', component: BaiHocComponent
+    }, {
+        path: 'thanh-toan', component: ThanhToanComponent
+    }, {
+        path: 'nap-the', component: NapTheComponent
+    }, {
+        path: 'lich-su-giao-dich', component: LichSuGiaoDichComponent
     }
 ]
   } ,  {

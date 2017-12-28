@@ -1,6 +1,6 @@
 .lesson {
-	background: #111111;
-	color: #ffffff;
+	background: #fff;
+	color: #000000;
 	section.sec-1 {
 		padding: 81px 0 0 0;
 		background: #000000;
@@ -11,6 +11,7 @@
 			padding: 50px 0 10px 0;
 			font-weight: bold;
 			font-size: 1.2em;
+			color: #000000;
 		}
 
 		.text-right {
@@ -42,6 +43,13 @@
 				margin: 10px 0 20px 0;
 			}
 		}
+		.fbcmt {
+			padding: 10px 10px 10px 10px;
+			h5 {
+				color: #000000;
+			}
+			background: rgba(255, 255, 255, 0.9);
+		}
 	}
 
 	section.sec-4 {
@@ -64,25 +72,32 @@
 				margin: 10px 0 30px 0;
 			}
 		}
+		.fbcmt {
+			background: #ffffff;
+		}
 	}
 }
 
 @media (min-width: 992px) {
-	section.sec-3 {
-		display: block;
-	}
+	.lesson {
+		section.sec-3 {
+			display: block;
+		}
 
-	section.sec-4 {
-		display: none;
+		section.sec-4 {
+			display: none;
+		}
 	}
 }
 
 @media (max-width: 992px) {
-	section.sec-3 {
-		display: none;
-	}
+	.lesson {
+		section.sec-3 {
+			display: none;
+		}
 
-	section.sec-4 {
-		display: block;
+		section.sec-4 {
+			display: block;
+		}
 	}
 }

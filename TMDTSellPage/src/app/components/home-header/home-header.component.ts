@@ -1,14 +1,14 @@
-import { Item } from './../../_models/shopping-cart/item';
-import { ShoppingCartService } from './../../_services/shopping-cart/shopping-cart.service';
-import { ConfigValue } from './../../_helpers/config-value';
-import { User } from './../../_models/User';
-import { Component, OnInit, HostListener } from '@angular/core';
-import { RouterStateSnapshot, Router } from '@angular/router';
-import { AuthenticationService } from '../../_services/AuthenticationService';
-import { HttpErrorResponse, HttpClient } from '@angular/common/http';
+import { Item } from "./../../_models/shopping-cart/item";
+import { ShoppingCartService } from "./../../_services/shopping-cart/shopping-cart.service";
+import { ConfigValue } from "./../../_helpers/config-value";
+import { User } from "./../../_models/User";
+import { Component, OnInit, HostListener } from "@angular/core";
+import { RouterStateSnapshot, Router } from "@angular/router";
+import { AuthenticationService } from "../../_services/AuthenticationService";
+import { HttpErrorResponse, HttpClient } from "@angular/common/http";
 
 @Component({
-  selector: 'app-home-header',
+  selector: "app-home-header",
   templateUrl: 'home-header.component.html',
   styleUrls: ['home-header.component.css']
 })
@@ -20,7 +20,7 @@ export class HomeHeaderComponent implements OnInit {
   public megamenu = true; // hien thi menu khi thu nhỏ
   public user: User;
   public listTopic: any = [];
-  cart: Item[] ;
+  cart: Item[];
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     if (event.target.innerWidth < 990) {
@@ -51,7 +51,7 @@ export class HomeHeaderComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.cart =  this.cartService.cart;
+    this.cart = this.cartService.cart;
 
     this.refrershToken();
     if (window.innerWidth < 990) {
@@ -59,18 +59,28 @@ export class HomeHeaderComponent implements OnInit {
     } else {
       this.megamenu = true;
     }
-    this.http.get(this.config.url_port + '/users/topic?page=1&size=100').subscribe(
-      data => {
-        const tmp_data: any = data;
-        this.listTopic = tmp_data.listOfResult;
-      },
-      (err: HttpErrorResponse) => {
-        console.log(err);
-        if (err.status === 403) {
-          console.log('Loi 403');
+    this.http
+      .get(this.config.url_port + '/users/topic?page=1&size=100')
+      .subscribe(
+        data => {
+          const tmp_data: any = data;
+          this.listTopic = tmp_data.listOfResult;
+          // console.log(this.listTopic);
+          // console.log(
+          //   this.listTopic.slice(
+          //     this.listTopic.length / 2,
+          //     this.listTopic.length
+          //   )
+          // );
+          // console.log(this.listTopic.slice(0, this.listTopic.length / 2));
+        },
+        (err: HttpErrorResponse) => {
+          console.log(err);
+          if (err.status === 403) {
+            console.log('Loi 403');
+          }
         }
-      }
-    );
+      );
   }
   public login(): void {
     this.router.navigate(['/pages/dang-nhap'], {
@@ -89,21 +99,26 @@ export class HomeHeaderComponent implements OnInit {
     this.isloading = true;
     this.auth.refreshToken().subscribe(
       // kiểm tra người dùng đã đăng nhập chưa
-      data => {
-        this.auth.getInformation().subscribe((user: User) => {
-          this.user = user;
-        });
+      ( data: any) => {
+        this.auth.getInformation().subscribe(
+          (user: User) => {
+            this.user = user;
+          }
+        );
         this.isLogin = true;
         this.isloading = false;
       },
       (err: HttpErrorResponse) => {
+        if (err.status === 403) {
+          console.log('Chưa đăng nhập!');
+        }
         this.isLogin = false;
         this.isloading = false;
       }
     );
   }
   // xu lý gio hàng
-     public deleteItem(id: any ) {
-         this.cartService.deleteItem(id);
-      }
+  public deleteItem(id: any) {
+    this.cartService.deleteItem(id);
+  }
 }

@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 @Component({
-    templateUrl: 'nap-tien.component.html'
+    templateUrl: 'lich-su-giao-dich.component.html'
 })
 
-export class NapTienComponent implements OnInit {
+export class LichSuGiaoDichComponent implements OnInit {
     constructor(private title: Title) {
-        this.title.setTitle('3TPL | Nạp tiền');
+        this.title.setTitle('3TPL | Lịch sử giao dịch');
      }
 
     ngOnInit() { }

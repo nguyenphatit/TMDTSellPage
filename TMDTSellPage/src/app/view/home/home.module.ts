@@ -12,10 +12,13 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DanhSachKhoaHocComponent } from './home-danh-sach-khoa-hoc/danh-sach-khoa-hoc.component';
-import { NapTienComponent } from './home-nap-tien/nap-tien.component';
 import { GioiThieuComponent } from './home-gioi-thieu/gioi-thieu.component';
 import { DieuKhoanSuDungComponent } from './hone-dieu-khoan-su-dung/dieu-khoan-su-dung.component';
 import { BaiHocComponent } from './home-bai-hoc/bai-hoc.component';
+import { ThanhToanComponent } from './home-thanh-toan/thanh-toan.component';
+import { NapTheComponent } from './home-nap-the/nap-the.component';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { LichSuGiaoDichComponent } from './home.lich-su-giao-dich/lich-su-giao-dich.component';
 
 
 @NgModule({
@@ -26,7 +29,8 @@ import { BaiHocComponent } from './home-bai-hoc/bai-hoc.component';
         ReactiveFormsModule,
         BsDropdownModule.forRoot(),
         AccordionModule.forRoot(),
-        CollapseModule.forRoot()
+        CollapseModule.forRoot(),
+        CarouselModule.forRoot()
     ],
     exports: [],
     declarations: [
@@ -35,12 +39,13 @@ import { BaiHocComponent } from './home-bai-hoc/bai-hoc.component';
         MainHomeComponent,
         ThongTinCaNhanComponent,
         DanhSachKhoaHocComponent,
-        NapTienComponent,
         GioiThieuComponent,
+        NapTheComponent,
         DieuKhoanSuDungComponent,
         DemoDropdownsComponent,
         BaiHocComponent,
-        DemoComponent
+        ThanhToanComponent,
+        LichSuGiaoDichComponent
     ],
     providers: [],
 })
