@@ -9,51 +9,53 @@
             <table class="table table-hover table-bordered table-responsive">
                 <thead>
                     <tr>
-                        <th scope="col">Mã giao dịch</th>
+                        <th scope="col">#</th>
+                        <th scope="col">Người dùng</th>
                         <th scope="col">Ngày giao dịch</th>
-                        <th scope="col">Hình thức</th>
+                        <th scope="col">Hình thức giao dịch</th>
                         <th scope="col">Có</th>
                         <th scope="col">Nợ</th>          
-                        <th scope="col">Nội dung</th>              
+                        <th scope="col">Nội dung giao dịch</th>              
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let temp of listTransaction">
-                        <td>{{temp.transactionHistoryID}}</td>
-                        <td>{{temp.transactionDate.dayOfMonth}}/{{temp.transactionDate.monthValue}}/{{temp.transactionDate.year}}</td>
-                        <td>{{temp.transactionForm.transactionFormName}}</td>
-                        <td>{{temp.balance}}</td>
-                        <td>{{temp.debt}}</td>
-                        <td>
-                            <a routerLink="/home/bai-hoc/{{temp.transactionDescription}}" *ngIf="temp.transactionForm.transactionFormID === 'DN'">Xem bài học </a> 
-                            <a routerLink="/home/chi-tiet-khoa-hoc/{{temp.transactionDescription}}" *ngIf="temp.transactionForm.transactionFormID === 'MKH'">Xem khóa học</a>
-                            <i *ngIf="temp.transactionForm.transactionFormID === 'NT'">{{temp.transactionDescription}}</i>
-                        </td>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Trần Văn Thắng</td>
+                        <td>22/12/2017</td>
+                        <td>Thanh toán khóa học</td>
+                        <td>50.000đ</td>
+                        <td>990.000đ</td>
+                        <td>Thẻ cào Viettel</td>
                     </tr>
                     
                 </tbody>
             </table>
             <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-end" >
-                    <li  *ngIf="page !== 1" (click)="lui()"  class="page-item disabled">
-                        <a class="page-link"  tabindex="-1">Trước</a>
+                <ul class="pagination justify-content-end">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1">Lùi</a>
                     </li>
-                    <li  *ngFor="let temp of dataPage" class="page-item">
-                        <a  (click)="next(temp)" [ngClass]="{'active': temp === page}" class="page-link" >{{ temp}}</a>
+                    <li class="page-item">
+                        <a class="page-link active" href="#">1</a>
                     </li>
-                    <li  *ngIf=" page !== numberOfPage " (click)="toi()" class="page-item">
-                        <a  class="page-link" >Sau</a>
+                    <li class="page-item">
+                        <a class="page-link" href="#">2</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">3</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">4</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">5</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Tiến</a>
                     </li>
                 </ul>
-                <select [(ngModel)]="size" (ngModelChange)="onChange($event)">
-                        <option  [ngValue]="1" >1</option>
-                        <option [ngValue]="5">5</option>
-                        <option [ngValue]="10">10</option>
-                        <option [ngValue]="100">100</option>
-                </select>
-                              
             </nav>
         </div>
     </section>
-    <!-- <app-phan-trang [page]="page"  [size]="size" [numberOfPage]="numberOfPage"></app-phan-trang> -->
 </div>
