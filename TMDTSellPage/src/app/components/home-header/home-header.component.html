@@ -81,38 +81,43 @@
             <i class="fa fa-shopping-cart"></i> Giỏ hàng ( {{cartService.tongSL}} )
           </a>
           <div *dropdownMenu role="menu" class="dropdown-menu shopping-cart" aria-labelledby="navbardropdown">
-            <table class="table table-responsive-md">
-              <thead>
-                <tr>
-                  <th scope="col" class="cart-count">#</th>
-                  <th scope="col">Tên Sản phẩm</th>
-                  <th scope="col" class="cart-img">Hình ảnh</th>
-                  <th scope="col" class="cart-money">Thành tiền</th>
-                  <th scope="col">Xóa</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let item of cart ; let i = index ">
-                  <td class="cart-count">{{i + 1}}</td>
-                  <td> {{item.name}}</td>
-                  <td class="cart-img">
-                    <img style="width: 50px;" src="{{item.image}}" alt="hình ảnh">
-                  </td>
-                  <td class="cart-price">{{item.price}} đ</td>
-                  <td>
-                    <a class="remove-item">
-                      <i (click)="deleteItem(item.id)" class="fa fa-trash"></i>
-                    </a>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <div class="container">
-              Thanh toán:
-              <b> {{ cartService.tong }} đ</b>
+            <div *ngIf="cart.length!=0">
+              <table class="table tabcale-responsive-md">
+                <thead>
+                  <tr>
+                    <th scope="col" class="cart-count">#</th>
+                    <th scope="col">Tên Sản phẩm</th>
+                    <th scope="col" class="cart-img">Hình ảnh</th>
+                    <th scope="col" class="cart-money">Thành tiền</th>
+                    <th scope="col">Xóa</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of cart ; let i = index ">
+                    <td class="cart-count">{{i + 1}}</td>
+                    <td> {{item.name}}</td>
+                    <td class="cart-img">
+                      <img style="width: 50px;" src="{{item.image}}" alt="hình ảnh">
+                    </td>
+                    <td class="cart-price">{{item.price}} đ</td>
+                    <td>
+                      <a class="remove-item">
+                        <i (click)="deleteItem(item.id)" class="fa fa-trash"></i>
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="container">
+                Thanh toán:
+                <b> {{ cartService.tong }} đ</b>
+              </div>
+              <div class="container text-right">
+                <button class="btn ibtn">Thanh toán</button>
+              </div>
             </div>
-            <div class="container text-right">
-              <button class="btn ibtn">Thanh toán</button>
+            <div *ngIf="cart.length==0">
+                Chưa có sản phẩm nào...
             </div>
           </div>
         </li>
