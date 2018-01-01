@@ -1,9 +1,9 @@
+import { HttpErrorResponse } from "@angular/common/http/";
 import { filter } from "rxjs/operator/filter";
 import { ConfigValue } from "./../../../_helpers/config-value";
 import { HttpClient } from "@angular/common/http";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Component, OnInit } from "@angular/core";
-
 import {
   Title,
   DomSanitizer,
@@ -27,7 +27,8 @@ export class BaiHocComponent implements OnInit {
     private http: HttpClient,
     private config: ConfigValue,
     public sanitizer: DomSanitizer,
-    public location: Location
+    public location: Location,
+    private router: Router
   ) {
     this.title.setTitle("3TPL | Bài học");
   }
@@ -39,15 +40,22 @@ export class BaiHocComponent implements OnInit {
 
       this.curent_url = this.location.path();
     });
+    if (this.lessonItem) {
+      this.router.navigate(["/home"]);
+    }
   }
   private reloadPageWhenIDChange(idLesson: string): void {
-    this.http
-      .get(this.config.url_port + `/lesson/${idLesson}`)
-      .subscribe((dataLesson: any) => {
+    this.http.get(this.config.url_port + `/lesson/${idLesson}`).subscribe(
+      (dataLesson: any) => {
         this.lessonItem = dataLesson;
         this.getSafeUrl(this.lessonItem.lessonContent);
         console.log(this.lessonItem);
-      });
+      },
+      (err: HttpErrorResponse) => {
+        this.lessonItem = null;
+        console.log(" Không có khóa học nào hết!");
+      }
+    );
     this.http
       .get(this.config.url_port + `/lesson/relate/${idLesson}`)
       .subscribe((data: any) => {
@@ -59,10 +67,12 @@ export class BaiHocComponent implements OnInit {
       });
   }
   safeUrl(url): SafeResourceUrl {
-    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+    return this.sanitizer.bypassSecurityTrustResourceUrl(`https://drive.google.com/thumbnail?authuser=0&sz=w320&id=` + url);
   }
   getSafeUrl(url) {
-    this.url = this.sanitizer.bypassSecurityTrustResourceUrl(url);
+    this.url = this.sanitizer.bypassSecurityTrustResourceUrl(
+      `https://drive.google.com/file/d/${url}/preview`
+    );
   }
   ngAfterViewInit() {
     (function(d, s, id) {
