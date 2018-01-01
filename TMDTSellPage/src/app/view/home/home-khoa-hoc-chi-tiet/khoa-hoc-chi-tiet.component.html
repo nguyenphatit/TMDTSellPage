@@ -7,7 +7,7 @@
                     <h1>{{courseItem.courseTitle}}</h1>
                     <div class="row">
                         <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
-                            Giảng viên: <a  [routerLink]="['/home/thong-tin-ca-nhan', author.userID]"><b>{{author.userName}}</b></a>
+                            Giảng viên: <a  [routerLink]="['/home/thong-tin-ca-nhan', author?.userID]"><b>{{author?.userName}}</b></a>
                         </div>
 
                         <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 text-center">

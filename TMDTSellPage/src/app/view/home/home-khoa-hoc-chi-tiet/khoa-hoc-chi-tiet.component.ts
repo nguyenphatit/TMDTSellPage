@@ -115,7 +115,7 @@ export class KhoaHocChiTietComponent implements OnInit, OnDestroy {
 
   public ghiDanh() {
     this.cartService.addItem(this.item);
-    console.log(this.cartService.cart);
+    console.log(this.cartService.getCartCurrent());
   }
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
