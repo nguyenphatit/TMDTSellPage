@@ -51,8 +51,8 @@ export class HomeHeaderComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.cart = this.cartService.cart;
-
+    this.cart = this.cartService.getCartCurrent();
+console.log(this.cart);
     this.refrershToken();
     if (window.innerWidth < 990) {
       this.megamenu = false;
@@ -121,4 +121,6 @@ export class HomeHeaderComponent implements OnInit {
   public deleteItem(id: any) {
     this.cartService.deleteItem(id);
   }
+
+   
 }
