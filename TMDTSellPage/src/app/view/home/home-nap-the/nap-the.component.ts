@@ -14,6 +14,7 @@ export class NapTheComponent implements OnInit {
   payerID: any;
   money: number;
   userInfo: any;
+  oneAtATime: boolean = true;
   constructor(
     private title: Title,
     private activeRouter: ActivatedRoute,
@@ -36,7 +37,6 @@ export class NapTheComponent implements OnInit {
         });
       }
     );
-    
     this.paymentId =
       this.activeRouter.snapshot.queryParams['paymentId'] || null;
     this.token = this.activeRouter.snapshot.queryParams['token'] || null;
