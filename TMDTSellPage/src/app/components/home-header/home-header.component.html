@@ -110,10 +110,9 @@
                 <a [routerLink]="['/home/thanh-toan']" class="btn ibtn">Thanh toán</a>
               </div>
             </div>
-
             <div *ngIf="this.cartService.getCartCurrent().length==0">
               <div class="container">
-                  Hiện chưa có sản phẩm nào trong giỏ của bạn!
+                  <span class="text-danger">Hiện chưa có sản phẩm nào trong giỏ hàng của bạn!</span>
               </div>
             </div>
           </div>
