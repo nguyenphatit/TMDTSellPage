@@ -216,15 +216,16 @@
 			margin: 20px 0 20px 0;
 			border-radius: 0;
 			.card-img-top {
-				img {
-					height: 100px;
+				max-height: 156px;
+				min-height: 156px;
+				.card-item {
+					max-height: 156px;
 				}
 				opacity: .6;
 				@include basic-delay(1s);
 			}
 
 			.card-body {
-				@import "showtext";
 				.parallelogram-blue {
 					width: 5px;
 					height: 20px;
@@ -245,6 +246,10 @@
 					background: $color4;
 					float: left;
 					margin: 0 10px 0 0;
+				}
+
+				h5 {
+					font-size: 1.2em;
 				}
 
 				.rating {

@@ -36,7 +36,7 @@ export class NapTheComponent implements OnInit {
         });
       }
     );
-
+    
     this.paymentId =
       this.activeRouter.snapshot.queryParams['paymentId'] || null;
     this.token = this.activeRouter.snapshot.queryParams['token'] || null;

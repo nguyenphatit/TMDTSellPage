@@ -19,9 +19,6 @@
   </div>
 </div>
 
-
-
-
 <nav [style.padding]="effectNavbar ? '0' : '.5rem 1rem'" class="navbar navbar-expand-lg navbar-light fixed-top">
   <div class="container">
     <a class="navbar-brand" href="#">
@@ -39,7 +36,7 @@
     <div *ngIf="megamenu" class=" navbar-collapse" id="navbarcontent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">
+          <a class="nav-link" [routerLink]="['/home/main']">
             <i class="fa fa-home"></i> Trang chủ
             <span class="sr-only">(current)</span>
           </a>
@@ -126,8 +123,6 @@
           <a class="nav-link" [routerLink]="['/pages/dang-ky']">
             <i class="fa fa-user-plus"></i> Đăng ký</a>
         </li>
-
-
         <li dropdown class="nav-item dropdown">
           <div *ngIf="isLogin">
             <a dropdownToggle class="nav-link dropdown-toggle" id="navbardropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -135,7 +130,7 @@
               <img src="{{ user?user?.avatar: 'https://www.w3schools.com/howto/img_avatar2.png' }}" class="rounded-circle img-avt" alt="Ảnh đại diện">
               <span>{{ user?user?.userName: 'loading...' }}</span>
             </a>
-            <div *dropdownMenu role="menu" class="dropdown-menu " aria-labelledby="navbardropdown">
+            <div *dropdownMenu role="menu" class="dropdown-menu sub-user" aria-labelledby="navbardropdown">
               <li class="nav-item">
                 <a class="nav-link" [routerLink]="['/home/thong-tin-ca-nhan',user?.userID]">
                   <i class="fa fa-user"></i> Thông tin cá nhân </a>
