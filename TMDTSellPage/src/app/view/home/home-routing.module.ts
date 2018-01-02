@@ -1,3 +1,4 @@
+import { TimKiemComponent } from './home-tim-kiem/tim-kiem.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home.component';
@@ -38,6 +39,8 @@ children: [
         path: 'nap-the', component: NapTheComponent
     }, {
         path: 'lich-su-giao-dich', component: LichSuGiaoDichComponent
+    }, {
+      path: 'tim-kiem/:key-search', component: TimKiemComponent
     }
 ]
   } ,  {

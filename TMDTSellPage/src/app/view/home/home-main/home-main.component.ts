@@ -9,6 +9,8 @@ import { Title } from "@angular/platform-browser";
 })
 export class MainHomeComponent implements OnInit {
   listCourse: any;
+  size = 4;
+  total = 0;
   constructor(
     private title: Title,
     private http: HttpClient,
@@ -19,11 +21,21 @@ export class MainHomeComponent implements OnInit {
 
   ngOnInit() {
     // lấy thông tin các khóa học nổi bật
+    this.loadCourseFeatured();
+  }
+  public xemThem(): void {
+    this.size += 4;
+   this.loadCourseFeatured();
+  }
+  public loadCourseFeatured(): void {
     this.http
-      .get(this.config.url_port + `/users/courses-featured?page=1&size=4`)
+      .get(
+        this.config.url_port +
+          `/users/courses-featured?page=1&size=${this.size}`
+      )
       .subscribe((data: any) => {
-        console.log(data);
-         this.listCourse = data.listOfResult;
+        this.listCourse = data.listOfResult;
+        this.total = data.numberOfRecord;
       });
   }
 }
