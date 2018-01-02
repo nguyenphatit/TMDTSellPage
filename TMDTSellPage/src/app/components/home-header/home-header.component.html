@@ -55,20 +55,17 @@
           </a>
           <div *dropdownMenu role="menu" class="dropdown-menu sub-menu" aria-labelledby="navbardropdown">
             <div class="container">
-
               <div class="row">
                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-mleft">
                   <a *ngFor="let item of  listTopic.slice(
                                       this.listTopic.length / 2,
                                       this.listTopic.length
                                     )" class="dropdown-item" [routerLink]="['/home/danh-sach-khoa-hoc', item.topicID]">
-                    <i class="	fa fa-file-text"></i>{{item.topicName}}</a>
-
+                    <i class="	fa fa-file-text"></i> {{item.topicName}}</a>
                 </div>
                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-m-right">
                   <a *ngFor="let item of  listTopic.slice(0, this.listTopic.length / 2)" class="dropdown-item" [routerLink]="['/home/danh-sach-khoa-hoc', item.topicID]">
-                    <i class="	fa fa-file-text"></i>{{item.topicName}}</a>
-
+                    <i class="	fa fa-file-text"></i> {{item.topicName}}</a>
                 </div>
               </div>
 
@@ -113,11 +110,11 @@
                 <b> {{ cartService.tong }} đ</b>
               </div>
               <div class="container text-right">
-                <button class="btn ibtn">Thanh toán</button>
+                <a [routerLink]="['/home/thanh-toan']" class="btn ibtn">Thanh toán</a>
               </div>
             </div>
             <div *ngIf="cart.length==0">
-                Chưa có sản phẩm nào...
+              Chưa có sản phẩm nào...
             </div>
           </div>
         </li>
@@ -130,32 +127,30 @@
             <i class="fa fa-user-plus"></i> Đăng ký</a>
         </li>
 
-        <li *ngIf="isLogin" dropdown class="nav-item dropdown">
-          <a dropdownToggle id="navbardropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <li class="nav-item">
-              <a class="nav-link">
-                <img src="{{ user?user?.avatar: 'https://www.w3schools.com/howto/img_avatar2.png' }}" class="rounded-circle img-avt" alt="Ảnh đại diện">
-                <span>{{ user?user?.userName: 'loading...' }}</span>
-              </a>
-            </li>
-          </a>
-          <div *dropdownMenu role="menu" class="dropdown-menu " aria-labelledby="navbardropdown">
-            <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/home/thong-tin-ca-nhan',user?.userID]">
-                <i class="fa fa-user"></i> Thông tin cá nhân </a>
-            </li>
-            <li  class="nav-item">
-              <a class="nav-link" [routerLink]="['/home/nap-the']">
-                <i class="fa fa-dollar"></i> Nạp tiền</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" (click)="logout()">
-                <i class="fa fa-sign-out"></i> Đăng xuất </a>
-            </li>
+
+        <li dropdown class="nav-item dropdown">
+          <div *ngIf="isLogin">
+            <a dropdownToggle class="nav-link dropdown-toggle" id="navbardropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              <img src="{{ user?user?.avatar: 'https://www.w3schools.com/howto/img_avatar2.png' }}" class="rounded-circle img-avt" alt="Ảnh đại diện">
+              <span>{{ user?user?.userName: 'loading...' }}</span>
+            </a>
+            <div *dropdownMenu role="menu" class="dropdown-menu " aria-labelledby="navbardropdown">
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/home/thong-tin-ca-nhan',user?.userID]">
+                  <i class="fa fa-user"></i> Thông tin cá nhân </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/home/nap-the']">
+                  <i class="fa fa-dollar"></i> Nạp tiền</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" (click)="logout()">
+                  <i class="fa fa-sign-out"></i> Đăng xuất </a>
+              </li>
+            </div>
           </div>
-
         </li>
-
       </ul>
       <form class="form-inline input-search2">
         <input type="text" name="search" placeholder="Tìm kiếm ...">
