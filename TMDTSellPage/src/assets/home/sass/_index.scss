@@ -21,17 +21,8 @@
 			}
 			.carousel-control-next {
 			}
-
-			h3 {
-				color: $color5;
-				font-size: 5em;
-				font-family: $font1;
-			}
-
-			p {
-				color: $color4;
-				font-size: 3em;
-				font-weight: bold;
+			.carousel-caption {
+				
 			}
 		}
 	}
@@ -410,5 +401,67 @@
 	section.slide {
 		padding: 80px 0 50px 0;
 		background: #ffffff;
+	}
+}
+
+@media (min-width: 291px) {
+	section.slide {
+		.carousel {
+			// position: relative;
+			.carousel-caption {
+				// position: absolute;
+				top: 20%;
+				h3 {
+					color: $color5;
+					font-size: 2em;
+					font-family: $font1;
+					span {
+						background: #ffffff;
+						padding: 5px 10px;
+						opacity: .9;
+					}
+				}
+
+				p {
+					display: none;
+					margin: 20px;
+					background: rgba(31, 163, 97, 0.8);
+					font-size: 1.5em;
+					font-weight: bold;
+					color: #ffffff;
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	section.slide {
+		.carousel {
+			position: relative;
+			.carousel-caption {
+				position: absolute;
+				top: 25%;
+				h3 {
+					color: #ffffff;
+					font-size: 5em;
+					font-family: $font1;
+					span {
+						background: $color4;
+						padding: 10px;
+						opacity: .9;
+					}
+				}
+
+				p {
+					display: block;
+					margin: 20px;
+					background: rgba(31, 163, 97, 0.8);
+					font-size: 3em;
+					font-weight: bold;
+					color: #ffffff;
+				}
+			}
+		}
 	}
 }
