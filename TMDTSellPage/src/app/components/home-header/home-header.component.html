@@ -75,7 +75,7 @@
             <i class="fa fa-shopping-cart"></i> Giỏ hàng ( {{cartService.tongSL}} )
           </a>
           <div *dropdownMenu role="menu" class="dropdown-menu shopping-cart" aria-labelledby="navbardropdown">
-            <div *ngIf="cart.length!=0">
+            <div *ngIf="this.cartService.getCartCurrent().length!=0">
               <table class="table tabcale-responsive-md">
                 <thead>
                   <tr>
@@ -87,7 +87,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let item of cart ; let i = index ">
+                  <tr *ngFor="let item of this.cartService.getCartCurrent() ; let i = index ">
                     <td class="cart-count">{{i + 1}}</td>
                     <td> {{item.name}}</td>
                     <td class="cart-img">
@@ -110,6 +110,10 @@
                 <a [routerLink]="['/home/thanh-toan']" class="btn ibtn">Thanh toán</a>
               </div>
             </div>
+<<<<<<< HEAD
+            <div *ngIf="this.cartService.getCartCurrent().length==0">
+              Chưa có sản phẩm nào...
+=======
             <div *ngIf="cart.length==0">
               <div class="container">
                   Hiện chưa có sản phẩm nào trong giỏ của bạn!
