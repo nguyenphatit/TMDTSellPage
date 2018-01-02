@@ -13,6 +13,7 @@ export class NapTheComponent implements OnInit {
     token: any;
     payerID: any;
     money: number;
+    oneAtATime: boolean = true;
     constructor(private title: Title, private activeRouter: ActivatedRoute, private http: HttpClient, private config: ConfigValue) {
         this.title.setTitle('3TPL | Nạp tiền');
     }

@@ -2,7 +2,7 @@
     <section class="sec-1">
         <div class="container">
             <h1>
-                <i class="fa fa-contao"></i> Mua điểm khóa học</h1>
+                <i class="fa fa-contao"></i> Quy đổi điểm khóa học</h1>
             <hr>
             <h3>Trần Văn Thắng</h3>
             <h3>Điểm hiện tại: 0 điểm</h3>
@@ -10,90 +10,74 @@
     </section>
     <section class="sec-2">
         <div class="container">
-            <div class="show-note">
-                <h3>
-                    <i class="fa fa-credit-card"></i> Nạp điểm qua thẻ cào điện thoại (Tỉ lệ quy đổi 100k = 80 điểm)</h3>
-            </div>
-            <h4>*Phí giao dịch thẻ cào là 20% cho mỗi lần giao dịch</h4>
-            <form>
-                <div class="custom-controls-stacked">
+            <accordion [closeOthers]="oneAtATime">
+                <accordion-group heading="Nạp tiền bằng thẻ cào điện thoại">
+                    <h4>*Phí giao dịch thẻ cào là 20% cho mỗi lần giao dịch</h4>
+                    <form>
+                        <div class="custom-controls-stacked">
+                            <div class="row">
+                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 text-center brand-card">
+                                    <label class="custom-control custom-radio">
+                                        <input id="radioStacked1" name="radio-stacked" type="radio" class="custom-control-input" required>
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">Thẻ Viettel</span>
+                                    </label>
+                                    <img src="../../../../assets/home/images/viettel.png" class="img-fluid img-thumbnail" alt="Viettel">
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 text-center brand-card">
+                                    <label class="custom-control custom-radio">
+                                        <input id="radioStacked2" name="radio-stacked" type="radio" class="custom-control-input" required>
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">Thẻ MobiFone</span>
+                                    </label>
+                                    <img src="../../../../assets/home/images/mobifone.png" class="img-fluid img-thumbnail" alt="MobiFone">
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 text-center brand-card">
+                                    <label class="custom-control custom-radio">
+                                        <input id="radioStacked3" name="radio-stacked" type="radio" class="custom-control-input" required>
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">Thẻ Vinaphone</span>
+                                    </label>
+                                    <img src="../../../../assets/home/images/vinaphone.jpg" class="img-fluid img-thumbnail" alt="Vinaphone">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="pincard">Pin card (Mã thẻ cào)</label>
+                            <input type="email" class="form-control" id="pincard" placeholder="Mã thẻ cào">
+                        </div>
+                        <div class="form-group">
+                            <label for="serialcard">Serial (Số seri)</label>
+                            <input type="email" class="form-control" id="serialcard" placeholder="Số seri">
+                        </div>
+                        <p class="text-right">
+                            <button type="submit" class="btn ibtn">Nạp thẻ</button>
+                        </p>
+                    </form>
+                </accordion-group>
+                <accordion-group heading="Nạp tiền qua cổng thanh toán điện tử PayPal">
                     <div class="row">
-                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 text-center brand-card">
-                            <label class="custom-control custom-radio">
-                                <input id="radioStacked1" name="radio-stacked" type="radio" class="custom-control-input" required>
-                                <span class="custom-control-indicator"></span>
-                                <span class="custom-control-description">Thẻ Viettel</span>
-                            </label>
-                            <img src="../../../../assets/home/images/viettel.png" class="img-fluid img-thumbnail" alt="Viettel">
+                        <div class="col-12 col-sm-12 col-md-2 col-lg-3 col-xl-3"></div>
+                        <div class="col-12 col-sm-12 col-md-8 col-lg-6 col-xl-6 text-center">
+                            <img src="../../../../assets/home/images/paypal.png" alt="PayPal">
                         </div>
-                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 text-center brand-card">
-                            <label class="custom-control custom-radio">
-                                <input id="radioStacked2" name="radio-stacked" type="radio" class="custom-control-input" required>
-                                <span class="custom-control-indicator"></span>
-                                <span class="custom-control-description">Thẻ MobiFone</span>
-                            </label>
-                            <img src="../../../../assets/home/images/mobifone.png" class="img-fluid img-thumbnail" alt="MobiFone">
+                        <div class="col-12 col-sm-12 col-md-2 col-lg-3 col-xl-3"></div>
+                    </div>
+                    
+                    <form>
+                        <div class="form-group">
+                            <label for="money-paypal">Số tiền (USD)</label>
+                            <input [(ngModel)]="money" type="number" class="form-control" id="money-paypal" name="money" placeholder="Số tiền cần nạp">
                         </div>
-                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 text-center brand-card">
-                            <label class="custom-control custom-radio">
-                                <input id="radioStacked3" name="radio-stacked" type="radio" class="custom-control-input" required>
-                                <span class="custom-control-indicator"></span>
-                                <span class="custom-control-description">Thẻ Vinaphone</span>
-                            </label>
-                            <img src="../../../../assets/home/images/vinaphone.jpg" class="img-fluid img-thumbnail" alt="Vinaphone">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="pincard">Pin card (Mã thẻ cào)</label>
-                    <input type="email" class="form-control" id="pincard" placeholder="Mã thẻ cào">
-                </div>
-                <div class="form-group">
-                    <label for="serialcard">Serial (Số seri)</label>
-                    <input type="email" class="form-control" id="serialcard" placeholder="Số seri">
-                </div>
-                <p class="text-right">
-                    <button type="submit" class="btn ibtn">Nạp thẻ</button>
-                </p>
-            </form>
-        </div>
-    </section>
-    <section class="sec-3">
-        <div class="container">
-            <div class="show-note">
-                <h3>
-                    <i class="fa fa-credit-card"></i> Nạp bằng hình thức khác</h3>
-            </div>
-            <div class="credit-more">
-                <div class="row">
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 text-center">
-                        <a href="#"><img src="../../../../assets/home/images/paypal.png" class="rounded img-thumbnail" alt="paypal"></a>
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 text-center">
-                        <!-- <img src="../../../../assets/home/images/paypal.png" class="rounded img-thumbnail" alt="paypal"> -->
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 text-center">
-                        <!-- <img src="../../../../assets/home/images/paypal.png" class="rounded img-thumbnail" alt="paypal"> -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="sec-4">
-        <div class="container">
-            <form>
-                <div class="form-group">
-                    <label for="pincard">Số tiền (USD)</label>
-                    <input  [(ngModel)]="money"  type="number" class="form-control" name="money" placeholder="Mã thẻ cào">
-                </div>
-                <!-- <div class="form-group">
-                    <label for="serialcard">Serial (Số seri)</label>
-                    <input type="email" class="form-control" id="serialcard" placeholder="Số seri">
-                </div> -->
-                <p class="text-right">
-                    <button type="submit"   (click)="napTien()" class="btn ibtn">Nạp thẻ</button>
-                </p>
-            </form>
+                        <p class="text-right">
+                            <button type="submit" (click)="napTien()" class="btn ibtn">Nạp thẻ</button>
+                        </p>
+                    </form>
+                </accordion-group>
+                <accordion-group heading="Nạp tiền qua cổng thanh toán điện tử Ngân lượng">
+                    <p>Sẽ có trong tương lai!</p>
+                </accordion-group>
+            </accordion>
         </div>
     </section>
 </div>

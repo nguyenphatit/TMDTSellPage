@@ -7,43 +7,30 @@
 	}
 	section.sec-2 {
 		padding: 0 0 50px 0;
-		.show-note {
-			margin: 50px 0 20px 0;
-			background: $color4;
-			color: #FFFFFF;
-			padding: 15px 0 10px 10px;
-		}
 
-		h4 {
-			text-transform: uppercase;
-			color: red;
-		}
-
-		.brand-card {
-			padding: 5px 0 5px 0;
-
-			.img-thumbnail {
-				border: none;
+		accordion-group {
+			.panel-heading {
+				background: $color4;
+				color: #FFFFFF;
+				font-size: 1.5em;
 			}
-		}
-	}
 
-	section.sec-3 {
-		padding: 0 0 100px 0;
-		.show-note {
-			margin: 50px 0 20px 0;
-			background: $color4;
-			color: #FFFFFF;
-			padding: 15px 0 10px 10px;
-		}
+			.show-note {
+				margin: 50px 0 20px 0;
+				background: $color4;
+				color: #FFFFFF;
+				padding: 15px 0 10px 10px;
+			}
+			h4 {
+				text-transform: uppercase;
+				color: red;
+			}
+			.brand-card {
+				padding: 5px 0 5px 0;
 
-		img {
-			padding: 50px 10px 50px 10px;
-			border: 1px solid $color5;
-			@include basic-delay(1s);
-			&:hover {
-				@include basic-shadow(1px, 1px, 10px, 1px, #999);
-				@include basic-delay(1s);
+				.img-thumbnail {
+					border: none;
+				}
 			}
 		}
 	}
