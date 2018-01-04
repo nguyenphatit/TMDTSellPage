@@ -20,8 +20,8 @@
                                 <button (click)="isShowProfile=!isShowProfile" type="button" class="btn ibtn-circle-white" data-toggle="collapse" href="#settingacc"
                                     aria-expanded="false" aria-controls="settingacc">
                                     <i class="fa fa-cog"></i> Chỉnh sửa thông tin</button>
-                                <button class="btn ibtn-circle-white">
-                                    <i class="fa fa-credit-card"></i> Lịch sử thanh toán</button>
+                                <button [routerLink]="['/home/lich-su-giao-dich']" class="btn ibtn-circle-white">
+                                    <i class="fa fa-credit-card"></i> Lịch sử giao dịch</button>
                             </div>
                         </div>
                     </div>
@@ -110,9 +110,9 @@
                                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                                     <i class="fa fa-users"></i> {{item.views}}
                                 </div>
-                                <!-- <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-right">
-                                <i class="fa fa-clock-o"></i> 45 giờ học
-                            </div> -->
+                                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-right">
+                                    <!-- <i class="fa fa-clock-o"></i> 45 giờ học -->
+                                </div>
                             </div>
                             <!-- <span><b class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></b></span> -->
                             <div class="text-right">
@@ -153,9 +153,9 @@
                                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                                     <i class="fa fa-users"></i> {{item.views}}
                                 </div>
-                                <!-- <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-right">
-                                <i class="fa fa-clock-o"></i> 45 giờ học
-                            </div> -->
+                                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-right">
+                                    <!-- <i class="fa fa-clock-o"></i> 45 giờ học -->
+                                </div>
                             </div>
                             <!-- <span><b class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></b></span> -->
                             <div class="text-right">

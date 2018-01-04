@@ -1,6 +1,20 @@
-<h5 *ngIf="!lessonItem" style="margin-top: 100px; margin-left: 100px;"  class="lesson"><p class="sec-1"  >
-  Bạn cần đăng ký khóa học, hoặc đăng nhập để dc truy cập vào trang này!
-</p></h5>
+<!-- <h5 *ngIf="!lessonItem" style="margin-top: 100px; margin-left: 100px;" class="lesson">
+  <p class="sec-0">
+    Bạn cần đăng ký khóa học, hoặc đăng nhập để dc truy cập vào trang này!
+  </p>
+</h5> -->
+<div *ngIf="!lessonItem" style="margin-top: 100px; margin-left: 100px;" class="lesson">
+  <section class="sec-0">
+    <div class="container">
+      <h1>Bạn cần đăng ký khóa học, hoặc đăng nhập để được truy cập vào trang này!</h1>
+      <div class="text-center">
+        <button type="button" class="btn ibtn">Trang chủ</button>
+        <button type="button" (click)="goBack()" class="btn ibtn">Quay lại</button>
+        <button type="button" class="btn ibtn">Quy đổi tiền</button>
+      </div>
+    </div>
+  </section>
+</div>
 <div *ngIf="lessonItem" class="lesson">
   <section class="sec-1">
     <div class="container">
@@ -22,7 +36,6 @@
       </div>
       <div>
         <a *ngFor="let item of lessonItem?.listOfLessonAttach" [href]="[item?.lesonAttachContent]" download target="_blank">{{item?.lesonAttachContent}} </a>
-
       </div>
       <hr>
     </div>
@@ -35,7 +48,7 @@
           <!-- /abc -->
           <div class="fb-comment">
             <!-- <div id="fb-root"></div> -->
-            <div class="fb-comments" [attr.data-href]="insertUrlHere" data-numposts="20" data-width="100%" css="http://www.yourwebsite.com/css/comments.css?1234" ></div>
+            <div class="fb-comments" [attr.data-href]="insertUrlHere" data-numposts="20" data-width="100%" css="http://www.yourwebsite.com/css/comments.css?1234"></div>
           </div>
           <!-- ./abc -->
         </div>
@@ -44,11 +57,13 @@
           <!-- /bài học -->
           <div *ngFor="let itemLesson of  listLesson.slice(0,2)" class="item-lesson">
             <div class="row">
-              <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                <div class="embed-responsive embed-responsive-16by9">
-                  <iframe width="100%" height="auto" [src]="itemLesson?.lessonContent" autoplay="0" frameborder="0" gesture="media" allow="encrypted-media"
-                    allowfullscreen></iframe>
-                </div>
+              <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 video-thumbnail">
+                <a [routerLink]="['/home/bai-hoc', itemLesson.lessonID]">
+                  <img width="100%" height="100%" alt="Video thumbnail" src="https://drive.google.com/thumbnail?authuser=0&amp;sz=w320&amp;id=0B08pMC5vM7GjUEZrY2tvbmRaV1E">
+                  <div class="video-play">
+                    <i class="fa fa-play"></i>
+                  </div>
+                </a>
               </div>
               <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                 <h6>
@@ -65,11 +80,13 @@
           <div [collapse]="isCollapsed">
             <div *ngFor="let itemLesson of  listLesson.slice(2,listLesson.length)" class="item-lesson">
               <div class="row">
-                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                  <div class="embed-responsive embed-responsive-16by9">
-
-<img  style="width: 100%; height: 50%;"   alt="Video thumbnail" src="https://drive.google.com/thumbnail?authuser=0&amp;sz=w320&amp;id=0B08pMC5vM7GjUEZrY2tvbmRaV1E">
-                  </div>
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 video-thumbnail">
+                  <a [routerLink]="['/home/bai-hoc', itemLesson.lessonID]">
+                    <img width="100%" height="100%" alt="Video thumbnail" src="https://drive.google.com/thumbnail?authuser=0&amp;sz=w320&amp;id=0B08pMC5vM7GjUEZrY2tvbmRaV1E">
+                    <div class="video-play">
+                      <i class="fa fa-play"></i>
+                    </div>
+                  </a>
                 </div>
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                   <h6>
@@ -91,11 +108,13 @@
           <!-- /bài học -->
           <div *ngFor="let itemLesson of  listLesson.slice(0,2)" class="item-lesson">
             <div class="row">
-              <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                <div class="embed-responsive embed-responsive-16by9">
-                  <iframe width="100%" height="auto" [src]="itemLesson?.lessonContent" autoplay="0" frameborder="0" gesture="media" allow="encrypted-media"
-                    allowfullscreen></iframe>
-                </div>
+              <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 video-thumbnail">
+                <a [routerLink]="['/home/bai-hoc', itemLesson.lessonID]">
+                  <img width="100%" height="100%" alt="Video thumbnail" src="https://drive.google.com/thumbnail?authuser=0&amp;sz=w320&amp;id=0B08pMC5vM7GjUEZrY2tvbmRaV1E">
+                  <div class="video-play">
+                    <i class="fa fa-play"></i>
+                  </div>
+                </a>
               </div>
               <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                 <h6>
@@ -112,11 +131,13 @@
           <div [collapse]="isCollapsed">
             <div *ngFor="let itemLesson of  listLesson.slice(2,listLesson.length)" class="item-lesson">
               <div class="row">
-                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                  <div class="embed-responsive embed-responsive-16by9">
-                    <iframe width="100%" height="auto" [src]="itemLesson?.lessonContent" autoplay="0" frameborder="0" gesture="media" allow="encrypted-media"
-                      allowfullscreen></iframe>
-                  </div>
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 video-thumbnail">
+                  <a [routerLink]="['/home/bai-hoc', itemLesson.lessonID]">
+                    <img width="100%" height="100%" alt="Video thumbnail" src="https://drive.google.com/thumbnail?authuser=0&amp;sz=w320&amp;id=0B08pMC5vM7GjUEZrY2tvbmRaV1E">
+                    <div class="video-play">
+                      <i class="fa fa-play"></i>
+                    </div>
+                  </a>
                 </div>
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                   <h6>

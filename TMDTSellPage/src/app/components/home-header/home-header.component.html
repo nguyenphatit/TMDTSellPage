@@ -19,9 +19,6 @@
   </div>
 </div>
 
-
-
-
 <nav [style.padding]="effectNavbar ? '0' : '.5rem 1rem'" class="navbar navbar-expand-lg navbar-light fixed-top">
   <div class="container">
     <a class="navbar-brand" href="#">
@@ -39,7 +36,7 @@
     <div *ngIf="megamenu" class=" navbar-collapse" id="navbarcontent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">
+          <a class="nav-link" [routerLink]="['/home/main']">
             <i class="fa fa-home"></i> Trang chủ
             <span class="sr-only">(current)</span>
           </a>
@@ -78,7 +75,7 @@
             <i class="fa fa-shopping-cart"></i> Giỏ hàng ( {{cartService.tongSL}} )
           </a>
           <div *dropdownMenu role="menu" class="dropdown-menu shopping-cart" aria-labelledby="navbardropdown">
-            <div *ngIf="cart.length!=0">
+            <div *ngIf="this.cartService.getCartCurrent().length!=0">
               <table class="table tabcale-responsive-md">
                 <thead>
                   <tr>
@@ -90,7 +87,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let item of cart ; let i = index ">
+                  <tr *ngFor="let item of this.cartService.getCartCurrent() ; let i = index ">
                     <td class="cart-count">{{i + 1}}</td>
                     <td> {{item.name}}</td>
                     <td class="cart-img">
@@ -113,8 +110,10 @@
                 <a [routerLink]="['/home/thanh-toan']" class="btn ibtn">Thanh toán</a>
               </div>
             </div>
-            <div *ngIf="cart.length==0">
-              Chưa có sản phẩm nào...
+            <div *ngIf="this.cartService.getCartCurrent().length==0">
+              <div class="container">
+                  <span class="text-danger">Hiện chưa có sản phẩm nào trong giỏ hàng của bạn!</span>
+              </div>
             </div>
           </div>
         </li>
@@ -126,8 +125,6 @@
           <a class="nav-link" [routerLink]="['/pages/dang-ky']">
             <i class="fa fa-user-plus"></i> Đăng ký</a>
         </li>
-
-
         <li dropdown class="nav-item dropdown">
           <div *ngIf="isLogin">
             <a dropdownToggle class="nav-link dropdown-toggle" id="navbardropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -135,7 +132,7 @@
               <img src="{{ user?user?.avatar: 'https://www.w3schools.com/howto/img_avatar2.png' }}" class="rounded-circle img-avt" alt="Ảnh đại diện">
               <span>{{ user?user?.userName: 'loading...' }}</span>
             </a>
-            <div *dropdownMenu role="menu" class="dropdown-menu " aria-labelledby="navbardropdown">
+            <div *dropdownMenu role="menu" class="dropdown-menu sub-user" aria-labelledby="navbardropdown">
               <li class="nav-item">
                 <a class="nav-link" [routerLink]="['/home/thong-tin-ca-nhan',user?.userID]">
                   <i class="fa fa-user"></i> Thông tin cá nhân </a>
@@ -152,8 +149,8 @@
           </div>
         </li>
       </ul>
-      <form class="form-inline input-search2">
-        <input type="text" name="search" placeholder="Tìm kiếm ...">
+      <form class="form-inline input-search2" (keydown)="timKiem($event)">
+        <input type="text"  [(ngModel)]="keySearch" name="search" placeholder="Tìm kiếm ..." >
       </form>
     </div>
   </div>

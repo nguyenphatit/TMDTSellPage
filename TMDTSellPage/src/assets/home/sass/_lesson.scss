@@ -1,6 +1,15 @@
 .lesson {
 	background: #fff;
 	color: #000000;
+
+	section.sec-0 {
+		padding: 50px 0 50px 0;
+		h1 {
+			font-size: 3em;
+			font-family: $font1;
+		}
+	}
+
 	section.sec-1 {
 		padding: 81px 0 0 0;
 		background: #000000;
@@ -35,10 +44,9 @@
 					border-bottom: 0;
 				}
 				a {
-					color: #ffffff;
+					color: #000000;
 				}
 			}
-
 			.ibtn-circle-white {
 				margin: 10px 0 20px 0;
 			}
@@ -64,7 +72,7 @@
 					border-bottom: 0;
 				}
 				a {
-					color: #ffffff;
+					color: #000000;
 				}
 			}
 
@@ -98,6 +106,138 @@
 
 		section.sec-4 {
 			display: block;
+		}
+	}
+}
+
+@media (max-width: 291px) {
+	section.sec-4 {
+		.video-thumbnail {
+			cursor: pointer;
+			position: relative;
+			.video-play {
+				background: #CC0033;
+				padding: 5px 15px;
+				border-radius: 10px;
+				font-size: 1em;
+				color: #ffffff;
+				top: 30%;
+				left: 30%;
+				position: absolute;
+			}
+			&:hover .video-play {
+				background: $color5;
+			}
+		}
+	}
+}
+
+@media (min-width: 291px) {
+	section.sec-4 {
+		.video-thumbnail {
+			cursor: pointer;
+			position: relative;
+			.video-play {
+				background: #CC0033;
+				padding: 5px 15px;
+				border-radius: 10px;
+				font-size: 1em;
+				color: #ffffff;
+				top: 35%;
+				left: 35%;
+				position: absolute;
+			}
+			&:hover .video-play {
+				background: $color5;
+			}
+		}
+	}
+}
+
+@media (min-width: 575px) {
+	section.sec-4 {
+		.video-thumbnail {
+			cursor: pointer;
+			position: relative;
+			.video-play {
+				background: #CC0033;
+				padding: 5px 20px 5px 25px;
+				border-radius: 10px;
+				font-size: 2.5em;
+				color: #ffffff;
+				top: 35%;
+				left: 35%;
+				position: absolute;
+			}
+			&:hover .video-play {
+				background: $color5;
+			}
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	section.sec-4 {
+		.video-thumbnail {
+			cursor: pointer;
+			position: relative;
+			.video-play {
+				background: #CC0033;
+				padding: 5px 20px 5px 25px;
+				border-radius: 10px;
+				font-size: 2em;
+				color: #ffffff;
+				top: 100px;
+				left: 145px;
+				position: absolute;
+			}
+			&:hover .video-play {
+				background: $color5;
+			}
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	section.sec-3 {
+		.video-thumbnail {
+			cursor: pointer;
+			position: relative;
+			.video-play {
+				background: #CC0033;
+				padding: 5px 15px;
+				border-radius: 5px;
+				font-size: 1.2em;
+				color: #ffffff;
+				top: 35px;
+				left: 55px;
+				position: absolute;
+			}
+			&:hover .video-play {
+				background: $color5;
+			}
+		}
+	}
+}
+
+@media (min-width: 1200px) {
+	section.sec-3 {
+		.video-thumbnail {
+			cursor: pointer;
+			position: relative;
+			.video-play {
+				background: #CC0033;
+				padding: 5px 15px;
+				border-radius: 5px;
+				font-size: 1.2em;
+				color: #ffffff;
+				top: 40px;
+				left: 70px;
+				position: absolute;
+			}
+			&:hover .video-play {
+				background: $color5;
+			}
 		}
 	}
 }

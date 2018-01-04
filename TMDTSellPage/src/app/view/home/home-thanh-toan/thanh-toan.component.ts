@@ -35,11 +35,15 @@ export class ThanhToanComponent implements OnInit {
             (err: HttpErrorResponse) => {
               if (err.status === 403) {
                 console.log('Chưa đăng nhập!');
-                 this.router.navigate(['/pages/dang-nhap']);
+                 this.router.navigate(['/pages/dang-nhap'], {
+                  queryParams: { returnUrl: this.router.routerState.snapshot.url }
+                });
               }
             }
           );
-        this.cart = this.cartService.getCartCurrent();
+        if (this.cartService.getCartCurrent().length === 0) {
+           this.router.navigate(['/home/main']);
+        }
         this.http.get(this.config.url_port + `/user/info`).subscribe((data: {}) => {
             this.userCurrent = data;
             const tmpCost: Number = this.userCurrent.score;
@@ -56,6 +60,9 @@ export class ThanhToanComponent implements OnInit {
             });
             this.http.post(this.config.url_port + `/payment/course/register`, bodyRequest).subscribe((data: any) => {
                 console.log(data);
+                alert('Thanh toán thành công! Hãy truy cập để học ngay!');
+                 this.cartService.clearCart();
+                  this.router.navigate(['/home/main']);
             });
         }
     }

@@ -32,13 +32,13 @@ export class BaiHocComponent implements OnInit {
   ) {
     this.title.setTitle("3TPL | Bài học");
   }
-
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.reloadPageWhenIDChange(params["id"]);
       console.log(params["id"]);
 
       this.curent_url = this.location.path();
+      window.scrollTo(0, 0);
     });
     if (this.lessonItem) {
       this.router.navigate(["/home"]);
@@ -74,8 +74,11 @@ export class BaiHocComponent implements OnInit {
       `https://drive.google.com/file/d/${url}/preview`
     );
   }
+  goBack(): void {
+    window.history.back();
+  }
   ngAfterViewInit() {
-    (function(d, s, id) {
+    (function (d, s, id) {
       var js,
         fjs = d.getElementsByTagName(s)[0];
       js = d.createElement(s);

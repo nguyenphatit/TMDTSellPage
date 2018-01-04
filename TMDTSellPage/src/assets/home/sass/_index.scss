@@ -21,17 +21,8 @@
 			}
 			.carousel-control-next {
 			}
-
-			h3 {
-				color: $color5;
-				font-size: 5em;
-				font-family: $font1;
-			}
-
-			p {
-				color: $color4;
-				font-size: 3em;
-				font-weight: bold;
+			.carousel-caption {
+				
 			}
 		}
 	}
@@ -216,15 +207,16 @@
 			margin: 20px 0 20px 0;
 			border-radius: 0;
 			.card-img-top {
-				img {
-					height: 100px;
+				max-height: 156px;
+				min-height: 156px;
+				.card-item {
+					max-height: 156px;
 				}
 				opacity: .6;
 				@include basic-delay(1s);
 			}
 
 			.card-body {
-				@import "showtext";
 				.parallelogram-blue {
 					width: 5px;
 					height: 20px;
@@ -245,6 +237,10 @@
 					background: $color4;
 					float: left;
 					margin: 0 10px 0 0;
+				}
+
+				h5 {
+					font-size: 1.2em;
 				}
 
 				.rating {
@@ -405,5 +401,67 @@
 	section.slide {
 		padding: 80px 0 50px 0;
 		background: #ffffff;
+	}
+}
+
+@media (min-width: 291px) {
+	section.slide {
+		.carousel {
+			// position: relative;
+			.carousel-caption {
+				// position: absolute;
+				top: 20%;
+				h3 {
+					color: $color5;
+					font-size: 2em;
+					font-family: $font1;
+					span {
+						background: #ffffff;
+						padding: 5px 10px;
+						opacity: .9;
+					}
+				}
+
+				p {
+					display: none;
+					margin: 20px;
+					background: rgba(31, 163, 97, 0.8);
+					font-size: 1.5em;
+					font-weight: bold;
+					color: #ffffff;
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	section.slide {
+		.carousel {
+			position: relative;
+			.carousel-caption {
+				position: absolute;
+				top: 25%;
+				h3 {
+					color: #ffffff;
+					font-size: 5em;
+					font-family: $font1;
+					span {
+						background: $color4;
+						padding: 10px;
+						opacity: .9;
+					}
+				}
+
+				p {
+					display: block;
+					margin: 20px;
+					background: rgba(31, 163, 97, 0.8);
+					font-size: 3em;
+					font-weight: bold;
+					color: #ffffff;
+				}
+			}
+		}
 	}
 }

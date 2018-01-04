@@ -4,7 +4,7 @@
             <h1>Thanh toán</h1>
             <hr>
 
-            <div *ngFor="let item of cart">
+            <div *ngFor="let item of cartService.getCartCurrent()">
                 <div class="row">
                     <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3 text-center">
                         <img src="../../../../assets/home/images/oracle.jpg" class="rounded img-thumbnail" alt="...">
@@ -27,9 +27,9 @@
                 </div>
             </div>
             <div class="text-right">
-                <a [routerLink]="['/home/nap-the']">
-                    <button  type="button" class="btn ibtn">Nạp thêm điểm</button>
-                </a>
+                <!-- <a [routerLink]="['/home/nap-the']"> -->
+                    <button [routerLink]="['/home/nap-the']"  type="button" class="btn ibtn">Nạp thêm điểm</button>
+                <!-- </a>  -->
                 <button *ngIf="(userCurrent?.score - cartService?.tong) >= 0" type="button" (click)="thanhToan()" class="btn ibtn">Thanh toán</button>
 
             </div>

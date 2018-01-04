@@ -20,7 +20,7 @@ export class HomeHeaderComponent implements OnInit {
   public megamenu = true; // hien thi menu khi thu nhỏ
   public user: User;
   public listTopic: any = [];
-  cart: Item[];
+  keySearch: string ;
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     if (event.target.innerWidth < 990) {
@@ -51,8 +51,7 @@ export class HomeHeaderComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.cart = this.cartService.getCartCurrent();
-console.log(this.cart);
+
     this.refrershToken();
     if (window.innerWidth < 990) {
       this.megamenu = false;
@@ -121,6 +120,10 @@ console.log(this.cart);
   public deleteItem(id: any) {
     this.cartService.deleteItem(id);
   }
-
-   
+  // tìm kiếm
+   public timKiem(event): void {
+     if (event.keyCode === 13) {
+       this.router.navigate([ '/home/tim-kiem', this.keySearch]);
+     }
+   }
 }
