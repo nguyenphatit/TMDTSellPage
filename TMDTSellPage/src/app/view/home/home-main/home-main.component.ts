@@ -1,11 +1,11 @@
-import { ConfigValue } from "./../../../_helpers/config-value";
-import { HttpClient } from "@angular/common/http";
-import { Router } from "@angular/router";
-import { Component, OnInit } from "@angular/core";
-import { Title } from "@angular/platform-browser";
+import { ConfigValue } from './../../../_helpers/config-value';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
-  templateUrl: "main-home.component.html"
+  templateUrl: 'main-home.component.html'
 })
 export class MainHomeComponent implements OnInit {
   listCourse: any;
@@ -14,7 +14,7 @@ export class MainHomeComponent implements OnInit {
     private http: HttpClient,
     private config: ConfigValue
   ) {
-    this.title.setTitle("3TPL | Trang chủ");
+    this.title.setTitle('3TPL | Trang chủ');
   }
 
   ngOnInit() {
@@ -26,4 +26,5 @@ export class MainHomeComponent implements OnInit {
          this.listCourse = data.listOfResult;
       });
   }
+
 }

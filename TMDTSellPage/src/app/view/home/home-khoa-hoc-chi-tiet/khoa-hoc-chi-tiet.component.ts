@@ -1,21 +1,21 @@
-import { HttpErrorResponse } from "@angular/common/http";
-import { ShoppingCartService } from "./../../../_services/shopping-cart/shopping-cart.service";
-import { Item } from "./../../../_models/shopping-cart/item";
-import { Topic } from "./../../../_models/Topic";
-import { OnDestroy } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { ConfigValue } from "./../../../_helpers/config-value";
-import { ActivatedRoute } from "@angular/router";
-import { Component, OnInit } from "@angular/core";
+import { HttpErrorResponse } from '@angular/common/http';
+import { ShoppingCartService } from './../../../_services/shopping-cart/shopping-cart.service';
+import { Item } from './../../../_models/shopping-cart/item';
+import { Topic } from './../../../_models/Topic';
+import { OnDestroy } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { ConfigValue } from './../../../_helpers/config-value';
+import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import {
   Title,
   SafeResourceUrl,
   DomSanitizer
-} from "@angular/platform-browser";
-import { Router } from "@angular/router";
+} from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 @Component({
-  templateUrl: "khoa-hoc-chi-tiet.component.html"
+  templateUrl: 'khoa-hoc-chi-tiet.component.html'
 })
 export class KhoaHocChiTietComponent implements OnInit, OnDestroy {
   item = new Item();
@@ -42,7 +42,7 @@ export class KhoaHocChiTietComponent implements OnInit, OnDestroy {
           this.item.name = this.courseItem.courseTitle;
         } else {
           this.item.name =
-            this.courseItem.courseTitle.substring(0, 25) + " ...";
+            this.courseItem.courseTitle.substring(0, 25) + ' ...';
         }
         this.item.count = 1;
         this.item.image = this.courseItem.courseAvatar;
@@ -51,7 +51,7 @@ export class KhoaHocChiTietComponent implements OnInit, OnDestroy {
         // xư lý giỏ hàng
 
         this.http
-          .get(this.config.url_port + `/users/course/author/${authorID}`)
+          .get(this.config.url_port + `users/course/author/${authorID}`)
           .subscribe(dataAuthor => {
             this.author = dataAuthor;
             // console.log(this.author);
@@ -69,7 +69,7 @@ export class KhoaHocChiTietComponent implements OnInit, OnDestroy {
           });
       },
       (err: HttpErrorResponse) => {
-        this.router.navigate(["/pages/error-404"]);
+        this.router.navigate(['/pages/error-404']);
       }
     );
 
@@ -93,7 +93,7 @@ export class KhoaHocChiTietComponent implements OnInit, OnDestroy {
         },
         (err: HttpErrorResponse) => {
           this.firstLessonInCourse = null;
-          console.log("loi khong co bai hoc!");
+          console.log('loi khong co bai hoc!');
         }
       );
   }
@@ -110,7 +110,7 @@ export class KhoaHocChiTietComponent implements OnInit, OnDestroy {
     private router: Router,
     public sanitizer: DomSanitizer
   ) {
-    this.title.setTitle("3TPL | Chi tiết khóa học");
+    this.title.setTitle('3TPL | Chi tiết khóa học');
   }
 
   public ghiDanh() {
@@ -119,7 +119,7 @@ export class KhoaHocChiTietComponent implements OnInit, OnDestroy {
   }
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
-      this.reloadPageWhenIDChange(params["id"]);
+      this.reloadPageWhenIDChange(params['id']);
       // console.log(params["id"]);
       window.scrollTo(0, 0);
     });

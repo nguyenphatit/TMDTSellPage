@@ -1,12 +1,12 @@
-import { OnDestroy } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { ActivatedRoute } from "@angular/router";
-import { ConfigValue } from "./../../../_helpers/config-value";
-import { Component, OnInit } from "@angular/core";
-import { Title } from "@angular/platform-browser";
+import { OnDestroy } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
+import { ConfigValue } from './../../../_helpers/config-value';
+import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
-  templateUrl: "thong-tin-ca-nhan.component.html"
+  templateUrl: 'thong-tin-ca-nhan.component.html'
 })
 export class ThongTinCaNhanComponent implements OnInit, OnDestroy {
   public isShowProfile = false;
@@ -17,14 +17,14 @@ export class ThongTinCaNhanComponent implements OnInit, OnDestroy {
     private http: HttpClient,
     private config: ConfigValue
   ) {
-    this.title.setTitle("3TPL | Thông tin cá nhân");
+    this.title.setTitle('3TPL | Thông tin cá nhân');
   }
   log(event: boolean) {
-    console.log(`Accordion has been ${event ? "opened" : "closed"}`);
+    console.log(`Accordion has been ${event ? 'opened' : 'closed'}`);
   }
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
-      this.reloadPageWhenIDChange(params["id"]);
+      this.reloadPageWhenIDChange(params['id']);
     });
   }
   private reloadPageWhenIDChange(idAuthor: string): void {
