@@ -38,6 +38,7 @@ export class BaiHocComponent implements OnInit {
       console.log(params['id']);
 
       this.curent_url = this.location.path();
+      window.scrollTo(0, 0);
     });
     if (this.lessonItem) {
       this.router.navigate(['/home']);

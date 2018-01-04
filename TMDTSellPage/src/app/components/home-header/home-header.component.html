@@ -149,8 +149,8 @@
           </div>
         </li>
       </ul>
-      <form class="form-inline input-search2">
-        <input type="text" name="search" placeholder="Tìm kiếm ...">
+      <form class="form-inline input-search2" (keydown)="timKiem($event)">
+        <input type="text"  [(ngModel)]="keySearch" name="search" placeholder="Tìm kiếm ..." >
       </form>
     </div>
   </div>

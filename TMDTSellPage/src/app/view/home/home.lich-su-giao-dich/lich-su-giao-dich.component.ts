@@ -1,3 +1,5 @@
+import { User } from './../../../_models/User';
+import { AuthenticationService } from './../../../_services/AuthenticationService';
 import { ConfigValue } from './../../../_helpers/config-value';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
@@ -14,13 +16,24 @@ export class LichSuGiaoDichComponent implements OnInit {
     total = 0 ;
     numberOfPage = 0 ;
     dataPage: any = [] ;
+    loginUser: User;
     constructor(private title: Title ,
     private http: HttpClient,
-    private config: ConfigValue) {
+    private config: ConfigValue,
+    private auth: AuthenticationService) {
         this.title.setTitle('3TPL | Lịch sử giao dịch');
     }
 
     ngOnInit() {
+      this.auth.refreshToken().subscribe(
+        // kiểm tra người dùng đã đăng nhập chưa
+        (data: any) => {
+          this.auth.getInformation().subscribe((user: User) => {
+            console.log(user);
+            this.loginUser = user;
+          });
+        }
+      );
        this.loadData();
     }
 
@@ -59,7 +72,8 @@ export class LichSuGiaoDichComponent implements OnInit {
     }
 
     public loadData() {
-        this.http.get(`${this.config.url_port}/admin/transaction_history?page=${this.page}&size=${this.size}`).subscribe(
+        // tslint:disable-next-line:max-line-length
+        this.http.get(`${this.config.url_port}/user/transaction_history?page=${this.page}&size=${this.size}`).subscribe(
             (data: any ) => {
                 console.log(data);
                 this.listTransaction = data.listOfResult ;

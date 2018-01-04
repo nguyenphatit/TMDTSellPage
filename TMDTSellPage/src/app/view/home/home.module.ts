@@ -18,7 +18,9 @@ import { ThanhToanComponent } from './home-thanh-toan/thanh-toan.component';
 import { NapTheComponent } from './home-nap-the/nap-the.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { LichSuGiaoDichComponent } from './home.lich-su-giao-dich/lich-su-giao-dich.component';
+import { TimKiemComponent } from './home-tim-kiem/tim-kiem.component';
 import { PhanTrangComponent } from './home.lich-su-giao-dich/phan-trang/phan-trang.component';
+
 
 
 @NgModule({
@@ -46,6 +48,7 @@ import { PhanTrangComponent } from './home.lich-su-giao-dich/phan-trang/phan-tra
         BaiHocComponent,
         ThanhToanComponent,
         LichSuGiaoDichComponent,
+        TimKiemComponent,
         PhanTrangComponent
     ],
     providers: [],

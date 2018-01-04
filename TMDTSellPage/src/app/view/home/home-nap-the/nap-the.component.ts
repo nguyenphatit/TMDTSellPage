@@ -64,7 +64,7 @@ export class NapTheComponent implements OnInit {
         });
     }
   }
-  public napTien() {
+  public  napTien() {
     if (!this.money) {
       alert('chưa nhập tiền!');
     } else {

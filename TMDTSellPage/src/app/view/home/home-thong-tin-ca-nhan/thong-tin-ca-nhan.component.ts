@@ -1,21 +1,28 @@
-import { OnDestroy } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
-import { ConfigValue } from './../../../_helpers/config-value';
-import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { User } from "./../../../_models/User";
+import { AuthenticationService } from "./../../../_services/AuthenticationService";
+import { OnDestroy } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { ActivatedRoute } from "@angular/router";
+import { ConfigValue } from "./../../../_helpers/config-value";
+import { Component, OnInit } from "@angular/core";
+import { Title } from "@angular/platform-browser";
 
 @Component({
   templateUrl: 'thong-tin-ca-nhan.component.html'
 })
 export class ThongTinCaNhanComponent implements OnInit, OnDestroy {
   public isShowProfile = false;
-  public authorItem: any;
+  public authorItem: User;
+  loginUser: User;
+  private sub: any;
+  public featuredCourse: any;
+  public listCourseItem: any;
   constructor(
     private title: Title,
     private route: ActivatedRoute,
     private http: HttpClient,
-    private config: ConfigValue
+    private config: ConfigValue,
+    private auth: AuthenticationService
   ) {
     this.title.setTitle('3TPL | Thông tin cá nhân');
   }
@@ -28,9 +35,20 @@ export class ThongTinCaNhanComponent implements OnInit, OnDestroy {
     });
   }
   private reloadPageWhenIDChange(idAuthor: string): void {
+    // lấy thông tin đăng nhập
+    this.auth.refreshToken().subscribe(
+      // kiểm tra người dùng đã đăng nhập chưa
+      (data: any) => {
+        this.auth.getInformation().subscribe((user: User) => {
+          console.log(user);
+          this.loginUser = user;
+        });
+      }
+    );
+
     this.http
       .get(this.config.url_port + `/users/course/author/${idAuthor}`)
-      .subscribe((data: any) => {
+      .subscribe((data: User) => {
         this.authorItem = data;
         console.log(data);
       });
@@ -51,11 +69,11 @@ export class ThongTinCaNhanComponent implements OnInit, OnDestroy {
         this.listCourseItem = data.listOfResult;
         console.log(this.listCourseItem);
       });
+
+
   }
   ngOnDestroy() {
     this.sub.unsubscribe();
   }
-  private sub: any;
-  public featuredCourse: any;
-  public listCourseItem: any;
+
 }
