@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 import { User } from './../../../_models/User';
 import { AuthenticationService } from './../../../_services/AuthenticationService';
+=======
+>>>>>>> master
 import { HttpErrorResponse } from '@angular/common/http';
 import { ShoppingCartService } from './../../../_services/shopping-cart/shopping-cart.service';
 import { Item } from './../../../_models/shopping-cart/item';
@@ -65,7 +68,7 @@ export class KhoaHocChiTietComponent implements OnInit, OnDestroy {
         // xư lý giỏ hàng
 
         this.http
-          .get(this.config.url_port + `/users/course/author/${authorID}`)
+          .get(this.config.url_port + `users/course/author/${authorID}`)
           .subscribe(dataAuthor => {
             this.author = dataAuthor;
             // console.log(this.author);
