@@ -16,7 +16,7 @@
                                 <h5>Số lượng khóa học: {{authorItem?.numberOfCourses}}</h5>
                                 <h5>Điểm: {{authorItem?.score}}</h5>
                             </div>
-                            <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 text-right">
+                            <div  *ngIf="this.authorItem?.userID ===  this.loginUser?.userID" class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 text-right">
                                 <button (click)="isShowProfile=!isShowProfile" type="button" class="btn ibtn-circle-white" data-toggle="collapse" href="#settingacc"
                                     aria-expanded="false" aria-controls="settingacc">
                                     <i class="fa fa-cog"></i> Chỉnh sửa thông tin</button>
@@ -30,14 +30,14 @@
         </div>
     </section>
 
-    <section *ngIf="isShowProfile" class="sec-2" id="settingacc">
+    <section *ngIf="isShowProfile"  class="sec-2" id="settingacc">
         <div class="container">
             <div class="setting-account">
                 <h2>Chỉnh sửa thông tin cá nhân</h2>
                 <form>
                     <div class="row form-group change-avt">
                         <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
-                            <img src="assets/home/images/oracle.jpg" alt="Ảnh đại diện" class="img-thumbnail avatar-img">
+                            <img [src]="this.loginUser.avatar" alt="Ảnh đại diện" class="img-thumbnail avatar-img">
                         </div>
 
                         <!-- file input đang bị lỗi -->
@@ -50,10 +50,10 @@
                     </div>
                     <div class="form-group">
                         <label for="name">Họ và tên</label>
-                        <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Họ và tên">
+                        <input type="text" class="form-control" id="name"  name="name" aria-describedby="name" [(ngModel)]="this.loginUser.userName" placeholder="Họ và tên">
                         <small id="name" class="form-text text-muted">Bạn phải nhập họ và tên.</small>
                     </div>
-                    <div class="custom-controls-stacked d-block my-3">
+                    <!-- <div class="custom-controls-stacked d-block my-3">
                         <label class="custom-control custom-radio">
                             <input id="male" name="radio-stacked" type="radio" class="custom-control-input" required>
                             <span class="custom-control-indicator"></span>
@@ -64,18 +64,18 @@
                             <span class="custom-control-indicator"></span>
                             <span class="custom-control-description">Nữ</span>
                         </label>
-                    </div>
-                    <div class="form-group">
+                    </div> -->
+                    <!-- <div class="form-group">
                         <label for="birthday">Sinh nhật</label>
                         <input type="date" class="form-control" id="birthday" placeholder="Sinh nhật">
-                    </div>
+                    </div> -->
                     <div class="form-group">
                         <label for="phone">Số điện thoại</label>
-                        <input type="text" class="form-control" id="phone" placeholder="Số điện thoại">
+                        <input type="text" class="form-control" id="phone" name="phone-number" [(ngModel)]="this.loginUser.phoneNumber" placeholder="Số điện thoại">
                     </div>
                     <div class="form-group">
                         <label for="address">Địa chỉ</label>
-                        <textarea class="form-control" id="address" rows="3"></textarea>
+                        <textarea class="form-control" id="address" rows="3" name="address" [(ngModel)]="this.loginUser.address"></textarea>
                     </div>
                     <div class="text-right">
                         <button type="submit" class="btn ibtn">
