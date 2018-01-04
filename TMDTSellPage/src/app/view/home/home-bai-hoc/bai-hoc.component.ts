@@ -81,13 +81,7 @@ export class BaiHocComponent implements OnInit {
       });
   }
   safeUrl(url): SafeResourceUrl {
-<<<<<<< HEAD
-    return this.sanitizer.bypassSecurityTrustResourceUrl(
-      `https://drive.google.com/thumbnail?authuser=0&sz=w320&id=` + url
-    );
-=======
     return this.sanitizer.bypassSecurityTrustResourceUrl('https://drive.google.com/thumbnail?authuser=0&sz=w320&id=' + url);
->>>>>>> master
   }
   getSafeUrl(url) {
     this.url = this.sanitizer.bypassSecurityTrustResourceUrl(
@@ -113,7 +107,7 @@ export class BaiHocComponent implements OnInit {
         fjs.parentNode.insertBefore(js, fjs);
       }
     })(document, 'script', 'facebook-jssdk');
-<<<<<<< HEAD
+
   }
 
   public donate() {
@@ -129,7 +123,6 @@ export class BaiHocComponent implements OnInit {
        console.log(err);
       }
     );
-=======
->>>>>>> master
+
   }
 }
