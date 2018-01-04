@@ -59,11 +59,7 @@ export class LichSuGiaoDichComponent implements OnInit {
     }
 
     public loadData() {
-<<<<<<< HEAD
-        this.http.get(`${this.config.url_port}/users/transaction_history?page=${this.page}&size=${this.size}`).subscribe(
-=======
         this.http.get(`${this.config.url_port}/user/transaction_history?page=${this.page}&size=${this.size}`).subscribe(
->>>>>>> master
             (data: any ) => {
                 console.log(data);
                 this.listTransaction = data.listOfResult ;
