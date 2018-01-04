@@ -51,7 +51,6 @@ export class HomeHeaderComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-
     this.refrershToken();
     if (window.innerWidth < 990) {
       this.megamenu = false;
@@ -92,7 +91,7 @@ export class HomeHeaderComponent implements OnInit {
     this.isloading = true;
     setTimeout(() => {
       this.isloading = false;
-    }, 500);
+    }, 1500);
   }
   public refrershToken(): void {
     this.isloading = true;
@@ -105,7 +104,10 @@ export class HomeHeaderComponent implements OnInit {
           }
         );
         this.isLogin = true;
-        this.isloading = false;
+        // this.isloading = false;
+        setTimeout(() => {
+          this.isloading = false;
+        }, 1500);
       },
       (err: HttpErrorResponse) => {
         if (err.status === 403) {

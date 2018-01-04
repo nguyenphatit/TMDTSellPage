@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+
+=======
+>>>>>>> master
 import { User } from './../../../_models/User';
 import { AuthenticationService } from './../../../_services/AuthenticationService';
 import { HttpErrorResponse } from '@angular/common/http';
