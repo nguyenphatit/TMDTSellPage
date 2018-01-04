@@ -1,8 +1,6 @@
-<<<<<<< HEAD
+
 import { User } from './../../../_models/User';
 import { AuthenticationService } from './../../../_services/AuthenticationService';
-=======
->>>>>>> master
 import { HttpErrorResponse } from '@angular/common/http';
 import { ShoppingCartService } from './../../../_services/shopping-cart/shopping-cart.service';
 import { Item } from './../../../_models/shopping-cart/item';
