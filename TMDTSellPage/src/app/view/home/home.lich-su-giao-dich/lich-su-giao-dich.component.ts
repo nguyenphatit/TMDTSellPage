@@ -72,10 +72,7 @@ export class LichSuGiaoDichComponent implements OnInit {
     }
 
     public loadData() {
-<<<<<<< HEAD
         // tslint:disable-next-line:max-line-length
-=======
->>>>>>> master
         this.http.get(`${this.config.url_port}/user/transaction_history?page=${this.page}&size=${this.size}`).subscribe(
             (data: any ) => {
                 console.log(data);
