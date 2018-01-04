@@ -21,6 +21,8 @@ export class BaiHocComponent implements OnInit {
   public listLesson: any = [];
   public url;
   public curent_url;
+  isShowButtonDonate = false;
+  private idLesson;
   constructor(
     private title: Title,
     private route: ActivatedRoute,
@@ -45,6 +47,18 @@ export class BaiHocComponent implements OnInit {
     }
   }
   private reloadPageWhenIDChange(idLesson: string): void {
+    this.idLesson = idLesson;
+    // is show button donate
+    this.http
+      .get(`${this.config.url_port}/user/lesson-is-non-commercial/${idLesson}`)
+      .subscribe(
+        (data: any) => {
+          this.isShowButtonDonate = data.success === 1;
+        },
+        (err: HttpErrorResponse) => {
+          this.isShowButtonDonate = false;
+        }
+      );
     this.http.get(this.config.url_port + `/lesson/${idLesson}`).subscribe(
       (dataLesson: any) => {
         this.lessonItem = dataLesson;
@@ -78,7 +92,7 @@ export class BaiHocComponent implements OnInit {
     window.history.back();
   }
   ngAfterViewInit() {
-    (function (d, s, id) {
+    (function(d, s, id) {
       var js,
         fjs = d.getElementsByTagName(s)[0];
       js = d.createElement(s);
@@ -93,5 +107,22 @@ export class BaiHocComponent implements OnInit {
         fjs.parentNode.insertBefore(js, fjs);
       }
     })(document, 'script', 'facebook-jssdk');
+
+  }
+
+  public donate() {
+    const body = {
+      amount: 5,
+      lessonID: this.idLesson
+    };
+    this.http.post(`${this.config.url_port}/payment/donate`, body).subscribe(
+      (data: any) => {
+        alert('Bạn đã donate thành công 5 điểm cho bài học này!');
+      },
+      (err: HttpErrorResponse) => {
+       console.log(err);
+      }
+    );
+
   }
 }

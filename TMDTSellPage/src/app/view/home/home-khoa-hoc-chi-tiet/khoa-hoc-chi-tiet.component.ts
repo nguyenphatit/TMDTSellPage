@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+import { User } from './../../../_models/User';
+import { AuthenticationService } from './../../../_services/AuthenticationService';
+=======
+>>>>>>> master
 import { HttpErrorResponse } from '@angular/common/http';
 import { ShoppingCartService } from './../../../_services/shopping-cart/shopping-cart.service';
 import { Item } from './../../../_models/shopping-cart/item';
@@ -26,9 +31,21 @@ export class KhoaHocChiTietComponent implements OnInit, OnDestroy {
   public listCourseRelationship: any = [];
   public listChapter: any = [];
   firstLessonInCourse: any;
+  isRegisted = false;
   private reloadPageWhenIDChange(idCourse: string): void {
-    // tslint:disable-next-line:no-var-keyword
+    // kiểm tra đã đăng ký khóa học hay chưa
+    this.http
+      .get(`${this.config.url_port}/user/is-registed/${idCourse}`)
+      .subscribe(
+        (data: any) => {
+          this.isRegisted = data.success === 1;
+        },
+        (err: HttpErrorResponse) => {
+          this.isRegisted = false;
+        }
+      );
 
+    // tslint:disable-next-line:no-var-keyword
     this.http.get(this.config.url_port + `/users/course/${idCourse}`).subscribe(
       data => {
         this.courseItem = data;
