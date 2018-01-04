@@ -1,3 +1,4 @@
+import { UploadAvatarComponent } from './home-thong-tin-ca-nhan/upload-avartar/upload-avartar.component';
 import { NgModule } from '@angular/core';
 import { HomeRoutingModule } from './home-routing.module';
 import { KhoaHocChiTietComponent } from './home-khoa-hoc-chi-tiet/khoa-hoc-chi-tiet.component';
@@ -20,6 +21,7 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { LichSuGiaoDichComponent } from './home.lich-su-giao-dich/lich-su-giao-dich.component';
 import { TimKiemComponent } from './home-tim-kiem/tim-kiem.component';
 import { PhanTrangComponent } from './home.lich-su-giao-dich/phan-trang/phan-trang.component';
+import { UploadFileService } from '../../_services/upload/UploadFileService';
 
 @NgModule({
     imports: [
@@ -47,8 +49,11 @@ import { PhanTrangComponent } from './home.lich-su-giao-dich/phan-trang/phan-tra
         ThanhToanComponent,
         LichSuGiaoDichComponent,
         TimKiemComponent,
-        PhanTrangComponent
+        PhanTrangComponent,
+        UploadAvatarComponent
     ],
-    providers: [],
+    providers: [
+      UploadFileService
+    ],
 })
 export class HomeModule { }

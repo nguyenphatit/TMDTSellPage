@@ -82,7 +82,9 @@ export class BaiHocComponent implements OnInit {
       });
   }
   safeUrl(url): SafeResourceUrl {
-    return this.sanitizer.bypassSecurityTrustResourceUrl('https://drive.google.com/thumbnail?authuser=0&sz=w320&id=' + url);
+    return this.sanitizer.bypassSecurityTrustResourceUrl(
+      'https://drive.google.com/thumbnail?authuser=0&sz=w320&id=' + url
+    );
   }
   getSafeUrl(url) {
     this.url = this.sanitizer.bypassSecurityTrustResourceUrl(
@@ -109,7 +111,6 @@ export class BaiHocComponent implements OnInit {
         fjs.parentNode.insertBefore(js, fjs);
       }
     })(document, 'script', 'facebook-jssdk');
-
   }
 
   public donate() {
@@ -122,15 +123,33 @@ export class BaiHocComponent implements OnInit {
         swal({
           position: 'top-end',
           type: 'success',
-          title: 'Bạn đã đóng góp 5 điểm cho khóa học!',
+          title: ' Chúc mừng bạn đã đóng góp 5 điểm cho khóa học này!',
           showConfirmButton: false,
-          timer: 1000,
-        });
+          timer: 1500,
+      });
       },
       (err: HttpErrorResponse) => {
-        console.log(err);
+        if (err.status === 400) {
+          alert('Donate tối thiểu 5d');
+        } else if (err.status === 401) {
+          swal({
+            title: 'Bạn cần phải đăng nhập!',
+            showCancelButton: true,
+            confirmButtonText: 'Đăng nhập ngay!',
+            cancelButtonText: 'Hủy'
+          }).then((result) => {
+            if (result.value) {
+                this.router.navigate(['/pages/dang-nhap'], {
+                  queryParams: { returnUrl: this.router.routerState.snapshot.url }
+                });
+            }
+          });
+        } else if (err.status === 406) {
+          alert('Hiển thị bảng thông báo, không đủ tiền, nạp thêm ok/cancel');
+        } else if (err.status === 404) {
+          alert('Hiển thị thông báo không tìm thấy mục cần donate');
+        }
       }
     );
-
   }
 }
