@@ -1,13 +1,6 @@
-====== 3TPL ====== 
+====== 3TPL ======
 
-Mô tả :         Trang web khóa học trực tuyến. Dự án phần mềm web thương mại điện tử
-Twitter:            @gibertpascal
-Author URL:         http://intelligence-web.com
-Project URL:       http://intelligence-web.com/free-bootstrap-template-corporate/01/06/2014/ - 
-
-Version Template:   1.0
-Date:               May 2014
-Licence CC BY-SA 4.0 : http://creativecommons.org/licenses/by-sa/4.0/
+Mô tả :         Trang web khóa học trực tuyến. Dự án phần mềm web thương mại điện tử.
 
 ====== Caractéristiques du template ======
 
