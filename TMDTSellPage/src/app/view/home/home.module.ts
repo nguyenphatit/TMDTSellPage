@@ -23,8 +23,6 @@ import { TimKiemComponent } from './home-tim-kiem/tim-kiem.component';
 import { PhanTrangComponent } from './home.lich-su-giao-dich/phan-trang/phan-trang.component';
 import { UploadFileService } from '../../_services/upload/UploadFileService';
 
-
-
 @NgModule({
     imports: [
         HomeRoutingModule,
@@ -34,7 +32,7 @@ import { UploadFileService } from '../../_services/upload/UploadFileService';
         BsDropdownModule.forRoot(),
         AccordionModule.forRoot(),
         CollapseModule.forRoot(),
-        CarouselModule.forRoot()
+        CarouselModule.forRoot(),
     ],
     exports: [],
     declarations: [

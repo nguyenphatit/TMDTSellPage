@@ -53,12 +53,12 @@ export class BaiHocComponent implements OnInit {
     this.http
       .get(`${this.config.url_port}/user/lesson-is-non-commercial/${idLesson}`)
       .subscribe(
-        (data: any) => {
-          this.isShowButtonDonate = data.success === 1;
-        },
-        (err: HttpErrorResponse) => {
-          this.isShowButtonDonate = false;
-        }
+      (data: any) => {
+        this.isShowButtonDonate = data.success === 1;
+      },
+      (err: HttpErrorResponse) => {
+        this.isShowButtonDonate = false;
+      }
       );
     this.http.get(this.config.url_port + `/lesson/${idLesson}`).subscribe(
       (dataLesson: any) => {
@@ -95,8 +95,9 @@ export class BaiHocComponent implements OnInit {
     window.history.back();
   }
   ngAfterViewInit() {
-    (function(d, s, id) {
-      var js,
+    (function (d, s, id) {
+      let js,
+        // tslint:disable-next-line:prefer-const
         fjs = d.getElementsByTagName(s)[0];
       js = d.createElement(s);
       js.id = id;
