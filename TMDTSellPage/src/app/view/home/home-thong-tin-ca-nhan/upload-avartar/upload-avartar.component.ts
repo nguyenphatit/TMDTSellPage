@@ -8,7 +8,7 @@ import { UploadFileService } from '../../../../_services/upload/UploadFileServic
 @Component({
   selector: 'app-upload-avatar',
   templateUrl: './upload-avartar.component.html',
-  styleUrls: ['./upload-avartar.component.css']
+  // styleUrls: ['./upload-avartar.component.css']
 })
 
 export class UploadAvatarComponent implements OnInit {
