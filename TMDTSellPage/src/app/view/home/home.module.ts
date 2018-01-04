@@ -21,8 +21,6 @@ import { LichSuGiaoDichComponent } from './home.lich-su-giao-dich/lich-su-giao-d
 import { TimKiemComponent } from './home-tim-kiem/tim-kiem.component';
 import { PhanTrangComponent } from './home.lich-su-giao-dich/phan-trang/phan-trang.component';
 
-
-
 @NgModule({
     imports: [
         HomeRoutingModule,
@@ -32,7 +30,7 @@ import { PhanTrangComponent } from './home.lich-su-giao-dich/phan-trang/phan-tra
         BsDropdownModule.forRoot(),
         AccordionModule.forRoot(),
         CollapseModule.forRoot(),
-        CarouselModule.forRoot()
+        CarouselModule.forRoot(),
     ],
     exports: [],
     declarations: [

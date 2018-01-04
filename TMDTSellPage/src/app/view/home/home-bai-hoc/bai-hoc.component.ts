@@ -4,6 +4,7 @@ import { ConfigValue } from './../../../_helpers/config-value';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import swal from 'sweetalert2';
 import {
   Title,
   DomSanitizer,
@@ -52,12 +53,12 @@ export class BaiHocComponent implements OnInit {
     this.http
       .get(`${this.config.url_port}/user/lesson-is-non-commercial/${idLesson}`)
       .subscribe(
-        (data: any) => {
-          this.isShowButtonDonate = data.success === 1;
-        },
-        (err: HttpErrorResponse) => {
-          this.isShowButtonDonate = false;
-        }
+      (data: any) => {
+        this.isShowButtonDonate = data.success === 1;
+      },
+      (err: HttpErrorResponse) => {
+        this.isShowButtonDonate = false;
+      }
       );
     this.http.get(this.config.url_port + `/lesson/${idLesson}`).subscribe(
       (dataLesson: any) => {
@@ -92,15 +93,16 @@ export class BaiHocComponent implements OnInit {
     window.history.back();
   }
   ngAfterViewInit() {
-    (function(d, s, id) {
-      var js,
+    (function (d, s, id) {
+      let js,
+        // tslint:disable-next-line:prefer-const
         fjs = d.getElementsByTagName(s)[0];
       js = d.createElement(s);
       js.id = id;
       js.src = '//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4';
 
       if (d.getElementById(id)) {
-        //if <script id="facebook-jssdk"> exists
+        // if <script id="facebook-jssdk"> exists
         delete (<any>window).FB;
         fjs.parentNode.replaceChild(js, fjs);
       } else {
@@ -117,10 +119,16 @@ export class BaiHocComponent implements OnInit {
     };
     this.http.post(`${this.config.url_port}/payment/donate`, body).subscribe(
       (data: any) => {
-        alert('Bạn đã donate thành công 5 điểm cho bài học này!');
+        swal({
+          position: 'top-end',
+          type: 'success',
+          title: 'Bạn đã đóng góp 5 điểm cho khóa học!',
+          showConfirmButton: false,
+          timer: 1000,
+        });
       },
       (err: HttpErrorResponse) => {
-       console.log(err);
+        console.log(err);
       }
     );
 
