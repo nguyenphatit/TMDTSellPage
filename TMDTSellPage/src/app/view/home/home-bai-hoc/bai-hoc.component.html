@@ -30,7 +30,7 @@
           <h3>{{lessonItem?.lessonTitle}}</h3>
         </div>
         <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 text-right">
-          <button class="btn ibtn-circle-white" type="button">
+          <button *ngIf="isShowButtonDonate" class="btn ibtn" type="button" (click)="donate()">
             <i class="fa fa-credit-card-alt"></i> Donate</button>
         </div>
       </div>

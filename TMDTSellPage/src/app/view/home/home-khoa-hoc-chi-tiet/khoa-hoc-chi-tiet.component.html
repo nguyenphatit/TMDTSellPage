@@ -77,7 +77,8 @@
                             </div>
                             <br/>
                             <div class="text-right">
-                                <a (click)="ghiDanh()" class="btn btn-block btn-light btn-book">Ghi danh</a>
+                                <a *ngIf="!isRegisted" (click)="ghiDanh()" class="btn btn-block btn-light btn-book">Ghi danh</a>
+                                <a *ngIf="isRegisted" class="btn btn-block btn-success"><i class="fa fa-check"></i> Đã ghi danh</a>
                             </div>
                         </div>
                     </div>
