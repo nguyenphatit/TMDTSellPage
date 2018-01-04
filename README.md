@@ -1,6 +1,6 @@
-====== Free Bootstrap Template Corporate, HTML5 and CSS3 ====== 
+====== 3TPL ====== 
 
-Description :       Un template responsive basé sur le framework Bootstrap, avec des rich snippets pour Google, valide html5, formulaire de contact sécurisé, proposé en téléchargement gratuit.
+Mô tả :         Trang web khóa học trực tuyến. Dự án phần mềm web thương mại điện tử
 Twitter:            @gibertpascal
 Author URL:         http://intelligence-web.com
 Project URL:       http://intelligence-web.com/free-bootstrap-template-corporate/01/06/2014/ - 
