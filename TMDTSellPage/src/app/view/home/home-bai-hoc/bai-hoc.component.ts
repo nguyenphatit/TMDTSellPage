@@ -126,7 +126,7 @@ export class BaiHocComponent implements OnInit {
           title: ' Chúc mừng bạn đã đóng góp 5 điểm cho khóa học này!',
           showConfirmButton: false,
           timer: 1500,
-      });
+        });
       },
       (err: HttpErrorResponse) => {
         if (err.status === 400) {
@@ -139,15 +139,31 @@ export class BaiHocComponent implements OnInit {
             cancelButtonText: 'Hủy'
           }).then((result) => {
             if (result.value) {
-                this.router.navigate(['/pages/dang-nhap'], {
-                  queryParams: { returnUrl: this.router.routerState.snapshot.url }
-                });
+              this.router.navigate(['/pages/dang-nhap'], {
+                queryParams: { returnUrl: this.router.routerState.snapshot.url }
+              });
             }
           });
         } else if (err.status === 406) {
-          alert('Hiển thị bảng thông báo, không đủ tiền, nạp thêm ok/cancel');
+          swal({
+            title: 'Không đủ tiền trong tài khoản!',
+            showCancelButton: true,
+            confirmButtonText: 'Nạp thêm',
+            cancelButtonText: 'Hủy'
+          }).then((result) => {
+            if (result.value) {
+              this.router.navigate(['/home/nap-the']);
+            }
+          });
+          // alert('Hiển thị bảng thông báo, không đủ tiền, nạp thêm ok/cancel');
         } else if (err.status === 404) {
-          alert('Hiển thị thông báo không tìm thấy mục cần donate');
+          swal({
+            title: 'Không tìm thấy mục donate!',
+            type: 'warning',
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          // alert('Hiển thị thông báo không tìm thấy mục cần donate');
         }
       }
     );
