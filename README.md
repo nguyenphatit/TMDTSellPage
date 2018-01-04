@@ -4,7 +4,11 @@
 Trang web thương mại điện tử với chủ đề khóa học trực tuyến 3TPL.
 
 ## Nhóm phát triển
-Trần Văn Thắng, Huỳnh Tính Thành, Phạm Thị Mỹ Trinh, Nguyễn Tấn Phát, Trương Tam Lang.
+* Trần Văn Thắng
+* Huỳnh Tính Thành
+* Phạm Thị Mỹ Trinh
+* Nguyễn Tấn Phát
+* Trương Tam Lang
 
 ## Cấu trúc
 1. Phần người dùng https://github.com/nguyenphatit/TMDTSellPage
