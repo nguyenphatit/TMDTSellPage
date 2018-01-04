@@ -8,7 +8,7 @@ import { Component, OnInit } from "@angular/core";
 import { Title } from "@angular/platform-browser";
 
 @Component({
-  templateUrl: "thong-tin-ca-nhan.component.html"
+  templateUrl: 'thong-tin-ca-nhan.component.html'
 })
 export class ThongTinCaNhanComponent implements OnInit, OnDestroy {
   public isShowProfile = false;
@@ -24,14 +24,14 @@ export class ThongTinCaNhanComponent implements OnInit, OnDestroy {
     private config: ConfigValue,
     private auth: AuthenticationService
   ) {
-    this.title.setTitle("3TPL | Thông tin cá nhân");
+    this.title.setTitle('3TPL | Thông tin cá nhân');
   }
   log(event: boolean) {
-    console.log(`Accordion has been ${event ? "opened" : "closed"}`);
+    console.log(`Accordion has been ${event ? 'opened' : 'closed'}`);
   }
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
-      this.reloadPageWhenIDChange(params["id"]);
+      this.reloadPageWhenIDChange(params['id']);
     });
   }
   private reloadPageWhenIDChange(idAuthor: string): void {
