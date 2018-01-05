@@ -21,7 +21,6 @@ import { LichSuGiaoDichComponent } from './home.lich-su-giao-dich/lich-su-giao-d
 import { TimKiemComponent } from './home-tim-kiem/tim-kiem.component';
 import { PhanTrangComponent } from './home.lich-su-giao-dich/phan-trang/phan-trang.component';
 import { UploadFileService } from '../../_services/upload/UploadFileService';
-import { SliderComponent } from './home-slider.component/slider.component';
 
 @NgModule({
     imports: [
@@ -50,7 +49,6 @@ import { SliderComponent } from './home-slider.component/slider.component';
         TimKiemComponent,
         PhanTrangComponent,
         UploadAvatarComponent,
-        SliderComponent
     ],
     providers: [
       UploadFileService
