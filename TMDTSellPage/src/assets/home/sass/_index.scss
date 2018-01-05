@@ -1,35 +1,37 @@
 .index {
 	background-image: url("../images/backgroundweb.jpeg");
-	height: 100%;
+	// height: 100%;
 	background-attachment: fixed;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
 	@include basic-font($font2, #000000);
 
-	section.slide {
-		.carousel {
-			.carousel-indicators {
-				li {
-					width: 20px;
-					height: 20px;
-					border-radius: 50%;
-					cursor: pointer;
-				}
-			}
-			.carousel-control-prev {
-			}
-			.carousel-control-next {
-			}
-			.carousel-caption {
+	// section.slide {
+	// 	.carousel {
+	// 		.carousel-indicators {
+	// 			li {
+	// 				width: 20px;
+	// 				height: 20px;
+	// 				border-radius: 50%;
+	// 				cursor: pointer;
+	// 			}
+	// 		}
+	// 		.carousel-control-prev {
+	// 		}
+	// 		.carousel-control-next {
+	// 		}
+	// 		.carousel-caption {
 				
-			}
-		}
-	}
+	// 		}
+	// 	}
+	// }
+
+	@import "super-slide";
 
 	section.section-1 {
 		background: #ffffff;
-		padding: 50px 0 100px 0;
+		padding: 200px 0 200px 0;
 		figure.snip-images {
 			font-family: $font2;
 			position: relative;
@@ -164,14 +166,14 @@
 
 	section.section-2 {
 		background: rgba(0, 0, 0, 0.67);
-		padding: 50px 0 50px 0;
+		padding: 200px 0 200px 0;
 		@include basic-font($font2, #ffffff);
 		&:before {
 			background: rgba(0, 0, 0, 0.67);
 		}
 		h2 {
 			font-family: $font1;
-			font-size: 2.5em;
+			font-size: 4em;
 			color: $color4;
 			padding-bottom: 30px;
 		}
@@ -197,10 +199,10 @@
 
 	section.section-3 {
 		background: #ffffff;
-		padding: 70px 0 100px 0;
+		padding: 200px 0 200px 0;
 		h2 {
 			font-family: $font1;
-			font-size: 2.5em;
+			font-size: 4em;
 		}
 		.card {
 			@include basic-delay(1s);
@@ -280,7 +282,7 @@
 	
 	section.section-4 {
 		background: rgba(0, 0, 0, 0.67);
-		padding: 50px 0 50px 0;
+		padding: 200px 0 200px 0;
 		@include basic-font($font2, #ffffff);
 
 		&:before {

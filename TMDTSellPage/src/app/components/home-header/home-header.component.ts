@@ -23,7 +23,7 @@ export class HomeHeaderComponent implements OnInit {
   keySearch: string ;
   @HostListener('window:resize', ['$event'])
   onResize(event) {
-    if (event.target.innerWidth < 990) {
+    if (event.target.innerWidth < 500) {
       this.megamenu = false;
     } else {
       this.megamenu = true;
@@ -36,7 +36,7 @@ export class HomeHeaderComponent implements OnInit {
       document.documentElement.scrollTop ||
       document.body.scrollTop ||
       0;
-    if (number > 600) {
+    if (number > 200) {
       this.effectNavbar = true;
     } else {
       this.effectNavbar = false;
