@@ -1,14 +1,14 @@
-import { Item } from "./../../_models/shopping-cart/item";
-import { ShoppingCartService } from "./../../_services/shopping-cart/shopping-cart.service";
-import { ConfigValue } from "./../../_helpers/config-value";
-import { User } from "./../../_models/User";
-import { Component, OnInit, HostListener } from "@angular/core";
-import { RouterStateSnapshot, Router } from "@angular/router";
-import { AuthenticationService } from "../../_services/AuthenticationService";
-import { HttpErrorResponse, HttpClient } from "@angular/common/http";
+import { Item } from './../../_models/shopping-cart/item';
+import { ShoppingCartService } from './../../_services/shopping-cart/shopping-cart.service';
+import { ConfigValue } from './../../_helpers/config-value';
+import { User } from './../../_models/User';
+import { Component, OnInit, HostListener } from '@angular/core';
+import { RouterStateSnapshot, Router } from '@angular/router';
+import { AuthenticationService } from '../../_services/AuthenticationService';
+import { HttpErrorResponse, HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: "app-home-header",
+  selector: 'app-home-header',
   templateUrl: 'home-header.component.html',
   styleUrls: ['home-header.component.css']
 })
