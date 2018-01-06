@@ -17,6 +17,17 @@
     <span></span>
     <span></span>
   </div>
+  <!-- <div class="loader">
+    <div class="cube-wrapper">
+      <div class="cube-folding">
+        <span class="leaf1"></span>
+        <span class="leaf2"></span>
+        <span class="leaf3"></span>
+        <span class="leaf4"></span>
+      </div>
+      <span class="loading" data-name="Loading">Loading...</span>
+    </div>
+  </div> -->
 </div>
 
 <nav [style.padding]="effectNavbar ? '0' : '.5rem 1rem'" class="navbar navbar-expand-lg navbar-light fixed-top">
@@ -112,7 +123,7 @@
             </div>
             <div *ngIf="this.cartService.getCartCurrent().length==0">
               <div class="container">
-                  <span class="text-danger">Hiện chưa có sản phẩm nào trong giỏ hàng của bạn!</span>
+                <span class="text-danger">Hiện chưa có sản phẩm nào trong giỏ hàng của bạn!</span>
               </div>
             </div>
           </div>
@@ -150,7 +161,7 @@
         </li>
       </ul>
       <form class="form-inline input-search2" (keydown)="timKiem($event)">
-        <input type="text"  [(ngModel)]="keySearch" name="search" placeholder="Tìm kiếm ..." >
+        <input type="text" [(ngModel)]="keySearch" name="search" placeholder="Tìm kiếm ...">
       </form>
     </div>
   </div>

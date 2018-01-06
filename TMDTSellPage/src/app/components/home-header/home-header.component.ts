@@ -10,7 +10,7 @@ import { HttpErrorResponse, HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-home-header',
   templateUrl: 'home-header.component.html',
-  styleUrls: ['home-header.component.css']
+  // styleUrls: ['home-header.component.css']
 })
 export class HomeHeaderComponent implements OnInit {
   isloading = true; // hiệu ứng loading .. pages
