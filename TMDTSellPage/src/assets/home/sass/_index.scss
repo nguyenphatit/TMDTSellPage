@@ -183,16 +183,17 @@
 			font-family: $font1;
 			font-size: 4em;
 		}
+
 		.card {
 			@include basic-delay(1s);
 			margin: 20px 0 20px 0;
-			border-radius: 0;
+			border-radius: 0;			
 
-			
 
 			.card-img-top {
 				max-height: 156px;
 				min-height: 156px;
+				
 				.card-item {
 					max-height: 156px;
 				}
@@ -254,9 +255,47 @@
 				opacity: 1;
 				@include basic-delay(1s);
 			}
+
+			animation: fadein 2s;
+			-moz-animation: fadein 2s; /* Firefox */
+			-webkit-animation: fadein 2s; /* Safari and Chrome */
+			-o-animation: fadein 2s; /* Opera */
+		}	
+
+		@keyframes fadein {
+			from {
+				opacity:0;
+			}
+			to {
+				opacity:1;
+			}
 		}
+		@-moz-keyframes fadein { /* Firefox */
+			from {
+				opacity:0;
+			}
+			to {
+				opacity:1;
+			}
+		}
+		@-webkit-keyframes fadein { /* Safari and Chrome */
+			from {
+				opacity:0;
+			}
+			to {
+				opacity:1;
+			}
+		}
+		@-o-keyframes fadein { /* Opera */
+			from {
+				opacity:0;
+			}
+			to {
+				opacity: 1;
+			}
+		}	
 	}
-	
+
 	section.section-4 {
 		background: rgba(0, 0, 0, 0.67);
 		padding: 200px 0 200px 0;
