@@ -25,7 +25,7 @@ export class MainHomeComponent implements OnInit {
   }
   public xemThem(): void {
     this.size += 4;
-   this.loadCourseFeatured();
+    this.loadCourseFeatured();
   }
   public loadCourseFeatured(): void {
     this.http
