@@ -6,27 +6,6 @@
 	background-repeat: no-repeat;
 	background-size: cover;
 	@include basic-font($font2, #000000);
-
-	// section.slide {
-	// 	.carousel {
-	// 		.carousel-indicators {
-	// 			li {
-	// 				width: 20px;
-	// 				height: 20px;
-	// 				border-radius: 50%;
-	// 				cursor: pointer;
-	// 			}
-	// 		}
-	// 		.carousel-control-prev {
-	// 		}
-	// 		.carousel-control-next {
-	// 		}
-	// 		.carousel-caption {
-				
-	// 		}
-	// 	}
-	// }
-
 	@import "super-slide";
 
 	section.section-1 {
@@ -208,6 +187,9 @@
 			@include basic-delay(1s);
 			margin: 20px 0 20px 0;
 			border-radius: 0;
+
+			
+
 			.card-img-top {
 				max-height: 156px;
 				min-height: 156px;
@@ -217,7 +199,6 @@
 				opacity: .6;
 				@include basic-delay(1s);
 			}
-
 			.card-body {
 				.parallelogram-blue {
 					width: 5px;
@@ -240,15 +221,12 @@
 					float: left;
 					margin: 0 10px 0 0;
 				}
-
 				h5 {
 					font-size: 1.2em;
 				}
-
 				.rating {
 					color: $color3;
 				}
-
 				.btninfo {
 					border: 1px solid $color4;
 					color: $color4;
@@ -261,7 +239,6 @@
 					}
 				}
 			}
-
 			.card-footer {
 				.price {
 					font-family: $font3;
