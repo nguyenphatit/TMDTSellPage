@@ -4,7 +4,6 @@ import { ConfigValue } from './../../../_helpers/config-value';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import swal from 'sweetalert2';
 import {
   Title,
   DomSanitizer,
@@ -53,12 +52,12 @@ export class BaiHocComponent implements OnInit {
     this.http
       .get(`${this.config.url_port}/user/lesson-is-non-commercial/${idLesson}`)
       .subscribe(
-      (data: any) => {
-        this.isShowButtonDonate = data.success === 1;
-      },
-      (err: HttpErrorResponse) => {
-        this.isShowButtonDonate = false;
-      }
+        (data: any) => {
+          this.isShowButtonDonate = data.success === 1;
+        },
+        (err: HttpErrorResponse) => {
+          this.isShowButtonDonate = false;
+        }
       );
     this.http.get(this.config.url_port + `/lesson/${idLesson}`).subscribe(
       (dataLesson: any) => {
@@ -95,16 +94,15 @@ export class BaiHocComponent implements OnInit {
     window.history.back();
   }
   ngAfterViewInit() {
-    (function (d, s, id) {
-      let js,
-        // tslint:disable-next-line:prefer-const
+    (function(d, s, id) {
+      var js,
         fjs = d.getElementsByTagName(s)[0];
       js = d.createElement(s);
       js.id = id;
       js.src = '//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4';
 
       if (d.getElementById(id)) {
-        // if <script id="facebook-jssdk"> exists
+        //if <script id="facebook-jssdk"> exists
         delete (<any>window).FB;
         fjs.parentNode.replaceChild(js, fjs);
       } else {
@@ -120,51 +118,10 @@ export class BaiHocComponent implements OnInit {
     };
     this.http.post(`${this.config.url_port}/payment/donate`, body).subscribe(
       (data: any) => {
-        swal({
-          position: 'top-end',
-          type: 'success',
-          title: ' Chúc mừng bạn đã đóng góp 5 điểm cho khóa học này!',
-          showConfirmButton: false,
-          timer: 1500,
-        });
+        alert('Bạn đã donate thành công 5 điểm cho bài học này!');
       },
       (err: HttpErrorResponse) => {
-        if (err.status === 400) {
-          alert('Donate tối thiểu 5d');
-        } else if (err.status === 401) {
-          swal({
-            title: 'Bạn cần phải đăng nhập!',
-            showCancelButton: true,
-            confirmButtonText: 'Đăng nhập ngay!',
-            cancelButtonText: 'Hủy'
-          }).then((result) => {
-            if (result.value) {
-              this.router.navigate(['/pages/dang-nhap'], {
-                queryParams: { returnUrl: this.router.routerState.snapshot.url }
-              });
-            }
-          });
-        } else if (err.status === 406) {
-          swal({
-            title: 'Không đủ tiền trong tài khoản!',
-            showCancelButton: true,
-            confirmButtonText: 'Nạp thêm',
-            cancelButtonText: 'Hủy'
-          }).then((result) => {
-            if (result.value) {
-              this.router.navigate(['/home/nap-the']);
-            }
-          });
-          // alert('Hiển thị bảng thông báo, không đủ tiền, nạp thêm ok/cancel');
-        } else if (err.status === 404) {
-          swal({
-            title: 'Không tìm thấy mục donate!',
-            type: 'warning',
-            showConfirmButton: false,
-            timer: 1500,
-          });
-          // alert('Hiển thị thông báo không tìm thấy mục cần donate');
-        }
+       console.log(err);
       }
     );
   }

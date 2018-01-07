@@ -47,12 +47,12 @@
                         <img src="assets/home/images/intro1.jpeg" alt="i" />
                         <div class="title">
                             <div>
-                                <h2>GIỚI THIỆU</h2>
+                                <h2>Khai giảng</h2>
                                 <h4>Xem</h4>
                             </div>
                         </div>
                         <figcaption>
-                            <p>Xem thông tin về chúng tôi.</p>
+                            <p>Xem thông tin các lớp sẽ được mở trong tương lai.</p>
                         </figcaption>
                         <a [routerLink]="['/home/gioi-thieu']"></a>
                     </figure>
@@ -62,12 +62,12 @@
                         <img src="assets/home/images/intro2.jpeg" alt="i" />
                         <div class="title">
                             <div>
-                                <h2>THAM GIA</h2>
+                                <h2>Khóa học</h2>
                                 <h4>Xem</h4>
                             </div>
                         </div>
                         <figcaption>
-                            <p>Tham gia để đăng ký hoặc tạo khóa học.</p>
+                            <p>Xem các khóa học đang có ở trung tâm.</p>
                         </figcaption>
                         <a [routerLink]="['/pages/dang-ky']"></a>
                     </figure>
@@ -77,12 +77,12 @@
                         <img src="assets/home/images/intro3.jpeg" alt="i" />
                         <div class="title">
                             <div>
-                                <h2>ĐIỀU KHOẢN</h2>
+                                <h2>Mở lớp mới</h2>
                                 <h4>Xem</h4>
                             </div>
                         </div>
                         <figcaption>
-                            <p>Xem những điều khoản về học cũng như bảo mật tài khoản cá nhân.</p>
+                            <p>Đăng ký làm cộng sự với trung tâm để mở lớp học mới.</p>
                         </figcaption>
                         <a [routerLink]="['/home/dieu-khoan-su-dung']"></a>
                     </figure>
@@ -129,6 +129,7 @@
             <h2 class="text-center">CÁC KHÓA HỌC NỔI BẬT</h2>
             <div class="row">
                 <!-- card -->
+                <!-- card -->
                 <div *ngFor="let item of listCourse" class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
                     <div class="card border-secondary">
                         <img class="card-img-top card-item" src="{{item.courseAvatar}}" alt="">
@@ -159,10 +160,8 @@
                         </div>
                     </div>
                 </div>
+                <button  *ngIf="this.size < this.total" (click)="xemThem()" >Xem thêm</button>
                 <!-- end card -->
-            </div>
-            <div class="text-center">
-                <button class="btn ibtn" *ngIf="this.size < this.total" (click)="xemThem()">Xem thêm</button>
             </div>
         </div>
     </section>
