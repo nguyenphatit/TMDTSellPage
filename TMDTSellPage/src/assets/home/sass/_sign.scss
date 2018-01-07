@@ -55,12 +55,17 @@
 		}
 
 		.more-content {
-			margin: 30px 0 0 0;
+			margin: 5px 0 0 0;
 		}
 	}
 
 	.log-long {
 		margin-top: 5%;
+		.content-log {
+			.card-body {
+				padding: 0px;
+			}
+		}
 	}
 
 	.nav-footer {
