@@ -48,7 +48,7 @@
           <!-- /abc -->
           <div class="fb-comment">
             <!-- <div id="fb-root"></div> -->
-            <div class="fb-comments" [attr.data-href]="insertUrlHere" data-numposts="20" data-width="100%" css="http://www.yourwebsite.com/css/comments.css?1234"></div>
+            <div class="fb-comments" [attr.data-href]="[this.hostName + this.router.routerState.snapshot.url]" data-numposts="20" data-width="100%" css="http://www.yourwebsite.com/css/comments.css?1234"></div>
           </div>
           <!-- ./abc -->
         </div>
@@ -153,7 +153,7 @@
           <!-- /abc -->
           <div class="fb-comment">
             <!-- <div id="fb-root"></div> -->
-            <div class="fb-comments" [attr.data-href]="insertUrlHere" data-numposts="20" data-width="100%" css="http://www.yourwebsite.com/css/comments.css?1234"></div>
+            <div class="fb-comments" [attr.data-href]="[this.hostName + this.router.routerState.snapshot.url]" data-numposts="20" data-width="100%" css="http://www.yourwebsite.com/css/comments.css?1234"></div>
           </div>
           <!-- ./abc -->
         </div>
