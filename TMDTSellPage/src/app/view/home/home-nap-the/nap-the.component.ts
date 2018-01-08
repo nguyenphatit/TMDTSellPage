@@ -15,6 +15,7 @@ export class NapTheComponent implements OnInit {
   money: number;
   userInfo: any;
   oneAtATime: boolean = true;
+  submitted: boolean = false;
   constructor(
     private title: Title,
     private activeRouter: ActivatedRoute,
@@ -42,7 +43,7 @@ export class NapTheComponent implements OnInit {
     this.token = this.activeRouter.snapshot.queryParams['token'] || null;
     this.payerID = this.activeRouter.snapshot.queryParams['PayerID'] || null;
     if (this.payerID && this.token && this.paymentId) {
-      alert(this.payerID + '\n' + this.token + '\n' + this.payerID);
+      // alert(this.payerID + '\n' + this.token + '\n' + this.payerID);
       // tslint:disable-next-line:max-line-length
       this.http
         .get(
@@ -54,6 +55,8 @@ export class NapTheComponent implements OnInit {
         .subscribe((data: any) => {
           console.log(data);
           alert(`Bạn đã nạp thành công ${data.total} vào tài khoản!`);
+        }, (err: HttpErrorResponse) => {
+          alert(`Bạn cần nhập số tiền cần nạp!`);
         });
     } else if (this.token && !this.payerID && !this.payerID) {
       this.http
@@ -68,6 +71,7 @@ export class NapTheComponent implements OnInit {
     if (!this.money) {
       alert('chưa nhập tiền!');
     } else {
+      this.submitted = true;
       const tmpMoney: any = {
         payDecription: 'Nạp tiền',
         total: this.money

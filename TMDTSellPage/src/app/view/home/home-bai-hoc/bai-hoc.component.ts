@@ -10,6 +10,7 @@ import {
   SafeResourceUrl
 } from '@angular/platform-browser';
 import { Location } from '@angular/common';
+import { ucs2 } from 'punycode';
 
 @Component({
   templateUrl: 'bai-hoc.component.html'
@@ -23,6 +24,8 @@ export class BaiHocComponent implements OnInit {
   public curent_url;
   isShowButtonDonate = false;
   private idLesson;
+  showFbUrl;
+  hostName;
   constructor(
     private title: Title,
     private route: ActivatedRoute,
@@ -30,23 +33,27 @@ export class BaiHocComponent implements OnInit {
     private config: ConfigValue,
     public sanitizer: DomSanitizer,
     public location: Location,
-    private router: Router
+    public router: Router
   ) {
     this.title.setTitle('3TPL | Bài học');
   }
   ngOnInit() {
+    this.hostName = 'http://localhost:4200';
     this.sub = this.route.params.subscribe(params => {
+      this.showFbUrl = false;
       this.reloadPageWhenIDChange(params['id']);
       console.log(params['id']);
 
       this.curent_url = this.location.path();
       window.scrollTo(0, 0);
+        this.showFbUrl = true;
     });
     if (this.lessonItem) {
       this.router.navigate(['/home']);
     }
   }
   private reloadPageWhenIDChange(idLesson: string): void {
+    this.ngAfterViewInit();
     this.idLesson = idLesson;
     // is show button donate
     this.http
@@ -87,7 +94,7 @@ export class BaiHocComponent implements OnInit {
   }
   getSafeUrl(url) {
     this.url = this.sanitizer.bypassSecurityTrustResourceUrl(
-      'https://drive.google.com/file/d/${url}/preview'
+      `https://drive.google.com/file/d/${url}/preview`
     );
   }
   goBack(): void {
