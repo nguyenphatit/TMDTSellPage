@@ -23,6 +23,8 @@ import { PhanTrangComponent } from './home.lich-su-giao-dich/phan-trang/phan-tra
 import { UploadFileService } from '../../_services/upload/UploadFileService';
 import { DemoComponent } from './home-demo/home-demo.component';
 
+
+
 @NgModule({
     imports: [
         HomeRoutingModule,
@@ -32,7 +34,6 @@ import { DemoComponent } from './home-demo/home-demo.component';
         BsDropdownModule.forRoot(),
         AccordionModule.forRoot(),
         CollapseModule.forRoot(),
-        // CarouselModule.forRoot(),
     ],
     exports: [],
     declarations: [

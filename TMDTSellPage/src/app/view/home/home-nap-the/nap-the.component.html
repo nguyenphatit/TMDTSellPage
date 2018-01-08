@@ -77,11 +77,20 @@
                     </form>
                 </accordion-group>
                 <accordion-group heading="Nạp tiền qua cổng thanh toán điện tử Ngân lượng">
-                    <a target="_blank" href="https://sandbox.nganluong.vn:8088/nl30/button_payment.php?receiver=(Email chính tài khoản nhận tiền)&product_name=(Mã đơn đặt hàng)&price=(Tổng giá trị)&return_url=(URL thanh toán thành công)&comments=(Ghi chú về đơn hàng)">
-                        <img src="https://sandbox.nganluong.vn:8088/nl30/css/newhome/img/button/safe-pay-2.png" border="0" />
-                    </a>
-                    <br/>
-                    <small class="text-danger">* Bạn sẽ được chuyển sang trang Ngân Lượng để thanh toán. Cảm ơn!</small>
+                    <form action="https://www.nganluong.vn/button_payment.php" method="GET">
+                        <div class="form-group">
+                            <label for="price">Số tiền (VNĐ)</label>
+                            <input class="form-control" name="receiver" type="hidden" value="nguyenphatit.nl@gmail.com" />
+                            <input class="form-control" name="product_name" value="abc123" type="hidden" />
+                            <input class="form-control" name="price" value="50000" type="number" id="price"/>
+                            <input class="form-control" name="return_url" value="http://localhost:4200/home/main" type="hidden" />
+                            <input class="form-control" type="hidden" name="comments" value="Nạp tiền cho 3TPL" />
+                            <!-- <input type="submit" name="submit"/> -->
+                        </div>
+                        <div class="text-right">
+                            <button class="btn ibtn" type="submit">Nạp thẻ</button>
+                        </div>
+                    </form>
                 </accordion-group>
             </accordion>
         </div>
