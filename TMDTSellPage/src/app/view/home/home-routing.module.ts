@@ -13,6 +13,7 @@ import { ThanhToanComponent } from './home-thanh-toan/thanh-toan.component';
 import { NapTheComponent } from './home-nap-the/nap-the.component';
 import { LichSuGiaoDichComponent } from './home.lich-su-giao-dich/lich-su-giao-dich.component';
 import { DemoComponent } from './home-demo/home-demo.component';
+import { KhoaHocCuaToiComponent } from './home-khoa-hoc-cua-toi/khoa-hoc-cua-toi.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent,
@@ -41,6 +42,8 @@ children: [
         path: 'tim-kiem/:key-search', component: TimKiemComponent
     }, {
         path: 'demo', component: DemoComponent
+    }, {
+        path: 'khoa-hoc-cua-toi', component: KhoaHocCuaToiComponent
     }
 ]
   } ,  {
