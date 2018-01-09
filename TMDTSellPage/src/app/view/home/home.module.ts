@@ -22,6 +22,7 @@ import { TimKiemComponent } from './home-tim-kiem/tim-kiem.component';
 import { PhanTrangComponent } from './home.lich-su-giao-dich/phan-trang/phan-trang.component';
 import { UploadFileService } from '../../_services/upload/UploadFileService';
 import { DemoComponent } from './home-demo/home-demo.component';
+import { KhoaHocCuaToiComponent } from './home-khoa-hoc-cua-toi/khoa-hoc-cua-toi.component';
 
 
 
@@ -51,7 +52,8 @@ import { DemoComponent } from './home-demo/home-demo.component';
         TimKiemComponent,
         PhanTrangComponent,
         UploadAvatarComponent,
-        DemoComponent
+        DemoComponent,
+        KhoaHocCuaToiComponent
     ],
     providers: [
       UploadFileService
