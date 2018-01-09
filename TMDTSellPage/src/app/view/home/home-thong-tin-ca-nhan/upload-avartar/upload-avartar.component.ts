@@ -19,10 +19,10 @@ export class UploadAvatarComponent implements OnInit {
   thongbao: string;
   constructor(private uploadService: UploadFileService) { }
   ngOnInit() {
-    this.thongbao = ' Dang đồng bộ lên GoogleDriver...';
+    this.thongbao = 'Đang đồng bộ lên GoogleDriver...';
   }
  public  selectFile(event) {
-   this.thongbao = ' Dang đồng bộ lên GoogleDriver...';
+   this.thongbao = 'Đang đồng bộ lên GoogleDriver...';
     this.selectedFiles = event.target.files;
     this.upload();
   }
