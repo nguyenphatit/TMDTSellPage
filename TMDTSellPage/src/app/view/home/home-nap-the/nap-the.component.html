@@ -67,7 +67,7 @@
                     <form>
                         <div class="form-group">
                             <label for="money-paypal">Số tiền (USD)</label>
-                            <input [(ngModel)]="money" type="number" class="form-control" id="money-paypal" name="money" placeholder="Số tiền cần nạp">
+                            <input [(ngModel)]="money" require type="number" class="form-control" id="money-paypal" name="money" placeholder="Số tiền cần nạp">
                         </div>
                         <p class="text-right">
 
@@ -88,7 +88,7 @@
                             <!-- <input type="submit" name="submit"/> -->
                         </div>
                         <div class="text-right">
-                            <button class="btn ibtn" type="submit">Nạp thẻ</button>
+                            <input class="btn ibtn" type="submit" name="submit" value="Nạp thẻ" >
                         </div>
                     </form>
                 </accordion-group>
