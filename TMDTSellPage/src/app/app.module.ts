@@ -63,7 +63,7 @@ const APP_CONTAINERS = [
 
 import {
  HomeHeaderComponent,
- HomeFooterComponent
+ HomeFooterComponent,
 } from './components';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
@@ -77,6 +77,7 @@ const APP_COMPONENTS = [
 import { UserRest, TopicRest , AuthenticationRest} from './_helpers';
 import { CommonModule } from '@angular/common';
 import { DataUser } from './_helpers/mocktest/DataUser';
+import { Error404Component } from './error-404/error-404.component';
 // mocktest
 const APP_MOCKTEST = [
   UserRest,
@@ -88,7 +89,8 @@ const APP_MOCKTEST = [
   declarations: [
     AppComponent,
     ...APP_CONTAINERS,
-    ...APP_COMPONENTS
+    ...APP_COMPONENTS,
+    Error404Component
   ],
   imports: [
   AppRoutingModule ,

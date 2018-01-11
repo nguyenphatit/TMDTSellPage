@@ -7,6 +7,7 @@ import {
     HomeLayoutComponent
   } from './containers';
 import { LoginTestComponent } from './login-test/login-test.component';
+import { Error404Component } from './error-404/error-404.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginTestComponent
+  },
+  {
+    path: '**',
+    component: Error404Component
   }
 ];
 
