@@ -58,7 +58,7 @@ export class TimKiemComponent implements OnInit {
     this.http
       .get(
         this.config.url_port +
-          `/users/course/searching/${this.key_search}?page=${this.page}&size=${
+          `/users/course/searching/${this.keySearch}?page=${this.page}&size=${
             this.size
           }`
       )
