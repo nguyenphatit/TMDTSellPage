@@ -1,3 +1,4 @@
+import swal from 'sweetalert2';
 import { HttpErrorResponse } from '@angular/common/http/';
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
@@ -12,10 +13,13 @@ export class NapTheComponent implements OnInit {
   paymentId: any;
   token: any;
   payerID: any;
-  money: number;
+  money: number = 0 ;
   userInfo: any;
+  score = 0;
+  moneyUSD: number= 0;
   oneAtATime: boolean = true;
   submitted: boolean = false;
+  VND_USD_val:  number = 0;
   constructor(
     private title: Title,
     private activeRouter: ActivatedRoute,
@@ -27,6 +31,7 @@ export class NapTheComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.updateDoiDiem();
     // lấy thông tin người dùng đang đăng nhập
     this.http.get(this.config.url_port + `/user/info`).subscribe(
       (data: any) => {
@@ -54,9 +59,19 @@ export class NapTheComponent implements OnInit {
         )
         .subscribe((data: any) => {
           console.log(data);
-          alert(`Bạn đã nạp thành công ${data.total} vào tài khoản!`);
+          // alert(`Bạn đã nạp thành công ${data.total} vào tài khoản!`);
+          swal({
+            text: `Bạn đã nạp ${data.score} thành công vào tài khoản!`,
+            type: 'success',
+            showConfirmButton: true
+          });
         }, (err: HttpErrorResponse) => {
-          alert(`Bạn cần nhập số tiền cần nạp!`);
+          // alert(`Bạn cần nhập số tiền cần nạp!`);
+          swal({
+            title: 'Bạn cần nhập số tiền cần nạp!',
+            type: 'warning',
+            showConfirmButton: true
+          });
         });
     } else if (this.token && !this.payerID && !this.payerID) {
       this.http
@@ -71,10 +86,11 @@ export class NapTheComponent implements OnInit {
     if (!this.money) {
       alert('chưa nhập tiền!');
     } else {
+      this.updateDoiDiem();
       this.submitted = true;
       const tmpMoney: any = {
         payDecription: 'Nạp tiền',
-        total: this.money
+        total: this.moneyUSD
       };
       this.http
         .post(this.config.url_port + `/pay`, tmpMoney)
@@ -82,5 +98,12 @@ export class NapTheComponent implements OnInit {
           window.location.href = data.message;
         });
     }
+  }
+  public  updateDoiDiem(): void {
+      this.http.get(this.config.url_port + `/users/currencyconverterapi/VND/USD`).subscribe((data: any) => {
+        this.moneyUSD = data.val  *  this.money;
+        this.VND_USD_val =  data.val *  10000;
+        this.score = Math.floor(this.money / 1000);
+      });
   }
 }

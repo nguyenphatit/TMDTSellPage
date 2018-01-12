@@ -4,6 +4,7 @@ import { ConfigValue } from './../../../_helpers/config-value';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import swal from 'sweetalert2';
 import {
   Title,
   DomSanitizer,
@@ -125,7 +126,14 @@ export class BaiHocComponent implements OnInit {
     };
     this.http.post(`${this.config.url_port}/payment/donate`, body).subscribe(
       (data: any) => {
-        alert('Bạn đã donate thành công 5 điểm cho bài học này!');
+        // alert('Bạn đã donate thành công 5 điểm cho bài học này!');
+        swal({
+          title: 'Bạn đã donate thành công 5 điểm cho bài học này!',
+          type: 'success',
+          showConfirmButton: false,
+          position: 'top-end',
+          timer: 1000
+        });
       },
       (err: HttpErrorResponse) => {
        console.log(err);
