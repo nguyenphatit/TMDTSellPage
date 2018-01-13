@@ -86,7 +86,7 @@
 	section.sec-3 {
 		background: #ccc;
 		margin-top: -10px;
-		padding: 100px 0 200px 0;
+		padding: 100px 0 100px 0;
 
 		h1 {
 			font-family: $font1;
@@ -478,6 +478,11 @@
 		padding: 300px 0 300px 0;
 		background: rgba(22, 24, 71, 0.8);
 		color: #ffffff;
+		-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=33, Direction=0, Color=#000000)";/*IE 8*/
+		-moz-box-shadow: 0 0 33px #000000 inset;/*FF 3.5+*/
+		-webkit-box-shadow: 0 0 33px #000000 inset;/*Saf3-4, Chrome, iOS 4.0.2-4.2, Android 2.3+*/
+		box-shadow: 0 0 33px #000000 inset;/* FF3.5+, Opera 9+, Saf1+, Chrome, IE10 */
+		filter: progid:DXImageTransform.Microsoft.Shadow(Strength=33, Direction=135, Color=#000000); /*IE 5.5-7*/
 		h1 {
 			font-family: $font1;
 		}
@@ -485,5 +490,50 @@
 		hr {
 			border-top: 5px dotted $color5;
 		}
+	}
+	
+	section.sec-emoji {
+		background: rgba(40, 135, 135, 0.8);
+		-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=33, Direction=0, Color=#000000)";/*IE 8*/
+		-moz-box-shadow: 0 0 33px -6px #000000 inset;/*FF 3.5+*/
+		-webkit-box-shadow: 0 0 33px -6px #000000 inset;/*Saf3-4, Chrome, iOS 4.0.2-4.2, Android 2.3+*/
+		box-shadow: 0 0 33px -6px #000000 inset;/* FF3.5+, Opera 9+, Saf1+, Chrome, IE10 */
+		filter: progid:DXImageTransform.Microsoft.Shadow(Strength=33, Direction=135, Color=#000000); /*IE 5.5-7*/
+		.border-emoji {
+			padding: 10px;
+			background: $color5;
+			border-radius: 100px;
+			-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=35, Direction=0, Color=#000000)";/*IE 8*/
+			-moz-box-shadow: 0 0 35px -5px #000000;/*FF 3.5+*/
+			-webkit-box-shadow: 0 0 35px -5px #000000;/*Saf3-4, Chrome, iOS 4.0.2-4.2, Android 2.3+*/
+			box-shadow: 0 0 35px -5px #000000;/* FF3.5+, Opera 9+, Saf1+, Chrome, IE10 */
+			filter: progid:DXImageTransform.Microsoft.Shadow(Strength=35, Direction=135, Color=#000000); /*IE 5.5-7*/
+			animation: change-color-inf 5s infinite;
+			-webkit-animation: change-color-inf 5s infinite;
+			-webkit-animation-timing-function: ease-in;
+			animation-timing-function: ease-in;
+			.content-emoji {
+				position: relative;
+				background: #FFFFFF;
+				border-radius: 50px;				
+			}
+		}
+	}
+	
+	@-webkit-keyframes change-color-inf {
+		0%   {background-color:$color4;}
+		25%  {background-color:$color2;}
+		50%  {background-color:$color1;}
+		75%  {background-color:$color3;}
+		100% {background-color:$color5;}
+	}
+
+	/* Standard syntax */
+	@keyframes change-color-inf {
+		0%   {background-color:$color4;}
+		25%  {background-color:$color2;}
+		50%  {background-color:$color1;}
+		75%  {background-color:$color3;}
+		100% {background-color:$color5;}
 	}
 }

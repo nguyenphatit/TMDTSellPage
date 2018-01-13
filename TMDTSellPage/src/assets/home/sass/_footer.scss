@@ -42,6 +42,12 @@ footer {
 	-webkit-transition: opacity .3s 0s, visibility 0s .3s;
 	-moz-transition: opacity .3s 0s, visibility 0s .3s;
 	transition: opacity .3s 0s, visibility 0s .3s;
+	@include basic-delay(.5s);
+	&:hover {
+		@include basic-delay(.5s);
+		border: 5px solid $color5 * 200;
+		opacity: .8;
+	}
 }
 .cd-top.cd-is-visible, .cd-top.cd-fade-out, .no-touch .cd-top:hover {
 	-webkit-transition: opacity .3s 0s, visibility 0s 0s;
