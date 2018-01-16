@@ -61,7 +61,7 @@ export class NapTheComponent implements OnInit {
           console.log(data);
           // alert(`Bạn đã nạp thành công ${data.total} vào tài khoản!`);
           swal({
-            text: `Bạn đã nạp ${data.score} thành công vào tài khoản!`,
+            text: `Bạn đã nạp ${data.score} điểm thành công vào tài khoản!`,
             type: 'success',
             showConfirmButton: true
           });
@@ -83,20 +83,29 @@ export class NapTheComponent implements OnInit {
     }
   }
   public  napTien() {
+
     if (!this.money) {
       alert('chưa nhập tiền!');
     } else {
-      this.updateDoiDiem();
-      this.submitted = true;
-      const tmpMoney: any = {
+      this.http.get(this.config.url_port + `/users/currencyconverterapi/VND/USD`).subscribe((data: any) => {
+        this.moneyUSD = data.val  *  this.money;
+        this.VND_USD_val =  data.val *  10000;
+        this.score = Math.floor(this.money / 1000);
+        // nap tien
+        this.submitted = true;
+      let  tmpMoney: any = {
         payDecription: 'Nạp tiền',
-        total: this.moneyUSD
+        total: this.money
       };
+       console.log(tmpMoney);
       this.http
         .post(this.config.url_port + `/pay`, tmpMoney)
         .subscribe((data: any) => {
           window.location.href = data.message;
         });
+      });
+
+
     }
   }
   public  updateDoiDiem(): void {
