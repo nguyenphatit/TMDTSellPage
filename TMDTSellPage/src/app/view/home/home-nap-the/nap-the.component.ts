@@ -84,8 +84,12 @@ export class NapTheComponent implements OnInit {
   }
   public  napTien() {
 
-    if (!this.money) {
-      alert('chưa nhập tiền!');
+    if (!this.money  ||  this.money < 20000) {
+      swal({
+        title: 'Số tiền tối thiểu là 20.000đ cho một lần nạp!',
+        type: 'warning',
+        showConfirmButton: true
+      });
     } else {
       this.http.get(this.config.url_port + `/users/currencyconverterapi/VND/USD`).subscribe((data: any) => {
         this.moneyUSD = data.val  *  this.money;

@@ -9,7 +9,7 @@ export class JwtInterceptor implements HttpInterceptor {
         const currentUser = JSON.parse(localStorage.getItem(this.config.token));
         //  console.log(currentUser);
         // console.log(currentUser);
-        console.log(request.url);
+        // console.log(request.url);
 
         if (currentUser ) {
             request = request.clone({
