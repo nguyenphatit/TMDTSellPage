@@ -34,8 +34,8 @@
       <!-- <b>3</b><span>TPL</span> -->
       <img src="assets/home/images/3TPL50x50.png">
     </a>
-    <form class="form-inline input-search1">
-      <input type="text" name="search" placeholder="Tìm kiếm ...">
+    <form class="form-inline input-search1" (keydown)="timKiem($event)">
+      <input type="text" [(ngModel)]="keySearch" name="search" placeholder="Tìm kiếm ...">
     </form>
     <button (click)="megamenu =!megamenu " class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarcontent"
       aria-controls="navbarcontent" aria-expanded="false" aria-label="Toggle navigation">

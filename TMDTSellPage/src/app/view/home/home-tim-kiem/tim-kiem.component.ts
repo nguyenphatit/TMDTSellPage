@@ -27,13 +27,18 @@ export class TimKiemComponent implements OnInit {
   }
 
   ngOnInit() {
-    const keySearch = this.active.params.subscribe((params: any) => {
+    this.sub = this.active.params.subscribe((params: any) => {
       this.keySearch = params['key-search'];
       this.reloadPageWhenIDChange(this.keySearch);
     });
   }
   private reloadPageWhenIDChange(keySearch: string): void {
-    this.loadCource();
+    if (!this.keySearch) {
+this.listCourse = [];
+    }else {
+      this.loadCource();
+    }
+
   }
   lui() {
     console.log(this.page);
@@ -58,13 +63,13 @@ export class TimKiemComponent implements OnInit {
     this.http
       .get(
         this.config.url_port +
-          `/users/course/searching/${this.keySearch}?page=${this.page}&size=${
+          `/users/course/searching/${encodeURIComponent(this.keySearch)}?page=${this.page}&size=${
             this.size
           }`
       )
       .subscribe((data: any) => {
         this.numberOfPage = data.numberOfPage;
-        this.listCourse = data.listOfResult;
+        this.listCourse =  data.listOfResult;
         console.log(data);
         this.listPageV = this.listPage();
       });

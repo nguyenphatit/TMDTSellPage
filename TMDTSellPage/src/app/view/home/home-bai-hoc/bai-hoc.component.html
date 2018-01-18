@@ -45,11 +45,14 @@
       <div class="row">
         <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 fbcmt">
           <h5>Nhận xét</h5>
+
           <!-- /abc -->
-          <div class="fb-comment">
-            <!-- <div id="fb-root"></div> -->
-            <div class="fb-comments" [attr.data-href]="[this.hostName + this.router.routerState.snapshot.url]" data-numposts="20" data-width="100%" css="http://www.yourwebsite.com/css/comments.css?1234"></div>
-          </div>
+          <iframe [src] ="fbUrl" style="border: 0; width: 100%; height: 100%">Your browser doesn't support iFrames.</iframe>
+          <!-- <div >
+            <div class="fb-comment">
+             <div id="fb-root"></div>
+   <div class="fb-comments" [attr.data-href]="[fbUrl]" data-numposts="20"></div>  </div>
+          </div> -->
           <!-- ./abc -->
         </div>
         <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 list-lesson">
