@@ -17,7 +17,7 @@ import {
 })
 export class ThongTinCaNhanComponent implements OnInit, OnDestroy {
   public isShowProfile = false;
-  public authorItem: User;
+  public authorItem: any;
   loginUser: User;
   private sub: any;
   public featuredCourse: any;

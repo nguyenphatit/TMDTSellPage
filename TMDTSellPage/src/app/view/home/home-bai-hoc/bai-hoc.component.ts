@@ -11,22 +11,23 @@ import {
   SafeResourceUrl
 } from '@angular/platform-browser';
 import { Location } from '@angular/common';
-import { ucs2 } from 'punycode';
+import $ from 'jquery';
 
 @Component({
   templateUrl: 'bai-hoc.component.html'
 })
 export class BaiHocComponent implements OnInit {
+  isShow = false;
   isCollapsed = true;
   private sub: any;
   public lessonItem: any;
   public listLesson: any = [];
   public url;
-  public curent_url;
   isShowButtonDonate = false;
   private idLesson;
   showFbUrl;
   hostName;
+  fbUrl;
   constructor(
     private title: Title,
     private route: ActivatedRoute,
@@ -39,14 +40,18 @@ export class BaiHocComponent implements OnInit {
     this.title.setTitle('3TPL | Bài học');
   }
   ngOnInit() {
-    this.hostName = 'http://localhost:4200';
     this.sub = this.route.params.subscribe(params => {
+      //  if (this.isShow) {
+      //         window.location.href =  window.location.href;
+      //  }
+      this.fbUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
+        'http://localhost:4200/comment-fb?url=' + window.location.href);
       this.showFbUrl = false;
       this.reloadPageWhenIDChange(params['id']);
       console.log(params['id']);
 
-      this.curent_url = this.location.path();
       window.scrollTo(0, 0);
+
         this.showFbUrl = true;
     });
     if (this.lessonItem) {
@@ -54,7 +59,12 @@ export class BaiHocComponent implements OnInit {
     }
   }
   private reloadPageWhenIDChange(idLesson: string): void {
-    this.ngAfterViewInit();
+
+
+    this.isShow = false;
+// tslint:disable-next-line:max-line-length
+// $('.fb-comment').html(` <div class="fb-comments"  data-numposts="20" data-width="100%" css="http://www.yourwebsite.com/css/comments.css?1234"></div>`);
+
     this.idLesson = idLesson;
     // is show button donate
     this.http
@@ -87,6 +97,8 @@ export class BaiHocComponent implements OnInit {
           element.lessonContent = this.safeUrl(element.lessonContent);
         });
       });
+       this.isShow = true;
+       this.fbLoadJs();
   }
   safeUrl(url): SafeResourceUrl {
     return this.sanitizer.bypassSecurityTrustResourceUrl(
@@ -101,22 +113,17 @@ export class BaiHocComponent implements OnInit {
   goBack(): void {
     window.history.back();
   }
-  ngAfterViewInit() {
-    (function(d, s, id) {
-      var js,
-        fjs = d.getElementsByTagName(s)[0];
-      js = d.createElement(s);
-      js.id = id;
-      js.src = '//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4';
-
-      if (d.getElementById(id)) {
-        //if <script id="facebook-jssdk"> exists
-        delete (<any>window).FB;
-        fjs.parentNode.replaceChild(js, fjs);
-      } else {
-        fjs.parentNode.insertBefore(js, fjs);
-      }
-    })(document, 'script', 'facebook-jssdk');
+ public  fbLoadJs(): void {
+  (function(d, s, id) {
+    let js;
+    const fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {
+      return;
+     }
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.11&appId=353949518311315';
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
   }
 
   public donate() {

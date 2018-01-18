@@ -1,3 +1,4 @@
+import { CommentFbComponent } from './view/home/home-bai-hoc/comment-fb/comment-fb.component';
 import { ShoppingCartService } from './_services/shopping-cart/shopping-cart.service';
 import { Router } from '@angular/router';
 import { AuthenticationService } from './_services/AuthenticationService';
@@ -90,6 +91,7 @@ const APP_MOCKTEST = [
     AppComponent,
     ...APP_CONTAINERS,
     ...APP_COMPONENTS,
+    CommentFbComponent,
     Error404Component
   ],
   imports: [
