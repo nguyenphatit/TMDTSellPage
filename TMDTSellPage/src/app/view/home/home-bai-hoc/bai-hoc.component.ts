@@ -127,10 +127,12 @@ export class BaiHocComponent implements OnInit {
     this.http.post(`${this.config.url_port}/payment/donate`, body).subscribe(
       (data: any) => {
         // alert('Bạn đã donate thành công 5 điểm cho bài học này!');
-        swal ({
-          text: 'Bạn đã donate thành công 5 điểm cho bài học này!',
-          position: 'top-end',
+
+        swal({
+          title: 'Bạn đã donate thành công 5 điểm cho bài học này!',
+          type: 'success',
           showConfirmButton: false,
+          position: 'top-end',
           timer: 1000
         });
       },

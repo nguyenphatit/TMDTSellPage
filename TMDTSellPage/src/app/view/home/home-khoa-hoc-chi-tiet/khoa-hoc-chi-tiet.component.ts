@@ -29,7 +29,11 @@ export class KhoaHocChiTietComponent implements OnInit, OnDestroy {
   public listChapter: any = [];
   firstLessonInCourse: any;
   isRegisted = false;
+  numberUserInCourse = 0;
   private reloadPageWhenIDChange(idCourse: string): void {
+     this.http.get(`${this.config.url_port}/users/count-number-user-in-course/${idCourse}`).subscribe((data:  any) => {
+           this.numberUserInCourse =  data.number_user ;
+     });
     // kiểm tra đã đăng ký khóa học hay chưa
     this.http
       .get(`${this.config.url_port}/user/is-registed/${idCourse}`)
@@ -65,7 +69,7 @@ export class KhoaHocChiTietComponent implements OnInit, OnDestroy {
         // xư lý giỏ hàng
 
         this.http
-          .get(this.config.url_port + `users/course/author/${authorID}`)
+          .get(this.config.url_port + `/users/course/author/${authorID}`)
           .subscribe(dataAuthor => {
             this.author = dataAuthor;
             // console.log(this.author);
