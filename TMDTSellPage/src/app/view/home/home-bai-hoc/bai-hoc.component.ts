@@ -98,7 +98,7 @@ export class BaiHocComponent implements OnInit {
         });
       });
        this.isShow = true;
-       this.fbLoadJs();
+
   }
   safeUrl(url): SafeResourceUrl {
     return this.sanitizer.bypassSecurityTrustResourceUrl(
@@ -113,18 +113,7 @@ export class BaiHocComponent implements OnInit {
   goBack(): void {
     window.history.back();
   }
- public  fbLoadJs(): void {
-  (function(d, s, id) {
-    let js;
-    const fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) {
-      return;
-     }
-    js = d.createElement(s); js.id = id;
-    js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.11&appId=353949518311315';
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-  }
+
 
   public donate() {
     const body = {

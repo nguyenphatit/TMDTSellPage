@@ -11,7 +11,6 @@ export class CommentFbComponent implements OnInit {
   constructor(private router: ActivatedRoute ) {
     this.fbUrl = window.location.href ;
    this.fbUrl =  this.router.snapshot.queryParams['url'];
-   console.log(this.fbUrl);
 
     this.fbLoadJs();
   }
@@ -24,7 +23,7 @@ export class CommentFbComponent implements OnInit {
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) return;
       js = d.createElement(s); js.id = id;
-      js.src = '//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.11&appId=756485194513202';
+      js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.11&appId=353949518311315';
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
     }

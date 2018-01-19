@@ -9,7 +9,25 @@
   <title>3TPL</title>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="assets/home/fonts/fontawesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="assets/home/css/style.css">
+  <link rel="stylesheet" href="assets/home/css/style.css">
+  <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '353949518311315',
+          xfbml      : true,
+          version    : 'v2.11'
+        });
+        FB.AppEvents.logPageView();
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "https://connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
 </head>
 <body>
   <app-root></app-root>

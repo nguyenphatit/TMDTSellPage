@@ -6,7 +6,8 @@ export class ConfigValue {
      role_admin = 'ROLE_ADMIN';
      role_user = 'ROLE_USER';
      token = 'token';
-     url_port =  'http://127.0.0.1:80'; // chế độ thật
+    //  url_port =  'http://127.0.0.1:80';
+    url_port = 'http://env-6133274.kilatiron.com'; // chế độ thật
     // url_port = 'http://192.168.1.103';
     remember = 'remember';
 
